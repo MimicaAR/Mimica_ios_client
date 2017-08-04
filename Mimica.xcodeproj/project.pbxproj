@@ -7,23 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */; };
 		ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D01F33930A0026D756 /* AppDelegate.swift */; };
-		ED71D6D31F33930A0026D756 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D21F33930A0026D756 /* FirstViewController.swift */; };
+		ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D21F33930A0026D756 /* HomeViewController.swift */; };
 		ED71D6D51F33930A0026D756 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D41F33930A0026D756 /* SecondViewController.swift */; };
 		ED71D6D81F33930A0026D756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6D61F33930A0026D756 /* Main.storyboard */; };
 		ED71D6DA1F33930A0026D756 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6D91F33930A0026D756 /* Assets.xcassets */; };
 		ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */; };
+		ED71D6EF1F339F7C0026D756 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6E51F339F7C0026D756 /* Rubik-Black.ttf */; };
+		ED71D6F01F339F7C0026D756 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6E61F339F7C0026D756 /* Rubik-BlackItalic.ttf */; };
+		ED71D6F11F339F7C0026D756 /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6E71F339F7C0026D756 /* Rubik-Bold.ttf */; };
+		ED71D6F21F339F7C0026D756 /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6E81F339F7C0026D756 /* Rubik-BoldItalic.ttf */; };
+		ED71D6F31F339F7C0026D756 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6E91F339F7C0026D756 /* Rubik-Italic.ttf */; };
+		ED71D6F41F339F7C0026D756 /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EA1F339F7C0026D756 /* Rubik-Light.ttf */; };
+		ED71D6F51F339F7C0026D756 /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EB1F339F7C0026D756 /* Rubik-LightItalic.ttf */; };
+		ED71D6F61F339F7C0026D756 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EC1F339F7C0026D756 /* Rubik-Medium.ttf */; };
+		ED71D6F71F339F7C0026D756 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */; };
+		ED71D6F81F339F7C0026D756 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */; };
+		ED71D6FB1F3400E50026D756 /* GradientNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedStyleKit.swift; path = Mimica/SharedStyleKit.swift; sourceTree = "<group>"; };
 		ED71D6CD1F33930A0026D756 /* Mimica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED71D6D01F33930A0026D756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED71D6D21F33930A0026D756 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		ED71D6D21F33930A0026D756 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ED71D6D41F33930A0026D756 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		ED71D6D71F33930A0026D756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		ED71D6D91F33930A0026D756 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ED71D6D91F33930A0026D756 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Mimica/Assets.xcassets; sourceTree = "<group>"; };
 		ED71D6DC1F33930A0026D756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED71D6DE1F33930A0026D756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED71D6E51F339F7C0026D756 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Black.ttf"; path = "../../Downloads/Rubik/Rubik-Black.ttf"; sourceTree = "<group>"; };
+		ED71D6E61F339F7C0026D756 /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-BlackItalic.ttf"; path = "../../Downloads/Rubik/Rubik-BlackItalic.ttf"; sourceTree = "<group>"; };
+		ED71D6E71F339F7C0026D756 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Bold.ttf"; path = "../../Downloads/Rubik/Rubik-Bold.ttf"; sourceTree = "<group>"; };
+		ED71D6E81F339F7C0026D756 /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-BoldItalic.ttf"; path = "../../Downloads/Rubik/Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
+		ED71D6E91F339F7C0026D756 /* Rubik-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Italic.ttf"; path = "../../Downloads/Rubik/Rubik-Italic.ttf"; sourceTree = "<group>"; };
+		ED71D6EA1F339F7C0026D756 /* Rubik-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Light.ttf"; path = "../../Downloads/Rubik/Rubik-Light.ttf"; sourceTree = "<group>"; };
+		ED71D6EB1F339F7C0026D756 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-LightItalic.ttf"; path = "../../Downloads/Rubik/Rubik-LightItalic.ttf"; sourceTree = "<group>"; };
+		ED71D6EC1F339F7C0026D756 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Medium.ttf"; path = "../../Downloads/Rubik/Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-MediumItalic.ttf"; path = "../../Downloads/Rubik/Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
+		ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Regular.ttf"; path = "../../Downloads/Rubik/Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +68,7 @@
 				ED71D6CE1F33930A0026D756 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		ED71D6CE1F33930A0026D756 /* Products */ = {
 			isa = PBXGroup;
@@ -57,14 +82,51 @@
 			isa = PBXGroup;
 			children = (
 				ED71D6D01F33930A0026D756 /* AppDelegate.swift */,
-				ED71D6D21F33930A0026D756 /* FirstViewController.swift */,
+				ED71D6D21F33930A0026D756 /* HomeViewController.swift */,
 				ED71D6D41F33930A0026D756 /* SecondViewController.swift */,
 				ED71D6D61F33930A0026D756 /* Main.storyboard */,
-				ED71D6D91F33930A0026D756 /* Assets.xcassets */,
 				ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */,
 				ED71D6DE1F33930A0026D756 /* Info.plist */,
+				ED71D6E41F339F5C0026D756 /* Resources */,
+				ED71D6FC1F3401020026D756 /* View */,
 			);
 			path = Mimica;
+			sourceTree = "<group>";
+		};
+		ED71D6E41F339F5C0026D756 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */,
+				ED71D6F91F33A09E0026D756 /* Rubik font */,
+				ED71D6D91F33930A0026D756 /* Assets.xcassets */,
+			);
+			name = Resources;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		ED71D6F91F33A09E0026D756 /* Rubik font */ = {
+			isa = PBXGroup;
+			children = (
+				ED71D6E51F339F7C0026D756 /* Rubik-Black.ttf */,
+				ED71D6E61F339F7C0026D756 /* Rubik-BlackItalic.ttf */,
+				ED71D6E71F339F7C0026D756 /* Rubik-Bold.ttf */,
+				ED71D6E81F339F7C0026D756 /* Rubik-BoldItalic.ttf */,
+				ED71D6E91F339F7C0026D756 /* Rubik-Italic.ttf */,
+				ED71D6EA1F339F7C0026D756 /* Rubik-Light.ttf */,
+				ED71D6EB1F339F7C0026D756 /* Rubik-LightItalic.ttf */,
+				ED71D6EC1F339F7C0026D756 /* Rubik-Medium.ttf */,
+				ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */,
+				ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */,
+			);
+			name = "Rubik font";
+			sourceTree = "<group>";
+		};
+		ED71D6FC1F3401020026D756 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -93,6 +155,7 @@
 		ED71D6C51F33930A0026D756 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Mimica;
@@ -127,8 +190,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED71D6F01F339F7C0026D756 /* Rubik-BlackItalic.ttf in Resources */,
+				ED71D6F51F339F7C0026D756 /* Rubik-LightItalic.ttf in Resources */,
+				ED71D6F11F339F7C0026D756 /* Rubik-Bold.ttf in Resources */,
 				ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */,
 				ED71D6DA1F33930A0026D756 /* Assets.xcassets in Resources */,
+				ED71D6F41F339F7C0026D756 /* Rubik-Light.ttf in Resources */,
+				ED71D6F31F339F7C0026D756 /* Rubik-Italic.ttf in Resources */,
+				ED71D6F71F339F7C0026D756 /* Rubik-MediumItalic.ttf in Resources */,
+				ED71D6EF1F339F7C0026D756 /* Rubik-Black.ttf in Resources */,
+				ED71D6F21F339F7C0026D756 /* Rubik-BoldItalic.ttf in Resources */,
+				ED71D6F81F339F7C0026D756 /* Rubik-Regular.ttf in Resources */,
+				ED71D6F61F339F7C0026D756 /* Rubik-Medium.ttf in Resources */,
 				ED71D6D81F33930A0026D756 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,8 +214,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED71D6D51F33930A0026D756 /* SecondViewController.swift in Sources */,
+				ED71D6FB1F3400E50026D756 /* GradientNavigationBar.swift in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
-				ED71D6D31F33930A0026D756 /* FirstViewController.swift in Sources */,
+				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
+				ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S6T4VJ437P;
 				INFOPLIST_FILE = Mimica/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.bsuir.linnik.Mimica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -280,6 +356,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S6T4VJ437P;
 				INFOPLIST_FILE = Mimica/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = by.bsuir.linnik.Mimica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -306,6 +383,7 @@
 				ED71D6E31F33930A0026D756 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
