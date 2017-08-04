@@ -22,7 +22,7 @@ public class SharedStyleKit : NSObject {
     private struct Cache {
         static let mainGradientColor: UIColor = UIColor(red: 0.988, green: 0.376, blue: 0.212, alpha: 1.000)
         static let mainGradientColor2: UIColor = UIColor(red: 1.000, green: 0.176, blue: 0.333, alpha: 1.000)
-        static let mainGradient: CGGradient = CGGradient(colorsSpace: nil, colors: [SharedStyleKit.mainGradientColor.cgColor, SharedStyleKit.mainGradientColor2.cgColor] as CFArray, locations: [0, 1])!
+        static let mainGradient: CGGradient = CGGradient(colorsSpace: nil, colors: [SharedStyleKit.mainGradientColor2.cgColor, SharedStyleKit.mainGradientColor.cgColor] as CFArray, locations: [0, 1])!
     }
 
     //// Colors
