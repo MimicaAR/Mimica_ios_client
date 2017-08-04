@@ -41,6 +41,6 @@ extension UIImage {
 		context!.drawLinearGradient(gradient, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: self.size.height * scale), options: CGGradientDrawingOptions(rawValue: 0))
 		let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
-		return gradientImage!
+		return UIImage.init(cgImage: (gradientImage?.cgImage)!, scale: 2, orientation: (gradientImage?.imageOrientation)!)
 	}
 }
