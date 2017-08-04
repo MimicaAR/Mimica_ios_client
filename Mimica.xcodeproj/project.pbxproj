@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */; };
 		ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */; };
+		ED2D57741F3535CD00285F2A /* GradientTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D57731F3535CD00285F2A /* GradientTabBar.swift */; };
 		ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D01F33930A0026D756 /* AppDelegate.swift */; };
 		ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D21F33930A0026D756 /* HomeViewController.swift */; };
 		ED71D6D51F33930A0026D756 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D41F33930A0026D756 /* SecondViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedStyleKit.swift; path = Mimica/SharedStyleKit.swift; sourceTree = "<group>"; };
 		ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gradient.swift"; sourceTree = "<group>"; };
+		ED2D57731F3535CD00285F2A /* GradientTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTabBar.swift; sourceTree = "<group>"; };
 		ED71D6CD1F33930A0026D756 /* Mimica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED71D6D01F33930A0026D756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED71D6D21F33930A0026D756 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */,
+				ED2D57731F3535CD00285F2A /* GradientTabBar.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED2D57741F3535CD00285F2A /* GradientTabBar.swift in Sources */,
 				ED71D6D51F33930A0026D756 /* SecondViewController.swift in Sources */,
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
 				ED71D6FB1F3400E50026D756 /* GradientNavigationBar.swift in Sources */,
