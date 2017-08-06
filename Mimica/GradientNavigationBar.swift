@@ -15,8 +15,6 @@ import UIKit
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
-		self.tintColor = .white
-		
 		let gradient = CAGradientLayer()
 		gradient.frame = CGRect(x: 0, y: 0, width: UIApplication.shared.statusBarFrame.width,
 		                        height: UIApplication.shared.statusBarFrame.height + self.frame.height)
