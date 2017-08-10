@@ -7,27 +7,39 @@
 //
 
 import UIKit
-//TODO: Refactor this fucking hardcode
-@IBDesignable class GradientNavigationBar: UINavigationBar {
-	@IBInspectable var firstColor:UIColor = SharedStyleKit.mainGradientColor
-	@IBInspectable var secondColor:UIColor = SharedStyleKit.mainGradientColor2
+
+class GradientNavigationBar: UINavigationBar {
+	@IBInspectable var firstColor:UIColor = .white {
+		didSet {
+			self.drawGradient()
+		}
+	}
+	@IBInspectable var secondColor:UIColor = .black {
+		didSet {
+			self.drawGradient()
+		}
+	}
+
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		self.drawGradient()
+	}
 	
-	override func awakeFromNib() {
-		super.awakeFromNib()
-		
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		self.drawGradient()
+	}
+	
+	func drawGradient() {
 		let gradient = CAGradientLayer()
-		gradient.frame = CGRect(x: 0, y: 0, width: UIApplication.shared.statusBarFrame.width,
+		gradient.frame = CGRect(x: 0,
+		                        y: -UIApplication.shared.statusBarFrame.height,
+		                        width: UIApplication.shared.statusBarFrame.width,
 		                        height: UIApplication.shared.statusBarFrame.height + self.frame.height)
 		gradient.locations = [0.0, 1.0]
 		gradient.colors = [firstColor.cgColor, secondColor.cgColor]
-		var image: UIImage? = nil
-		UIGraphicsBeginImageContext(gradient.frame.size)
-		if let context = UIGraphicsGetCurrentContext() {
-			gradient.render(in: context)
-			image = UIGraphicsGetImageFromCurrentImageContext()
-		}
-		UIGraphicsEndImageContext()
-		self.setBackgroundImage(image, for: .default)
+		self.layer.addSublayer(gradient)
+		self.backgroundColor = UIColor.clear
 	}
 
 }

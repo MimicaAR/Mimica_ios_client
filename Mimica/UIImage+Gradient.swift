@@ -26,21 +26,26 @@ extension UIImage {
 	func tint(gradient: CGGradient) -> UIImage {
 		// Load image
 		let scale = self.scale
-		UIGraphicsBeginImageContext(CGSize.init(width: self.size.width * scale, height: self.size.height * scale))
+		UIGraphicsBeginImageContext(CGSize(width: self.size.width * scale, height: self.size.height * scale))
 		let context = UIGraphicsGetCurrentContext()
 		context?.translateBy(x: 0, y: self.size.height * scale)
 		context?.scaleBy(x: 1.0, y: -1.0)
 		
 		context?.setBlendMode(CGBlendMode.normal)
-		let rect = CGRect.init(x: 0, y: 0, width: self.size.width * scale, height: self.size.height * scale)
+		let rect = CGRect(x: 0, y: 0, width: self.size.width * scale, height: self.size.height * scale)
 		context?.draw(self.cgImage!, in: rect)
 		
 		// Apply gradient
 		
 		context!.clip(to: rect, mask: self.cgImage!)
-		context!.drawLinearGradient(gradient, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: self.size.height * scale), options: CGGradientDrawingOptions(rawValue: 0))
+		context!.drawLinearGradient(gradient,
+		                            start: CGPoint(x: 0, y: 0),
+		                            end: CGPoint(x: 0, y: self.size.height * scale),
+		                            options: CGGradientDrawingOptions(rawValue: 0))
 		let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
-		return UIImage.init(cgImage: (gradientImage?.cgImage)!, scale: 2, orientation: (gradientImage?.imageOrientation)!)
+		return UIImage.init(cgImage: (gradientImage?.cgImage)!,
+		                    scale: scale,
+		                    orientation: (gradientImage?.imageOrientation)!)
 	}
 }

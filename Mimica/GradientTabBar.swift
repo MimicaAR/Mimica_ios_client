@@ -8,13 +8,16 @@
 
 import UIKit
 
-@IBDesignable class GradientTabBar: UITabBar {
-	override func awakeFromNib() {
-		super.awakeFromNib()
+class GradientTabBar: UITabBar {
+	override init(frame: CGRect) {
+		super.init(frame: frame)
 		for item in self.items! {
 			item.selectedImage = item.selectedImage?.tint(gradient: SharedStyleKit.mainGradient)
 			item.selectedImage = item.selectedImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
 		}
 	}
-
+	
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
 }

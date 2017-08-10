@@ -14,7 +14,6 @@
 		ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D21F33930A0026D756 /* HomeViewController.swift */; };
 		ED71D6D51F33930A0026D756 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D41F33930A0026D756 /* SecondViewController.swift */; };
 		ED71D6D81F33930A0026D756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6D61F33930A0026D756 /* Main.storyboard */; };
-		ED71D6DA1F33930A0026D756 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6D91F33930A0026D756 /* Assets.xcassets */; };
 		ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */; };
 		ED71D6EF1F339F7C0026D756 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6E51F339F7C0026D756 /* Rubik-Black.ttf */; };
 		ED71D6F01F339F7C0026D756 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6E61F339F7C0026D756 /* Rubik-BlackItalic.ttf */; };
@@ -27,10 +26,14 @@
 		ED71D6F71F339F7C0026D756 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */; };
 		ED71D6F81F339F7C0026D756 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */; };
 		ED71D6FB1F3400E50026D756 /* GradientNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */; };
+		EDAA8EA21F36030100E4A05E /* UIView+Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EA11F36030100E4A05E /* UIView+Customization.swift */; };
+		EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EA31F37E90200E4A05E /* MimicaView.swift */; };
+		EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */; };
+		EDAA8EAB1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAA1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedStyleKit.swift; path = Mimica/SharedStyleKit.swift; sourceTree = "<group>"; };
+		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStyleKit.swift; sourceTree = "<group>"; };
 		ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gradient.swift"; sourceTree = "<group>"; };
 		ED2D57731F3535CD00285F2A /* GradientTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTabBar.swift; sourceTree = "<group>"; };
 		ED71D6CD1F33930A0026D756 /* Mimica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimica.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,7 +41,6 @@
 		ED71D6D21F33930A0026D756 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		ED71D6D41F33930A0026D756 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		ED71D6D71F33930A0026D756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		ED71D6D91F33930A0026D756 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Mimica/Assets.xcassets; sourceTree = "<group>"; };
 		ED71D6DC1F33930A0026D756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED71D6DE1F33930A0026D756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED71D6E51F339F7C0026D756 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Black.ttf"; path = "../../Downloads/Rubik/Rubik-Black.ttf"; sourceTree = "<group>"; };
@@ -52,6 +54,10 @@
 		ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-MediumItalic.ttf"; path = "../../Downloads/Rubik/Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
 		ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Regular.ttf"; path = "../../Downloads/Rubik/Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientNavigationBar.swift; sourceTree = "<group>"; };
+		EDAA8EA11F36030100E4A05E /* UIView+Customization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Customization.swift"; sourceTree = "<group>"; };
+		EDAA8EA31F37E90200E4A05E /* MimicaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimicaView.swift; sourceTree = "<group>"; };
+		EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Mimica/Assets.xcassets; sourceTree = "<group>"; };
+		EDAA8EAA1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalAppearanceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */,
+				EDAA8EA11F36030100E4A05E /* UIView+Customization.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -100,6 +107,7 @@
 				ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */,
 				ED71D6DE1F33930A0026D756 /* Info.plist */,
 				ED71D6FC1F3401020026D756 /* View */,
+				EDAA8EA91F3D1CD900E4A05E /* Style */,
 				ED2D576C1F3519E200285F2A /* Extensions */,
 				ED71D6E41F339F5C0026D756 /* Resources */,
 			);
@@ -109,9 +117,8 @@
 		ED71D6E41F339F5C0026D756 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */,
+				EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */,
 				ED71D6F91F33A09E0026D756 /* Rubik font */,
-				ED71D6D91F33930A0026D756 /* Assets.xcassets */,
 			);
 			name = Resources;
 			path = ..;
@@ -137,10 +144,20 @@
 		ED71D6FC1F3401020026D756 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EDAA8EA31F37E90200E4A05E /* MimicaView.swift */,
 				ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */,
 				ED2D57731F3535CD00285F2A /* GradientTabBar.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		EDAA8EA91F3D1CD900E4A05E /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */,
+				EDAA8EAA1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift */,
+			);
+			name = Style;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,9 +225,9 @@
 				ED71D6F51F339F7C0026D756 /* Rubik-LightItalic.ttf in Resources */,
 				ED71D6F11F339F7C0026D756 /* Rubik-Bold.ttf in Resources */,
 				ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */,
-				ED71D6DA1F33930A0026D756 /* Assets.xcassets in Resources */,
 				ED71D6F41F339F7C0026D756 /* Rubik-Light.ttf in Resources */,
 				ED71D6F31F339F7C0026D756 /* Rubik-Italic.ttf in Resources */,
+				EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */,
 				ED71D6F71F339F7C0026D756 /* Rubik-MediumItalic.ttf in Resources */,
 				ED71D6EF1F339F7C0026D756 /* Rubik-Black.ttf in Resources */,
 				ED71D6F21F339F7C0026D756 /* Rubik-BoldItalic.ttf in Resources */,
@@ -229,10 +246,13 @@
 			files = (
 				ED2D57741F3535CD00285F2A /* GradientTabBar.swift in Sources */,
 				ED71D6D51F33930A0026D756 /* SecondViewController.swift in Sources */,
+				EDAA8EA21F36030100E4A05E /* UIView+Customization.swift in Sources */,
+				EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */,
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
 				ED71D6FB1F3400E50026D756 /* GradientNavigationBar.swift in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
+				EDAA8EAB1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift in Sources */,
 				ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
