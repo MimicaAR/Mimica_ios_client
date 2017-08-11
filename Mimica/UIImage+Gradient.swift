@@ -18,7 +18,9 @@ extension UIImage {
 		
 		let colors = [colorOne.cgColor, colorTwo.cgColor]
 		
-		let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: nil);
+		let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
+		                          colors: colors as CFArray,
+		                          locations: [1.0, 0.0]);
 		
 		return self.tint(gradient: gradient!)
 	}

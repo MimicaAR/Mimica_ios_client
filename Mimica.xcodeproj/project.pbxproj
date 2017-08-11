@@ -30,6 +30,7 @@
 		EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EA31F37E90200E4A05E /* MimicaView.swift */; };
 		EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */; };
 		EDAA8EAB1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAA1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift */; };
+		EDAA8EAD1F3D26CD00E4A05E /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAC1F3D26CD00E4A05E /* CalendarTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		EDAA8EA31F37E90200E4A05E /* MimicaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimicaView.swift; sourceTree = "<group>"; };
 		EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Mimica/Assets.xcassets; sourceTree = "<group>"; };
 		EDAA8EAA1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalAppearanceManager.swift; sourceTree = "<group>"; };
+		EDAA8EAC1F3D26CD00E4A05E /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				EDAA8EA31F37E90200E4A05E /* MimicaView.swift */,
 				ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */,
 				ED2D57731F3535CD00285F2A /* GradientTabBar.swift */,
+				EDAA8EAC1F3D26CD00E4A05E /* CalendarTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				ED71D6FB1F3400E50026D756 /* GradientNavigationBar.swift in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
+				EDAA8EAD1F3D26CD00E4A05E /* CalendarTableViewCell.swift in Sources */,
 				EDAA8EAB1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift in Sources */,
 				ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */,
 			);

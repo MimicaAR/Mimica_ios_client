@@ -8,21 +8,20 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+	@IBOutlet weak var tableView: UITableView!
 	override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.titleView = UIImageView.init(image: UIImage.init(named: "mimica"))
     }
 	
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 10
 	}
 	
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell: CalendarTableViewCell = tableView.dequeueReusableCell(withIdentifier: "Calendar cell") as! CalendarTableViewCell
+		return cell
+	}
 }
 

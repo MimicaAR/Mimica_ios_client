@@ -8,13 +8,23 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Rubik-Medium.ttf">
+            <string>Rubik-Medium</string>
+        </array>
+        <array key="Rubik-Regular.ttf">
+            <string>Rubik-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Home-->
+        <!--Navigation Controller-->
         <scene sceneID="41V-r0-s7x">
             <objects>
                 <navigationController id="jIX-w8-5Fh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="Home icon" id="nO9-G6-1kg"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gNT-J2-6x5" customClass="GradientNavigationBar" customModule="Mimica" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="" image="Home icon" id="nO9-G6-1kg">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="gNT-J2-6x5" customClass="GradientNavigationBar" customModule="Mimica" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,7 +56,92 @@
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="07S-12-qUV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Calendar cell" rowHeight="70" id="lpD-oA-SzU" customClass="CalendarTableViewCell" customModule="Mimica" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lpD-oA-SzU" id="TXf-Vy-EOu">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NR-8N-8vH">
+                                                    <rect key="frame" x="20" y="5" width="335" height="60"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug 20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auc-iu-dNP">
+                                                            <rect key="frame" x="20" y="12" width="46.5" height="17"/>
+                                                            <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
+                                                            <color key="textColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aiz-AU-7wZ">
+                                                            <rect key="frame" x="20" y="33" width="33.5" height="17"/>
+                                                            <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
+                                                            <color key="textColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aO-HJ-Vtr">
+                                                            <rect key="frame" x="86" y="12" width="226" height="38"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <string key="text">Routine examination in
+clinic</string>
+                                                            <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="14"/>
+                                                            <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="auc-iu-dNP" firstAttribute="top" secondItem="5NR-8N-8vH" secondAttribute="top" constant="12" id="Gnv-cg-q0x"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Aiz-AU-7wZ" secondAttribute="bottom" constant="10" id="NPP-DT-EKc"/>
+                                                        <constraint firstItem="Aiz-AU-7wZ" firstAttribute="leading" secondItem="5NR-8N-8vH" secondAttribute="leading" constant="20" id="ObT-Ez-Grh"/>
+                                                        <constraint firstItem="auc-iu-dNP" firstAttribute="leading" secondItem="5NR-8N-8vH" secondAttribute="leading" constant="20" id="kl5-nx-Hmg"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="0.8901960784313725" green="0.8901960784313725" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="5NR-8N-8vH" secondAttribute="bottom" constant="5" id="QdR-oh-n8f"/>
+                                                <constraint firstItem="5NR-8N-8vH" firstAttribute="leading" secondItem="TXf-Vy-EOu" secondAttribute="leading" constant="20" id="aoK-vP-5Ob"/>
+                                                <constraint firstAttribute="trailing" secondItem="5NR-8N-8vH" secondAttribute="trailing" constant="20" id="uze-bG-zMQ"/>
+                                                <constraint firstItem="5NR-8N-8vH" firstAttribute="top" secondItem="TXf-Vy-EOu" secondAttribute="top" constant="5" id="xPQ-CX-5Uv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bgRoundedView" destination="5NR-8N-8vH" id="BIK-rz-F0E"/>
+                                            <outlet property="dateLabel" destination="auc-iu-dNP" id="jZy-NK-HFf"/>
+                                            <outlet property="timeLabel" destination="Aiz-AU-7wZ" id="w93-Qe-SrX"/>
+                                            <outlet property="titleLabel" destination="3aO-HJ-Vtr" id="TOK-u3-zVb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="btb-b6-uYV"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="pfG-9L-gXW"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="07S-12-qUV" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="FFc-AR-3w9"/>
+                            <constraint firstAttribute="bottom" secondItem="07S-12-qUV" secondAttribute="bottom" id="cLv-fQ-f79"/>
+                            <constraint firstItem="07S-12-qUV" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="pvC-zW-jXr"/>
+                            <constraint firstAttribute="trailing" secondItem="07S-12-qUV" secondAttribute="trailing" id="v98-pP-i0W"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                 <real key="value" value="0.0"/>
@@ -55,12 +150,15 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="Home icon" id="acW-dT-cKf"/>
                     <navigationItem key="navigationItem" id="iUK-jF-790"/>
+                    <connections>
+                        <outlet property="tableView" destination="07S-12-qUV" id="DIw-FU-Tos"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1344.8" y="-1083.5082458770617"/>
         </scene>
-        <!--Progress-->
+        <!--View Controller-->
         <scene sceneID="W2Y-4s-7gS">
             <objects>
                 <viewController id="H8P-qG-9Kb" sceneMemberID="viewController">
@@ -73,13 +171,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Progress" image="Progress icon" id="2f4-m1-WqZ"/>
+                    <tabBarItem key="tabBarItem" title="" image="Progress icon" id="2f4-m1-WqZ">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GeK-Ta-VpE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="295"/>
         </scene>
-        <!--Sessions-->
+        <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Mimica" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,13 +213,15 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sessions" image="Play icon" selectedImage="Play icon" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="Play icon" selectedImage="Play icon" id="cPa-gy-q4n">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1438" y="-421"/>
         </scene>
-        <!--Chat-->
+        <!--View Controller-->
         <scene sceneID="0qk-B2-AAl">
             <objects>
                 <viewController id="o3z-Xh-0bB" sceneMemberID="viewController">
@@ -132,13 +234,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chat" image="Chat icon" badgeValue="5" id="mqt-ZW-DD0"/>
+                    <tabBarItem key="tabBarItem" title="" image="Chat icon" badgeValue="5" id="mqt-ZW-DD0">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GiD-uI-xfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="1031"/>
         </scene>
-        <!--Profile-->
+        <!--View Controller-->
         <scene sceneID="1tY-Ev-bxw">
             <objects>
                 <viewController id="g9R-9F-P4X" sceneMemberID="viewController">
@@ -151,7 +255,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="Profile icon" id="5aV-T4-JTP"/>
+                    <tabBarItem key="tabBarItem" title="" image="Profile icon" id="5aV-T4-JTP">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRJ-J5-dk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,6 +274,14 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.98823529409999999" green="0.34509803919999998" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="0.9882352941176471" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
+                                <color key="value" red="0.98823529409999999" green="0.37647058820000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="secondColor">
+                                <color key="value" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="jIX-w8-5Fh" kind="relationship" relationship="viewControllers" id="t4X-tK-I0B"/>

@@ -9,15 +9,13 @@
 import UIKit
 
 class GradientTabBar: UITabBar {
-	override init(frame: CGRect) {
-		super.init(frame: frame)
+	@IBInspectable var firstColor:UIColor = .white
+	@IBInspectable var secondColor:UIColor = .black
+	override func awakeFromNib() {
+		super.awakeFromNib()
 		for item in self.items! {
-			item.selectedImage = item.selectedImage?.tint(gradient: SharedStyleKit.mainGradient)
+			item.selectedImage = item.selectedImage?.tint(colors: [firstColor, secondColor])
 			item.selectedImage = item.selectedImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
 		}
-	}
-	
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
 	}
 }
