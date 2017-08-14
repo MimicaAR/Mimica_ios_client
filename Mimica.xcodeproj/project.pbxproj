@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EB902BE41F40E580008EE326 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */; };
+		EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */; };
+		EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE71F41EFE4008EE326 /* Constants.swift */; };
 		ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */; };
 		ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */; };
 		ED2D57741F3535CD00285F2A /* GradientTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D57731F3535CD00285F2A /* GradientTabBar.swift */; };
@@ -39,6 +41,8 @@
 		2D942B300684E0544FA12D5A /* Pods-Mimica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mimica/Pods-Mimica.debug.xcconfig"; sourceTree = "<group>"; };
 		DD54C40B8AA912F18615EC8B /* Pods-Mimica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimica/Pods-Mimica.release.xcconfig"; sourceTree = "<group>"; };
 		EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseProvider.swift; sourceTree = "<group>"; };
+		EB902BE71F41EFE4008EE326 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStyleKit.swift; sourceTree = "<group>"; };
 		ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gradient.swift"; sourceTree = "<group>"; };
 		ED2D57731F3535CD00285F2A /* GradientTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTabBar.swift; sourceTree = "<group>"; };
@@ -101,7 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */,
+				EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */,
 				EDAA8EA11F36030100E4A05E /* UIView+Customization.swift */,
+				EB902BE71F41EFE4008EE326 /* Constants.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -314,10 +320,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mimica/Pods-Mimica-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +345,9 @@
 				EDAA8EA21F36030100E4A05E /* UIView+Customization.swift in Sources */,
 				EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */,
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
+				EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */,
 				ED71D6FB1F3400E50026D756 /* GradientNavigationBar.swift in Sources */,
+				EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
 				EDAA8EAD1F3D26CD00E4A05E /* CalendarTableViewCell.swift in Sources */,
