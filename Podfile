@@ -8,6 +8,9 @@ target 'Mimica' do
 	pod ‘Firebase’
 	pod ‘Firebase/Database’
 	pod ‘Firebase/Storage’
+	pod ‘Firebase/RemoteConfig’
+	pod ‘FirebaseUI’
+	pod ‘Firebase/Core’
 
 
   # Pods for Mimica
