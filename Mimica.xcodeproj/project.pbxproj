@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB902BE41F40E580008EE326 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */; };
+		EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */; };
+		EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE71F41EFE4008EE326 /* Constants.swift */; };
 		ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */; };
 		ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */; };
 		ED2D57741F3535CD00285F2A /* GradientTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D57731F3535CD00285F2A /* GradientTabBar.swift */; };
@@ -31,9 +34,15 @@
 		EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */; };
 		EDAA8EAB1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAA1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift */; };
 		EDAA8EAD1F3D26CD00E4A05E /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAC1F3D26CD00E4A05E /* CalendarTableViewCell.swift */; };
+		F4BD2A1B29613764696B4A97 /* Pods_Mimica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32CA15FA030EB6B4628E2C0 /* Pods_Mimica.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D942B300684E0544FA12D5A /* Pods-Mimica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mimica/Pods-Mimica.debug.xcconfig"; sourceTree = "<group>"; };
+		DD54C40B8AA912F18615EC8B /* Pods-Mimica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimica/Pods-Mimica.release.xcconfig"; sourceTree = "<group>"; };
+		EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseProvider.swift; sourceTree = "<group>"; };
+		EB902BE71F41EFE4008EE326 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStyleKit.swift; sourceTree = "<group>"; };
 		ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gradient.swift"; sourceTree = "<group>"; };
 		ED2D57731F3535CD00285F2A /* GradientTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTabBar.swift; sourceTree = "<group>"; };
@@ -60,6 +69,7 @@
 		EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Mimica/Assets.xcassets; sourceTree = "<group>"; };
 		EDAA8EAA1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalAppearanceManager.swift; sourceTree = "<group>"; };
 		EDAA8EAC1F3D26CD00E4A05E /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		F32CA15FA030EB6B4628E2C0 /* Pods_Mimica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mimica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,17 +77,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4BD2A1B29613764696B4A97 /* Pods_Mimica.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B90670EAB6A54C5B60B64A11 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D942B300684E0544FA12D5A /* Pods-Mimica.debug.xcconfig */,
+				DD54C40B8AA912F18615EC8B /* Pods-Mimica.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BDDCA01294882383E57AD416 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F32CA15FA030EB6B4628E2C0 /* Pods_Mimica.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ED2D576C1F3519E200285F2A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */,
+				EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */,
 				EDAA8EA11F36030100E4A05E /* UIView+Customization.swift */,
+				EB902BE71F41EFE4008EE326 /* Constants.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -87,6 +117,8 @@
 			children = (
 				ED71D6CF1F33930A0026D756 /* Mimica */,
 				ED71D6CE1F33930A0026D756 /* Products */,
+				B90670EAB6A54C5B60B64A11 /* Pods */,
+				BDDCA01294882383E57AD416 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -108,6 +140,7 @@
 				ED71D6D61F33930A0026D756 /* Main.storyboard */,
 				ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */,
 				ED71D6DE1F33930A0026D756 /* Info.plist */,
+				EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */,
 				ED71D6FC1F3401020026D756 /* View */,
 				EDAA8EA91F3D1CD900E4A05E /* Style */,
 				ED2D576C1F3519E200285F2A /* Extensions */,
@@ -170,9 +203,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED71D6E11F33930A0026D756 /* Build configuration list for PBXNativeTarget "Mimica" */;
 			buildPhases = (
+				0D88F3148E0F5002FA433346 /* [CP] Check Pods Manifest.lock */,
 				ED71D6C91F33930A0026D756 /* Sources */,
 				ED71D6CA1F33930A0026D756 /* Frameworks */,
 				ED71D6CB1F33930A0026D756 /* Resources */,
+				30294F51FA9D28999B22FAEB /* [CP] Embed Pods Frameworks */,
+				0C3867864A63B6EAE25E6364 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -234,6 +270,7 @@
 				ED71D6F71F339F7C0026D756 /* Rubik-MediumItalic.ttf in Resources */,
 				ED71D6EF1F339F7C0026D756 /* Rubik-Black.ttf in Resources */,
 				ED71D6F21F339F7C0026D756 /* Rubik-BoldItalic.ttf in Resources */,
+				EB902BE41F40E580008EE326 /* GoogleService-Info-2.plist in Resources */,
 				ED71D6F81F339F7C0026D756 /* Rubik-Regular.ttf in Resources */,
 				ED71D6F61F339F7C0026D756 /* Rubik-Medium.ttf in Resources */,
 				ED71D6D81F33930A0026D756 /* Main.storyboard in Resources */,
@@ -241,6 +278,83 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C3867864A63B6EAE25E6364 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Mimica/Pods-Mimica-resources.sh",
+				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mimica/Pods-Mimica-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0D88F3148E0F5002FA433346 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Mimica-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30294F51FA9D28999B22FAEB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Mimica/Pods-Mimica-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Mimica/Pods-Mimica-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ED71D6C91F33930A0026D756 /* Sources */ = {
@@ -252,7 +366,9 @@
 				EDAA8EA21F36030100E4A05E /* UIView+Customization.swift in Sources */,
 				EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */,
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
+				EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */,
 				ED71D6FB1F3400E50026D756 /* GradientNavigationBar.swift in Sources */,
+				EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
 				EDAA8EAD1F3D26CD00E4A05E /* CalendarTableViewCell.swift in Sources */,
@@ -378,6 +494,7 @@
 		};
 		ED71D6E21F33930A0026D756 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D942B300684E0544FA12D5A /* Pods-Mimica.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S6T4VJ437P;
@@ -392,6 +509,7 @@
 		};
 		ED71D6E31F33930A0026D756 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD54C40B8AA912F18615EC8B /* Pods-Mimica.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = S6T4VJ437P;
