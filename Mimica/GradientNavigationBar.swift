@@ -30,6 +30,11 @@ class GradientNavigationBar: UINavigationBar {
 		self.drawGradient()
 	}
 	
+	override func awakeFromNib() {
+		super.awakeFromNib()
+		self.drawGradient()
+	}
+	
 	func drawGradient() {
 		let gradient = CAGradientLayer()
 		gradient.frame = CGRect(x: 0,
@@ -39,7 +44,7 @@ class GradientNavigationBar: UINavigationBar {
 		gradient.locations = [0.0, 1.0]
 		gradient.colors = [firstColor.cgColor, secondColor.cgColor]
 		self.layer.addSublayer(gradient)
-		self.backgroundColor = UIColor.clear
+		self.backgroundColor = .clear
 	}
 
 }

@@ -9,8 +9,8 @@
 import UIKit
 
 class GradientTabBar: UITabBar {
-	@IBInspectable var firstColor:UIColor = .white
-	@IBInspectable var secondColor:UIColor = .black
+	@IBInspectable var firstColor: UIColor = .white
+	@IBInspectable var secondColor: UIColor = .black
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		for item in self.items! {

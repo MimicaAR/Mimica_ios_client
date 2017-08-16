@@ -43,7 +43,7 @@ extension UIView {
 	/// Цвет тени
 	@IBInspectable var shadowColor: UIColor? {
 		set { layer.shadowColor = newValue?.cgColor }
-		get { return UIColor.init(cgColor: layer.shadowColor!) }
+		get { return UIColor(cgColor: layer.shadowColor!) }
 	}
 	/// Отсекание по границе
 	@IBInspectable var _clipsToBounds: Bool {
