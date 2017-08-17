@@ -13,7 +13,6 @@ class HomeViewController: UIViewController,
 	
 	private let cellId = "Date cell"
 	
-	var trainNowView: TrainNowView? = nil
 	var collectionView: UICollectionView? = nil
 	
 	
@@ -79,40 +78,8 @@ class HomeViewController: UIViewController,
 			
 		flowLayout.invalidateLayout()
 	}
-	
-	func showTrainigView(_ gestureRecognizer: UISwipeGestureRecognizer) {
-		let stopPoint = self.view.bounds.height - (self.tabBarController?.tabBar.bounds.height)!
-		let trainNowViewBottomPoint = (self.trainNowView?.frame.origin.y)! + (self.trainNowView?.bounds.height)!
-		let bounceNumber: CGFloat = 10.0
-		if gestureRecognizer.direction == .down && stopPoint ==
-			trainNowViewBottomPoint{
-			UIView.animate(withDuration: 0.3, delay: 0.0,
-			               options: .curveEaseInOut,
-			               animations: {
-							self.trainNowView?.center.y += (self.trainNowView?.viewWithTag(1)?.bounds.height)!
-							self.trainNowView?.center.y += bounceNumber
-							self.trainNowView?.bounds = CGRect(x: 0, y: 0,
-							                                   width: (self.trainNowView?.superview?.bounds.width)!,
-							                                   height: (self.trainNowView?.bounds.height)!)
-			},
-			               completion: {(_ :Bool) -> Void in UIView.animate(withDuration: 0.1, animations: {self.trainNowView?.center.y -= bounceNumber})}
-			)
-		} else if gestureRecognizer.direction == .up && stopPoint < trainNowViewBottomPoint {
-			UIView.animate(withDuration: 0.3, delay: 0.0,
-			               options: .curveEaseInOut,
-			               animations: {
-							self.trainNowView?.center.y -= (self.trainNowView?.viewWithTag(1)?.bounds.height)!
-							self.trainNowView?.bounds = CGRect(x: 0, y: 0,
-							                                   width: (self.trainNowView?.superview?.bounds.width)! -
-																((self.view.layoutMargins.left) - 10) * 2,
-							                                   height: (self.trainNowView?.bounds.height)!)
-			},
-			               completion: nil
-			)
-		}
-	}
 
-	/// UICollectionView delegates
+/// UICollectionView delegates
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return 10
 	}
