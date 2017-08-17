@@ -12,11 +12,8 @@
 		EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE71F41EFE4008EE326 /* Constants.swift */; };
 		ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */; };
 		ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */; };
-		ED2D57741F3535CD00285F2A /* GradientTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D57731F3535CD00285F2A /* GradientTabBar.swift */; };
 		ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D01F33930A0026D756 /* AppDelegate.swift */; };
 		ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D21F33930A0026D756 /* HomeViewController.swift */; };
-		ED71D6D51F33930A0026D756 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D41F33930A0026D756 /* SecondViewController.swift */; };
-		ED71D6D81F33930A0026D756 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6D61F33930A0026D756 /* Main.storyboard */; };
 		ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */; };
 		ED71D6EF1F339F7C0026D756 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6E51F339F7C0026D756 /* Rubik-Black.ttf */; };
 		ED71D6F01F339F7C0026D756 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6E61F339F7C0026D756 /* Rubik-BlackItalic.ttf */; };
@@ -28,29 +25,24 @@
 		ED71D6F61F339F7C0026D756 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EC1F339F7C0026D756 /* Rubik-Medium.ttf */; };
 		ED71D6F71F339F7C0026D756 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */; };
 		ED71D6F81F339F7C0026D756 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */; };
-		ED71D6FB1F3400E50026D756 /* GradientNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */; };
-		EDAA8EA21F36030100E4A05E /* UIView+Customization.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EA11F36030100E4A05E /* UIView+Customization.swift */; };
 		EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EA31F37E90200E4A05E /* MimicaView.swift */; };
 		EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */; };
-		EDAA8EAB1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAA1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift */; };
-		EDAA8EAD1F3D26CD00E4A05E /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAC1F3D26CD00E4A05E /* CalendarTableViewCell.swift */; };
+		EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */; };
+		EDF7EFEC1F465DF100334DEE /* GradientTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */; };
 		F4BD2A1B29613764696B4A97 /* Pods_Mimica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32CA15FA030EB6B4628E2C0 /* Pods_Mimica.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D942B300684E0544FA12D5A /* Pods-Mimica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mimica/Pods-Mimica.debug.xcconfig"; sourceTree = "<group>"; };
 		DD54C40B8AA912F18615EC8B /* Pods-Mimica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimica/Pods-Mimica.release.xcconfig"; sourceTree = "<group>"; };
-		EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info-2.plist"; path = "Mimica/GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseProvider.swift; sourceTree = "<group>"; };
 		EB902BE71F41EFE4008EE326 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStyleKit.swift; sourceTree = "<group>"; };
 		ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gradient.swift"; sourceTree = "<group>"; };
-		ED2D57731F3535CD00285F2A /* GradientTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTabBar.swift; sourceTree = "<group>"; };
 		ED71D6CD1F33930A0026D756 /* Mimica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED71D6D01F33930A0026D756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED71D6D21F33930A0026D756 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		ED71D6D41F33930A0026D756 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		ED71D6D71F33930A0026D756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED71D6DC1F33930A0026D756 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED71D6DE1F33930A0026D756 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED71D6E51F339F7C0026D756 /* Rubik-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Black.ttf"; path = "../../Downloads/Rubik/Rubik-Black.ttf"; sourceTree = "<group>"; };
@@ -63,12 +55,10 @@
 		ED71D6EC1F339F7C0026D756 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Medium.ttf"; path = "../../Downloads/Rubik/Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-MediumItalic.ttf"; path = "../../Downloads/Rubik/Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
 		ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Regular.ttf"; path = "../../Downloads/Rubik/Rubik-Regular.ttf"; sourceTree = "<group>"; };
-		ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientNavigationBar.swift; sourceTree = "<group>"; };
-		EDAA8EA11F36030100E4A05E /* UIView+Customization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Customization.swift"; sourceTree = "<group>"; };
 		EDAA8EA31F37E90200E4A05E /* MimicaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimicaView.swift; sourceTree = "<group>"; };
 		EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Mimica/Assets.xcassets; sourceTree = "<group>"; };
-		EDAA8EAA1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalAppearanceManager.swift; sourceTree = "<group>"; };
-		EDAA8EAC1F3D26CD00E4A05E /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTabBarViewController.swift; sourceTree = "<group>"; };
 		F32CA15FA030EB6B4628E2C0 /* Pods_Mimica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mimica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,9 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */,
-				EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */,
-				EDAA8EA11F36030100E4A05E /* UIView+Customization.swift */,
-				EB902BE71F41EFE4008EE326 /* Constants.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -135,13 +122,11 @@
 			isa = PBXGroup;
 			children = (
 				ED71D6D01F33930A0026D756 /* AppDelegate.swift */,
-				ED71D6D21F33930A0026D756 /* HomeViewController.swift */,
-				ED71D6D41F33930A0026D756 /* SecondViewController.swift */,
-				ED71D6D61F33930A0026D756 /* Main.storyboard */,
+				EDF7EFEA1F465DB700334DEE /* View Controllers */,
 				ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */,
 				ED71D6DE1F33930A0026D756 /* Info.plist */,
-				EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */,
 				ED71D6FC1F3401020026D756 /* View */,
+				ED9230361F4481E300E4D5B2 /* Model */,
 				EDAA8EA91F3D1CD900E4A05E /* Style */,
 				ED2D576C1F3519E200285F2A /* Extensions */,
 				ED71D6E41F339F5C0026D756 /* Resources */,
@@ -152,6 +137,7 @@
 		ED71D6E41F339F5C0026D756 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */,
 				EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */,
 				ED71D6F91F33A09E0026D756 /* Rubik font */,
 			);
@@ -180,20 +166,35 @@
 			isa = PBXGroup;
 			children = (
 				EDAA8EA31F37E90200E4A05E /* MimicaView.swift */,
-				ED71D6FA1F3400E50026D756 /* GradientNavigationBar.swift */,
-				ED2D57731F3535CD00285F2A /* GradientTabBar.swift */,
-				EDAA8EAC1F3D26CD00E4A05E /* CalendarTableViewCell.swift */,
+				EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		ED9230361F4481E300E4D5B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */,
+				EB902BE71F41EFE4008EE326 /* Constants.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		EDAA8EA91F3D1CD900E4A05E /* Style */ = {
 			isa = PBXGroup;
 			children = (
 				ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */,
-				EDAA8EAA1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift */,
 			);
 			name = Style;
+			sourceTree = "<group>";
+		};
+		EDF7EFEA1F465DB700334DEE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ED71D6D21F33930A0026D756 /* HomeViewController.swift */,
+				EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +274,6 @@
 				EB902BE41F40E580008EE326 /* GoogleService-Info-2.plist in Resources */,
 				ED71D6F81F339F7C0026D756 /* Rubik-Regular.ttf in Resources */,
 				ED71D6F61F339F7C0026D756 /* Rubik-Medium.ttf in Resources */,
-				ED71D6D81F33930A0026D756 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,11 +287,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mimica/Pods-Mimica-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle,
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle",
 			);
@@ -319,7 +319,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		30294F51FA9D28999B22FAEB /* [CP] Embed Pods Frameworks */ = {
@@ -361,18 +361,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED2D57741F3535CD00285F2A /* GradientTabBar.swift in Sources */,
-				ED71D6D51F33930A0026D756 /* SecondViewController.swift in Sources */,
-				EDAA8EA21F36030100E4A05E /* UIView+Customization.swift in Sources */,
+				EDF7EFEC1F465DF100334DEE /* GradientTabBarViewController.swift in Sources */,
 				EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */,
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
 				EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */,
-				ED71D6FB1F3400E50026D756 /* GradientNavigationBar.swift in Sources */,
 				EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
-				EDAA8EAD1F3D26CD00E4A05E /* CalendarTableViewCell.swift in Sources */,
-				EDAA8EAB1F3D1D5E00E4A05E /* GlobalAppearanceManager.swift in Sources */,
+				EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */,
 				ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,14 +376,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ED71D6D61F33930A0026D756 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ED71D6D71F33930A0026D756 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
