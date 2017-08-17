@@ -10,39 +10,31 @@ import UIKit
 
 class DateCell: UICollectionViewCell {
 	
-	let dateLabel: UILabel = {
-		let label = UILabel()
-		label.numberOfLines = 2
-		
-		let font = UIFont(name: "Rubik-Regular", size: 14.00)
-		
-		let paragraph = NSMutableParagraphStyle()
-		paragraph.paragraphSpacing = 0.20 * (font?.lineHeight)!
-		
-		label.attributedText =
-			NSMutableAttributedString(string: "Aug 10\n11:00",
-			                          attributes: [NSFontAttributeName : font!,
-			                                       NSForegroundColorAttributeName : SharedStyleKit.calendarCellDateColor,
-			                                       NSParagraphStyleAttributeName : paragraph])
-		return label
-	}()
+	private let dateLabel: UILabel = UILabel()
 	
-	let titleLabel: UILabel = {
-		let label = UILabel()
-		label.numberOfLines = 2
-		
-		let font = UIFont(name: "Rubik-Medium", size: 14.00)
-		
-		let paragraph = NSMutableParagraphStyle()
-		paragraph.paragraphSpacing = 0.17 * (font?.lineHeight)!
-		
-		label.attributedText =
-			NSMutableAttributedString(string: "Routine examination in clinic",
-			                          attributes: [NSFontAttributeName : font!,
-			                                       NSForegroundColorAttributeName : SharedStyleKit.calendarCellTitleColor,
-			                                       NSParagraphStyleAttributeName : paragraph])
-		return label
-	}()
+	private let titleLabel: UILabel = UILabel()
+	
+	var dateText: String? {
+		get {
+			return dateLabel.text
+		}
+		set {
+			if let string = newValue {
+				configureDateText(withString: string)
+			}
+		}
+	}
+	
+	var titleText: String? {
+		get {
+			return titleLabel.text
+		}
+		set {
+			if let string = newValue {
+				configureTitleText(withString: string)
+			}
+		}
+	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -55,6 +47,8 @@ class DateCell: UICollectionViewCell {
 	
 	private func setupViews() {
 		configureCellBg()
+		configureDateText(withString: "Aug 20\n11:00")
+		configureTitleText(withString: "Routine examination in clinic")
 		addSubview(dateLabel)
 		addSubview(titleLabel)
 		layoutLabels()
@@ -66,6 +60,34 @@ class DateCell: UICollectionViewCell {
 		layer.borderColor = SharedStyleKit.calendarCellBorderColor.cgColor
 		clipsToBounds = true
 		backgroundColor = .white
+	}
+	
+	private func configureDateText(withString string: String) {
+		dateLabel.numberOfLines = 2
+		let font = UIFont(name: "Rubik-Regular", size: 14.00)
+		
+		let paragraph = NSMutableParagraphStyle()
+		paragraph.paragraphSpacing = 0.20 * (font?.lineHeight)!
+		
+		dateLabel.attributedText =
+			NSMutableAttributedString(string: string,
+			                          attributes: [NSFontAttributeName : font!,
+			                                       NSForegroundColorAttributeName : SharedStyleKit.calendarCellDateColor,
+			                                       NSParagraphStyleAttributeName : paragraph])
+	}
+	
+	private func configureTitleText(withString string: String) {
+		titleLabel.numberOfLines = 2
+		let font = UIFont(name: "Rubik-Medium", size: 14.00)
+		
+		let paragraph = NSMutableParagraphStyle()
+		paragraph.paragraphSpacing = 0.17 * (font?.lineHeight)!
+		
+		titleLabel.attributedText =
+			NSMutableAttributedString(string: string,
+			                          attributes: [NSFontAttributeName : font!,
+			                                       NSForegroundColorAttributeName : SharedStyleKit.calendarCellTitleColor,
+			                                       NSParagraphStyleAttributeName : paragraph])
 	}
 	
 	private func layoutLabels() {
