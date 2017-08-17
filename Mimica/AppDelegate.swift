@@ -13,14 +13,13 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+	private let navigationBarHeight: CGFloat = 44.0
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 		//FirebaseApp.configure();
-		GlobalAppearanceManager();
+		setupGlobalAppearance();
 		
-		//ignoring the storyboard
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
 		
@@ -28,6 +27,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
         return true
     }
+	
+	private func setupGlobalAppearance() {
+		let font: UIFont = UIFont(name: "Rubik-Medium", size: 11.0)!
+		UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+		
+		let navigationBar = UINavigationBar.appearance()
+		navigationBar.tintColor = .white
+		let gradient = CAGradientLayer()
+		gradient.frame = CGRect(x: 0, y: 0, width: UIApplication.shared.statusBarFrame.width,
+		                        height: UIApplication.shared.statusBarFrame.height + navigationBarHeight)
+		gradient.locations = [0.0, 1.0]
+		gradient.colors = [SharedStyleKit.mainGradientColor1.cgColor, SharedStyleKit.mainGradientColor2.cgColor]
+		var image: UIImage? = nil
+		UIGraphicsBeginImageContext(gradient.frame.size)
+		if let context = UIGraphicsGetCurrentContext() {
+			gradient.render(in: context)
+			image = UIGraphicsGetImageFromCurrentImageContext()
+		}
+		UIGraphicsEndImageContext()
+		navigationBar.setBackgroundImage(image, for: .default)
+	}
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -50,7 +70,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 
