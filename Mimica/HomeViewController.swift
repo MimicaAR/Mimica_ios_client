@@ -54,6 +54,10 @@ class HomeViewController: UIViewController,
 		self.collectionView?.translatesAutoresizingMaskIntoConstraints = false
 	}
 	
+	private func configureCellSize() -> CGSize{
+		return CGSize(width: view.bounds.width - view.layoutMargins.left * 2, height: 60)
+	}
+	
 	private func setupNavigationBar() {
 		self.navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "mimica"))
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "Profile icon"),
@@ -63,21 +67,17 @@ class HomeViewController: UIViewController,
 	}
 	
 	private func setupTrainNowView() {}
-
-	/// UICollectionView delegates
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
-	}
 	
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DateCell
-		cell.dateText = "20 авг\n17:00"
-		cell.titleText = "Плановое обследование в клинике"
-		return cell
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: view.bounds.width - view.layoutMargins.left * 2, height: 60)
+	override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+			
+		guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else {
+			return
+		}
+		
+		flowLayout.itemSize = configureCellSize()
+			
+		flowLayout.invalidateLayout()
 	}
 	
 	func showTrainigView(_ gestureRecognizer: UISwipeGestureRecognizer) {
@@ -92,8 +92,8 @@ class HomeViewController: UIViewController,
 							self.trainNowView?.center.y += (self.trainNowView?.viewWithTag(1)?.bounds.height)!
 							self.trainNowView?.center.y += bounceNumber
 							self.trainNowView?.bounds = CGRect(x: 0, y: 0,
-							                                  width: (self.trainNowView?.superview?.bounds.width)!,
-							                                  height: (self.trainNowView?.bounds.height)!)
+							                                   width: (self.trainNowView?.superview?.bounds.width)!,
+							                                   height: (self.trainNowView?.bounds.height)!)
 			},
 			               completion: {(_ :Bool) -> Void in UIView.animate(withDuration: 0.1, animations: {self.trainNowView?.center.y -= bounceNumber})}
 			)
@@ -103,13 +103,29 @@ class HomeViewController: UIViewController,
 			               animations: {
 							self.trainNowView?.center.y -= (self.trainNowView?.viewWithTag(1)?.bounds.height)!
 							self.trainNowView?.bounds = CGRect(x: 0, y: 0,
-							                                  width: (self.trainNowView?.superview?.bounds.width)! -
+							                                   width: (self.trainNowView?.superview?.bounds.width)! -
 																((self.view.layoutMargins.left) - 10) * 2,
-							                                  height: (self.trainNowView?.bounds.height)!)
+							                                   height: (self.trainNowView?.bounds.height)!)
 			},
 			               completion: nil
 			)
 		}
-    }
+	}
+
+	/// UICollectionView delegates
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return 10
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DateCell
+		cell.dateText = "20 авг\n17:00"
+		cell.titleText = "Плановое обследование в клинике"
+		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+		return configureCellSize()
+	}
 }
 
