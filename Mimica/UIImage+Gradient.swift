@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIImage {
-	func tint(colors: [UIColor]) -> UIImage {
+	class func tint(image: UIImage, colors: [UIColor]) -> UIImage {
 		// Create gradient
 		
 		let colorOne = colors[0]
@@ -22,27 +22,27 @@ extension UIImage {
 		                          colors: colors as CFArray,
 		                          locations: [1.0, 0.0]);
 		
-		return self.tint(gradient: gradient!)
+		return UIImage.tint(image: image, gradient: gradient!)
 	}
 	
-	func tint(gradient: CGGradient) -> UIImage {
+	class func tint(image: UIImage, gradient: CGGradient) -> UIImage {
 		// Load image
-		let scale = self.scale
-		UIGraphicsBeginImageContext(CGSize(width: self.size.width * scale, height: self.size.height * scale))
+		let scale = image.scale
+		UIGraphicsBeginImageContext(CGSize(width: image.size.width * scale, height: image.size.height * scale))
 		let context = UIGraphicsGetCurrentContext()
-		context?.translateBy(x: 0, y: self.size.height * scale)
+		context?.translateBy(x: 0, y: image.size.height * scale)
 		context?.scaleBy(x: 1.0, y: -1.0)
 		
 		context?.setBlendMode(CGBlendMode.normal)
-		let rect = CGRect(x: 0, y: 0, width: self.size.width * scale, height: self.size.height * scale)
-		context?.draw(self.cgImage!, in: rect)
+		let rect = CGRect(x: 0, y: 0, width: image.size.width * scale, height: image.size.height * scale)
+		context?.draw(image.cgImage!, in: rect)
 		
 		// Apply gradient
 		
-		context!.clip(to: rect, mask: self.cgImage!)
+		context!.clip(to: rect, mask: image.cgImage!)
 		context!.drawLinearGradient(gradient,
 		                            start: CGPoint(x: 0, y: 0),
-		                            end: CGPoint(x: 0, y: self.size.height * scale),
+		                            end: CGPoint(x: 0, y: image.size.height * scale),
 		                            options: CGGradientDrawingOptions(rawValue: 0))
 		let gradientImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()

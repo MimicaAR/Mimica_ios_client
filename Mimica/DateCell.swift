@@ -10,6 +10,15 @@ import UIKit
 
 class DateCell: UICollectionViewCell {
 	
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		setupViews()
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
 	private let dateLabel: UILabel = UILabel()
 	
 	private let titleLabel: UILabel = UILabel()
@@ -34,15 +43,6 @@ class DateCell: UICollectionViewCell {
 				configureTitleText(withString: string)
 			}
 		}
-	}
-	
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		setupViews()
-	}
-	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
 	}
 	
 	private func setupViews() {
