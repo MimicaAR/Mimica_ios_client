@@ -127,8 +127,6 @@ class LoginView: UIView {
 	private func setupViewBackground() {
 		self.backgroundColor = .white
 		self.layer.cornerRadius = 20.0
-		self.layer.borderColor = SharedStyleKit.loginViewBorderColor.cgColor
-		self.layer.borderWidth = 1.0
 		//Shadow
 		self.layer.shadowRadius = 20
 		self.layer.shadowOffset = CGSize(width: 0, height: 2)
