@@ -21,28 +21,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MimicaFull" translatesAutoresizingMaskIntoConstraints="NO" id="FjV-mm-7o7">
-                                <rect key="frame" x="113.5" y="286.5" width="147" height="93"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="147" id="dNb-fs-Rqm"/>
-                                    <constraint firstAttribute="height" constant="93" id="mdy-cP-Xlc"/>
-                                </constraints>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Loading screen" translatesAutoresizingMaskIntoConstraints="NO" id="hkx-vc-Tv1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Launch logo" translatesAutoresizingMaskIntoConstraints="NO" id="rCt-Gf-6nd">
+                                <rect key="frame" x="91" y="317.5" width="193" height="32"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="FjV-mm-7o7" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="BO6-yT-YSE"/>
-                            <constraint firstItem="FjV-mm-7o7" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Zpm-WT-Bgf"/>
+                            <constraint firstAttribute="trailing" secondItem="hkx-vc-Tv1" secondAttribute="trailing" id="9Wa-VC-T99"/>
+                            <constraint firstItem="hkx-vc-Tv1" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="HSu-vN-I0l"/>
+                            <constraint firstItem="hkx-vc-Tv1" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="OuT-CE-Ow1"/>
+                            <constraint firstItem="rCt-Gf-6nd" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="l4b-2x-Ptv"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="hkx-vc-Tv1" secondAttribute="bottom" id="pJB-R1-nU5"/>
+                            <constraint firstItem="rCt-Gf-6nd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="tra-Ll-oOf"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
-        <image name="MimicaFull" width="146" height="92"/>
+        <image name="Launch logo" width="193" height="32"/>
+        <image name="Loading screen" width="375" height="667"/>
     </resources>
 </document>

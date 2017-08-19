@@ -8,28 +8,101 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
 	let loginView = LoginView()
+	let logoImage = UIImageView(image: #imageLiteral(resourceName: "Launch logo"))
+	let bottomView: UIView = {
+		let view = UIView()
+		view.backgroundColor = .white
+		return view
+	}()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.view = UIView(frame: UIScreen.main.bounds)
 		setupViews()
+		view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
     }
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		UIView.animate(withDuration: 0.5,
+		               delay: 0.0,
+		               options: .curveEaseInOut,
+		               animations: {
+						self.logoImage.center.y = (self.view.center.y - self.loginView.bounds.height / 2) / 2
+		},
+		               completion: { (completed: Bool) in
+						UIView.animate(withDuration: 0.5,
+						               delay: 0.0,
+						               options: .curveEaseOut,
+						               animations: {
+										self.view.layoutIfNeeded()
+										self.loginView.center = self.view.center
+										UIView.animate(withDuration: 0.5,
+										               delay: 0.3,
+										               options: .curveEaseOut,
+										               animations: {
+														self.bottomView.frame.origin = CGPoint(x: 0, y: self.view.bounds.height / 2)
+										},
+										               completion: nil)
+						},
+						               completion: nil)
+		})
+	}
 	
 	private func setupViews() {
 		view.backgroundColor = .white
+		let backgroundImage = UIImageView(image: #imageLiteral(resourceName: "Loading screen"))
+		backgroundImage.frame = CGRect(origin: .zero, size: view.bounds.size)
+		view.addSubview(backgroundImage)
+		
+		
+		//Logo
+		logoImage.center = view.center
+		view.addSubview(logoImage)
+		
+		
+		//Bottom view
+		bottomView.frame = CGRect(x: 0, y: self.view.bounds.height,
+		                          width: self.view.bounds.width, height: self.view.bounds.height / 2)
+		view.addSubview(bottomView)
+		
+		
+		//Login view
+		loginView.loginTextField.delegate = self
+		loginView.passwordTextField.delegate = self
+		
+		loginView.loginTextField.tag = 0
+		loginView.passwordTextField.tag = 1
+		
+		loginView.bounds = CGRect(x: 0, y: 0,
+		                          width: self.view.bounds.width - self.view.layoutMargins.left * 2,
+		                          height: 310.0)
+		loginView.center = CGPoint(x: self.view.center.x,
+		                           y: self.view.center.y + self.view.bounds.height)
 		view.addSubview(loginView)
-		view.addConstraints(withFormat: "V:[v0(310)]", views: loginView)
-		view.addConstraints(withFormat: "H:|-[v0]-|", views: loginView)
-		NSLayoutConstraint(item: loginView,
-		                   attribute: .centerY,
-		                   relatedBy: .equal,
-		                   toItem: self.view,
-		                   attribute: .centerY,
-		                   multiplier: 1,
-		                   constant: 0).isActive = true
+		loginView.loginButton.addTarget(self, action: #selector(presentTabBarController), for: .touchUpInside)
+	}
+	
+	func presentTabBarController(){
+		let tabBarViewController = GradientTabBarViewController()
+		tabBarViewController.modalTransitionStyle = .flipHorizontal
+		present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
+	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if let nextField = textField.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+			nextField.becomeFirstResponder()
+		} else {
+			textField.resignFirstResponder()
+		}
+		return false
+	}
+	
+	func hideKeyboard() {
+		self.view.endEditing(true)
 	}
 }
 
@@ -56,6 +129,7 @@ class LoginView: UIView {
 		let field = UITextField()
 		field.font = UIFont(name: "Rubik-Regular", size: 17.0)
 		field.placeholder = "E-mail or phone number"
+		field.keyboardType = .emailAddress
 		field.textColor = SharedStyleKit.calendarCellTitleColor
 		return field
 	}()
@@ -131,7 +205,7 @@ class LoginView: UIView {
 		self.layer.shadowRadius = 20
 		self.layer.shadowOffset = CGSize(width: 0, height: 2)
 		self.layer.shadowColor = UIColor.black.cgColor
-		self.layer.shadowOpacity = 0.10
+		self.layer.shadowOpacity = 0.20
 	}
 	
 	private func configureLoginView() {
@@ -178,7 +252,6 @@ class LoginView: UIView {
 		                   constant: 0).isActive = true
 	}
 }
-
 
 
 
