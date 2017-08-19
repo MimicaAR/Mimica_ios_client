@@ -20,7 +20,9 @@ class GradientTabBarViewController: UITabBarController {
 		let homeTab = UINavigationController(rootViewController: HomeViewController())
 		homeTab.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "Home icon"), tag: 1)
 		
-		let view2 = UIViewController()
+		let view2 = LoginViewController()
+		
+		
 		view2.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "Play icon"), tag: 2)
 		
 		let view3 = UIViewController()

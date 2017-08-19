@@ -20,6 +20,7 @@ public class SharedStyleKit : NSObject {
     private struct Cache {
         static let mainGradientColor1: UIColor = UIColor(red: 0.988, green: 0.376, blue: 0.212, alpha: 1.000)
         static let mainGradientColor2: UIColor = UIColor(red: 1.000, green: 0.176, blue: 0.333, alpha: 1.000)
+        static let loginButtonColor: UIColor = UIColor(red: 0.976, green: 0.290, blue: 0.251, alpha: 1.000)
         static let calendarCellBgColor: UIColor = UIColor(red: 0.969, green: 0.969, blue: 0.969, alpha: 1.000)
         static let calendarCellBorderColor: UIColor = UIColor(red: 0.890, green: 0.890, blue: 0.890, alpha: 1.000)
         static let calendarCellTitleColor: UIColor = UIColor(red: 0.290, green: 0.290, blue: 0.290, alpha: 1.000)
@@ -32,6 +33,7 @@ public class SharedStyleKit : NSObject {
 
     @objc dynamic public class var mainGradientColor1: UIColor { return Cache.mainGradientColor1 }
     @objc dynamic public class var mainGradientColor2: UIColor { return Cache.mainGradientColor2 }
+    @objc dynamic public class var loginButtonColor: UIColor { return Cache.loginButtonColor }
     @objc dynamic public class var calendarCellBgColor: UIColor { return Cache.calendarCellBgColor }
     @objc dynamic public class var calendarCellBorderColor: UIColor { return Cache.calendarCellBorderColor }
     @objc dynamic public class var calendarCellTitleColor: UIColor { return Cache.calendarCellTitleColor }
@@ -44,15 +46,24 @@ public class SharedStyleKit : NSObject {
 
     //// Drawing Methods
 
-    @objc dynamic public class func drawCanvas1(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 240, height: 120), resizing: ResizingBehavior = .aspectFit) {
+    @objc dynamic public class func drawCanvas1(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 335, height: 310), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
         //// Resize to Target Frame
         context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 240, height: 120), target: targetFrame)
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 335, height: 310), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 240, y: resizedFrame.height / 120)
+        context.scaleBy(x: resizedFrame.width / 335, y: resizedFrame.height / 310)
+
+
+        //// Rectangle Drawing
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: 0.5, y: 0.5, width: 335, height: 310), cornerRadius: 20)
+        UIColor.white.setFill()
+        rectanglePath.fill()
+        SharedStyleKit.loginViewBorderColor.setStroke()
+        rectanglePath.lineWidth = 1
+        rectanglePath.stroke()
         
         context.restoreGState()
 

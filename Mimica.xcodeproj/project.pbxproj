@@ -25,6 +25,8 @@
 		ED71D6F61F339F7C0026D756 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EC1F339F7C0026D756 /* Rubik-Medium.ttf */; };
 		ED71D6F71F339F7C0026D756 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */; };
 		ED71D6F81F339F7C0026D756 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */; };
+		ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A7231F478C85008A32DC /* LoginViewController.swift */; };
+		ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A7251F47A8C1008A32DC /* UIView+Constraints.swift */; };
 		EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EA31F37E90200E4A05E /* MimicaView.swift */; };
 		EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */; };
 		EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */; };
@@ -55,6 +57,8 @@
 		ED71D6EC1F339F7C0026D756 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Medium.ttf"; path = "../../Downloads/Rubik/Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-MediumItalic.ttf"; path = "../../Downloads/Rubik/Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
 		ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Regular.ttf"; path = "../../Downloads/Rubik/Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		ED96A7231F478C85008A32DC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ED96A7251F47A8C1008A32DC /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		EDAA8EA31F37E90200E4A05E /* MimicaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimicaView.swift; sourceTree = "<group>"; };
 		EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Mimica/Assets.xcassets; sourceTree = "<group>"; };
 		EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */,
+				ED96A7251F47A8C1008A32DC /* UIView+Constraints.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -191,8 +196,9 @@
 		EDF7EFEA1F465DB700334DEE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ED71D6D21F33930A0026D756 /* HomeViewController.swift */,
+				ED96A7231F478C85008A32DC /* LoginViewController.swift */,
 				EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */,
+				ED71D6D21F33930A0026D756 /* HomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -369,6 +375,8 @@
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
 				EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */,
+				ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */,
+				ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */,
 				ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
