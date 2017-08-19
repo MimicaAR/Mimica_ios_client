@@ -118,10 +118,10 @@ class LoginView: UIView {
 	private func setupViews() {
 		setupViewBackground()
 		
+		layoutViews()
+		
 		configureLoginView()
 		configurePasswordView()
-		
-		layoutViews()
 	}
 	
 	private func setupViewBackground() {
@@ -143,7 +143,7 @@ class LoginView: UIView {
 		
 		addConstraints(withFormat: "H:|[v0(21)]-19-[v1]|", views: loginImageView, loginTextField)
 		addConstraints(withFormat: "H:|-39-[v0]|", views: loginSeparatorLine)
-		addConstraints(withFormat: "V:|-2-[v0]", views: loginImageView)
+		addConstraints(withFormat: "V:|-2-[v0(20)]", views: loginImageView)
 		addConstraints(withFormat: "V:|[v0]", views: loginTextField)
 		addConstraints(withFormat: "V:[v0(1)]-1-|", views: loginSeparatorLine)
 	}
@@ -166,8 +166,8 @@ class LoginView: UIView {
 		addSubview(loginButton)
 		addSubview(restorePasswordButton)
 		
-		addConstraints(withFormat: "V:|-58-[v0(34)]-25-[v1(34)]", views: loginView, passwordView)
-		addConstraints(withFormat: "V:[v0(48)]-24-[v1]-31-|", views: loginButton, restorePasswordButton)
+		addConstraints(withFormat: "V:|-55-[v0(34)]-25-[v1(34)]", views: loginView, passwordView)
+		addConstraints(withFormat: "V:[v0(48)]-25-[v1]-25-|", views: loginButton, restorePasswordButton)
 		addConstraints(withFormat: "H:|-30-[v0]-30-|", views: loginView)
 		addConstraints(withFormat: "H:|-30-[v0]-30-|", views: passwordView)
 		addConstraints(withFormat: "H:|-30-[v0]-30-|", views: loginButton)
