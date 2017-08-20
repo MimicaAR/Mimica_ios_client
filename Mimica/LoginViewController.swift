@@ -18,6 +18,76 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		return view
 	}()
 	
+	let buttonsContainerView = UIView()
+	
+	let leftSeparatorLine: UIView = {
+		let view = UIView()
+		view.backgroundColor = SharedStyleKit.calendarCellBorderColor
+		return view
+	}()
+	
+	let rightSeparatorLine: UIView = {
+		let view = UIView()
+		view.backgroundColor = SharedStyleKit.calendarCellBorderColor
+		return view
+	}()
+	
+	let alternativeLabel: UILabel = {
+		let label = UILabel()
+		label.text = "OR SIGN IN WITH"
+		label.font = UIFont(name: "Rubik-Regular", size: 14.0)
+		label.textColor = SharedStyleKit.calendarCellDateColor
+		return label
+	}()
+	
+	let facebookButton: UIButton = {
+		let size: CGFloat = 60.0
+		let button = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: size, height: size))
+		button.setImage(#imageLiteral(resourceName: "facebook"), for: .normal)
+		button.backgroundColor = SharedStyleKit.facebookColor
+		button.layer.cornerRadius = size / 2
+		button.clipsToBounds = true
+		return button
+	}()
+	
+	let twitterButton: UIButton = {
+		let size: CGFloat = 60.0
+		let button = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: size, height: size))
+		button.setImage(#imageLiteral(resourceName: "twitter"), for: .normal)
+		button.backgroundColor = SharedStyleKit.twitterColor
+		button.layer.cornerRadius = size / 2
+		button.clipsToBounds = true
+		return button
+	}()
+	
+	let googleButton: UIButton = {
+		let size: CGFloat = 60.0
+		let button = UIButton(frame: CGRect(x: 0.0, y: 0.0, width: size, height: size))
+		button.setImage(#imageLiteral(resourceName: "google"), for: .normal)
+		button.backgroundColor = SharedStyleKit.googleColor
+		button.layer.cornerRadius = size / 2
+		button.clipsToBounds = true
+		return button
+	}()
+	
+	let supportButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("Support", for: .normal)
+		button.setTitleColor(SharedStyleKit.calendarCellDateColor, for: .normal)
+		button.setTitleColor(SharedStyleKit.calendarCellTitleColor, for: .highlighted)
+		button.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 14.0)
+		return button
+	}()
+	
+	let createAccountButton: UIButton = {
+		let button = UIButton()
+		button.setTitle("Create account", for: .normal)
+		button.setTitleColor(SharedStyleKit.calendarCellDateColor, for: .normal)
+		button.setTitleColor(SharedStyleKit.calendarCellTitleColor, for: .highlighted)
+		button.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 14.0)
+		return button
+	}()
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.view = UIView(frame: UIScreen.main.bounds)
@@ -53,24 +123,112 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	}
 	
 	private func setupViews() {
+		configureBGView()
+		configureLogo()
+		configureBootomView()
+		configureLoginView()
+	}
+	
+	private func configureBGView() {
 		view.backgroundColor = .white
 		let backgroundImage = UIImageView(image: #imageLiteral(resourceName: "Loading screen"))
 		backgroundImage.frame = CGRect(origin: .zero, size: view.bounds.size)
 		view.addSubview(backgroundImage)
-		
-		
-		//Logo
+	}
+	
+	private func configureLogo() {
 		logoImage.center = view.center
 		view.addSubview(logoImage)
-		
-		
-		//Bottom view
+	}
+	
+	private func configureBootomView() {
 		bottomView.frame = CGRect(x: 0, y: self.view.bounds.height,
 		                          width: self.view.bounds.width, height: self.view.bounds.height / 2)
 		view.addSubview(bottomView)
+		bottomView.addSubview(buttonsContainerView)
+		let height = (view.bounds.height - 310.0) / 2 - 40
+		bottomView.addConstraints(withFormat: "H:|-(20)-[v0]-(20)-|", views: buttonsContainerView)
+		bottomView.addConstraints(withFormat: "V:[v0(\(height))]-|", views: buttonsContainerView)
 		
+		buttonsContainerView.addSubview(facebookButton)
+		buttonsContainerView.addSubview(twitterButton)
+		buttonsContainerView.addSubview(googleButton)
+		buttonsContainerView.addSubview(leftSeparatorLine)
+		buttonsContainerView.addSubview(rightSeparatorLine)
+		buttonsContainerView.addSubview(alternativeLabel)
+		buttonsContainerView.addSubview(supportButton)
+		buttonsContainerView.addSubview(createAccountButton)
 		
-		//Login view
+		buttonsContainerView.addConstraints(withFormat: "H:|[v0]-15-[v1]-15-[v2]|", views: leftSeparatorLine, alternativeLabel, rightSeparatorLine)
+		buttonsContainerView.addConstraints(withFormat: "V:|[v0]", views: alternativeLabel)
+		buttonsContainerView.addConstraints(withFormat: "V:[v0(1)]", views: leftSeparatorLine)
+		buttonsContainerView.addConstraints(withFormat: "V:[v0(1)]", views: rightSeparatorLine)
+		NSLayoutConstraint(item: alternativeLabel,
+		                   attribute: .centerX,
+		                   relatedBy: .equal,
+		                   toItem: alternativeLabel.superview!,
+		                   attribute: .centerX,
+		                   multiplier: 1,
+		                   constant: 0).isActive = true
+		NSLayoutConstraint(item: leftSeparatorLine,
+		                   attribute: .centerY,
+		                   relatedBy: .equal,
+		                   toItem: alternativeLabel,
+		                   attribute: .centerY,
+		                   multiplier: 1,
+		                   constant: 0).isActive = true
+		NSLayoutConstraint(item: rightSeparatorLine,
+		                   attribute: .centerY,
+		                   relatedBy: .equal,
+		                   toItem: alternativeLabel,
+		                   attribute: .centerY,
+		                   multiplier: 1,
+		                   constant: 0).isActive = true
+		
+		buttonsContainerView.addConstraints(withFormat: "V:[v0(60)]", views: twitterButton)
+		buttonsContainerView.addConstraints(withFormat: "H:[v0(60)]", views: twitterButton)
+		buttonsContainerView.addConstraints(withFormat: "V:[v0(60)]", views: facebookButton)
+		buttonsContainerView.addConstraints(withFormat: "H:[v0(60)]", views: facebookButton)
+		buttonsContainerView.addConstraints(withFormat: "V:[v0(60)]", views: googleButton)
+		buttonsContainerView.addConstraints(withFormat: "H:[v0(60)]", views: googleButton)
+		NSLayoutConstraint(item: twitterButton,
+		                   attribute: .centerY,
+		                   relatedBy: .equal,
+		                   toItem: twitterButton.superview!,
+		                   attribute: .centerY,
+		                   multiplier: 1,
+		                   constant: 0).isActive = true
+		NSLayoutConstraint(item: twitterButton,
+		                   attribute: .centerX,
+		                   relatedBy: .equal,
+		                   toItem: twitterButton.superview!,
+		                   attribute: .centerX,
+		                   multiplier: 1,
+		                   constant: 0).isActive = true
+		NSLayoutConstraint(item: facebookButton,
+		                   attribute: .centerY,
+		                   relatedBy: .equal,
+		                   toItem: twitterButton,
+		                   attribute: .centerY,
+		                   multiplier: 1,
+		                   constant: 0).isActive = true
+		NSLayoutConstraint(item: googleButton,
+		                   attribute: .centerY,
+		                   relatedBy: .equal,
+		                   toItem: twitterButton,
+		                   attribute: .centerY,
+		                   multiplier: 1,
+		                   constant: 0).isActive = true
+		buttonsContainerView.addConstraints(withFormat: "H:|-20-[v0]", views: facebookButton)
+		buttonsContainerView.addConstraints(withFormat: "H:[v0]-20-|", views: googleButton)
+		buttonsContainerView.addConstraints(withFormat: "H:|[v0]", views: supportButton)
+		buttonsContainerView.addConstraints(withFormat: "V:[v0]|", views: supportButton)
+		buttonsContainerView.addConstraints(withFormat: "H:[v0]|", views: createAccountButton)
+		buttonsContainerView.addConstraints(withFormat: "V:[v0]|", views: createAccountButton)
+
+	}
+	
+	private func configureLoginView() {
 		loginView.loginTextField.delegate = self
 		loginView.passwordTextField.delegate = self
 		
@@ -105,6 +263,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		self.view.endEditing(true)
 	}
 }
+
+
+
+
 
 class LoginView: UIView {
 	
