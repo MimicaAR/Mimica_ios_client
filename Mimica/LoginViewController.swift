@@ -109,12 +109,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 						               delay: 0.0,
 						               options: .curveEaseOut,
 						               animations: {
-										self.loginView.autoAlignAxis(.horizontal, toSameAxisOf: self.view, withOffset: -25)
+										self.loginView.autoAlignAxis(.horizontal,
+										                             toSameAxisOf: self.view,
+										                             withOffset: self.view.bounds.height < 569 ? -25 : 0)
 										self.loginView.autoPinEdge(toSuperviewMargin: .left)
 										self.loginView.autoPinEdge(toSuperviewMargin: .right)
-										self.view.addConstraints(withFormat: "V:[v0(>=256,<=310)]-20-[v1(<=138)]-|", views: self.loginView, self.buttonsContainerView)
+										self.view.addConstraints(withFormat: "V:[v0(>=256,<=310)]-20-[v1(<=138)]-|",
+										                         views: self.loginView, self.buttonsContainerView)
 										self.view.layoutIfNeeded()
-										self.loginView.loginButton.layer.cornerRadius = self.loginView.loginButton.bounds.height / 2
+										self.loginView.loginButton.layer.cornerRadius = self.loginView.loginButton.frame.height / 2
 										UIView.animate(withDuration: 0.5,
 										               delay: 0.3,
 										               options: .curveEaseOut,
@@ -364,8 +367,6 @@ class LoginView: UIView {
 		addSubview(loginButton)
 		addSubview(restorePasswordButton)
 		
-//		addConstraints(withFormat: "V:|-30-[v0(34)]-25-[v1(34)]-25-[v2]", views: loginView, passwordView, loginButton)
-//		addConstraints(withFormat: "V:[v0(>=30,<=48)]-18-[v1]-18-|", views: loginButton, restorePasswordButton)
 		addConstraints(withFormat: "H:|-30-[v0]-30-|", views: loginView)
 		addConstraints(withFormat: "H:|-30-[v0]-30-|", views: passwordView)
 		addConstraints(withFormat: "H:|-30-[v0]-30-|", views: loginButton)
