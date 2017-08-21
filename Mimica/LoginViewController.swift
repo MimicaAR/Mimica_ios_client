@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PureLayout
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -108,8 +109,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 						               delay: 0.0,
 						               options: .curveEaseOut,
 						               animations: {
+										self.loginView.autoAlignAxis(.horizontal, toSameAxisOf: self.view, withOffset: -25)
+										self.loginView.autoPinEdge(toSuperviewMargin: .left)
+										self.loginView.autoPinEdge(toSuperviewMargin: .right)
+										self.view.addConstraints(withFormat: "V:[v0(>=256,<=310)]-20-[v1(<=138)]-|", views: self.loginView, self.buttonsContainerView)
 										self.view.layoutIfNeeded()
-										self.loginView.center = self.view.center
+										self.loginView.loginButton.layer.cornerRadius = self.loginView.loginButton.bounds.height / 2
 										UIView.animate(withDuration: 0.5,
 										               delay: 0.3,
 										               options: .curveEaseOut,
@@ -131,9 +136,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	private func configureBGView() {
 		view.backgroundColor = .white
-		let backgroundImage = UIImageView(image: #imageLiteral(resourceName: "Loading screen"))
-		backgroundImage.frame = CGRect(origin: .zero, size: view.bounds.size)
-		view.addSubview(backgroundImage)
+		let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "Loading screen"))
+		view.addSubview(backgroundImageView)
+		backgroundImageView.autoPinEdgesToSuperviewEdges()
 	}
 	
 	private func configureLogo() {
@@ -146,9 +151,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		                          width: self.view.bounds.width, height: self.view.bounds.height / 2)
 		view.addSubview(bottomView)
 		bottomView.addSubview(buttonsContainerView)
-		let height = (view.bounds.height - 310.0) / 2 - 40
 		bottomView.addConstraints(withFormat: "H:|-(20)-[v0]-(20)-|", views: buttonsContainerView)
-		bottomView.addConstraints(withFormat: "V:[v0(\(height))]-|", views: buttonsContainerView)
+		bottomView.addConstraints(withFormat: "V:[v0]-|", views: buttonsContainerView)
 		
 		buttonsContainerView.addSubview(facebookButton)
 		buttonsContainerView.addSubview(twitterButton)
@@ -163,64 +167,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		buttonsContainerView.addConstraints(withFormat: "V:|[v0]", views: alternativeLabel)
 		buttonsContainerView.addConstraints(withFormat: "V:[v0(1)]", views: leftSeparatorLine)
 		buttonsContainerView.addConstraints(withFormat: "V:[v0(1)]", views: rightSeparatorLine)
-		NSLayoutConstraint(item: alternativeLabel,
-		                   attribute: .centerX,
-		                   relatedBy: .equal,
-		                   toItem: alternativeLabel.superview!,
-		                   attribute: .centerX,
-		                   multiplier: 1,
-		                   constant: 0).isActive = true
-		NSLayoutConstraint(item: leftSeparatorLine,
-		                   attribute: .centerY,
-		                   relatedBy: .equal,
-		                   toItem: alternativeLabel,
-		                   attribute: .centerY,
-		                   multiplier: 1,
-		                   constant: 0).isActive = true
-		NSLayoutConstraint(item: rightSeparatorLine,
-		                   attribute: .centerY,
-		                   relatedBy: .equal,
-		                   toItem: alternativeLabel,
-		                   attribute: .centerY,
-		                   multiplier: 1,
-		                   constant: 0).isActive = true
+		alternativeLabel.autoAlignAxis(toSuperviewAxis: .vertical)
+		leftSeparatorLine.autoAlignAxis(.horizontal, toSameAxisOf: alternativeLabel)
+		rightSeparatorLine.autoAlignAxis(.horizontal, toSameAxisOf: alternativeLabel)
 		
 		buttonsContainerView.addConstraints(withFormat: "V:[v0(60)]", views: twitterButton)
 		buttonsContainerView.addConstraints(withFormat: "H:[v0(60)]", views: twitterButton)
+		
+		twitterButton.autoCenterInSuperview()
+		facebookButton.autoAlignAxis(.horizontal, toSameAxisOf: twitterButton)
+		googleButton.autoAlignAxis(.horizontal, toSameAxisOf: twitterButton)
+		
+		buttonsContainerView.addConstraints(withFormat: "H:|-20-[v0(60)]", views: facebookButton)
 		buttonsContainerView.addConstraints(withFormat: "V:[v0(60)]", views: facebookButton)
-		buttonsContainerView.addConstraints(withFormat: "H:[v0(60)]", views: facebookButton)
+		buttonsContainerView.addConstraints(withFormat: "H:[v0(60)]-20-|", views: googleButton)
 		buttonsContainerView.addConstraints(withFormat: "V:[v0(60)]", views: googleButton)
-		buttonsContainerView.addConstraints(withFormat: "H:[v0(60)]", views: googleButton)
-		NSLayoutConstraint(item: twitterButton,
-		                   attribute: .centerY,
-		                   relatedBy: .equal,
-		                   toItem: twitterButton.superview!,
-		                   attribute: .centerY,
-		                   multiplier: 1,
-		                   constant: 0).isActive = true
-		NSLayoutConstraint(item: twitterButton,
-		                   attribute: .centerX,
-		                   relatedBy: .equal,
-		                   toItem: twitterButton.superview!,
-		                   attribute: .centerX,
-		                   multiplier: 1,
-		                   constant: 0).isActive = true
-		NSLayoutConstraint(item: facebookButton,
-		                   attribute: .centerY,
-		                   relatedBy: .equal,
-		                   toItem: twitterButton,
-		                   attribute: .centerY,
-		                   multiplier: 1,
-		                   constant: 0).isActive = true
-		NSLayoutConstraint(item: googleButton,
-		                   attribute: .centerY,
-		                   relatedBy: .equal,
-		                   toItem: twitterButton,
-		                   attribute: .centerY,
-		                   multiplier: 1,
-		                   constant: 0).isActive = true
-		buttonsContainerView.addConstraints(withFormat: "H:|-20-[v0]", views: facebookButton)
-		buttonsContainerView.addConstraints(withFormat: "H:[v0]-20-|", views: googleButton)
 		buttonsContainerView.addConstraints(withFormat: "H:|[v0]", views: supportButton)
 		buttonsContainerView.addConstraints(withFormat: "V:[v0]|", views: supportButton)
 		buttonsContainerView.addConstraints(withFormat: "H:[v0]|", views: createAccountButton)
@@ -241,6 +202,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		loginView.center = CGPoint(x: self.view.center.x,
 		                           y: self.view.center.y + self.view.bounds.height)
 		view.addSubview(loginView)
+		
+		loginView.loginButton.layer.cornerRadius = loginView.loginButton.bounds.height / 2
+		loginView.loginButton.layer.masksToBounds = true
 		loginView.loginButton.addTarget(self, action: #selector(presentTabBarController), for: .touchUpInside)
 	}
 	
@@ -400,18 +364,16 @@ class LoginView: UIView {
 		addSubview(loginButton)
 		addSubview(restorePasswordButton)
 		
-		addConstraints(withFormat: "V:|-55-[v0(34)]-25-[v1(34)]", views: loginView, passwordView)
-		addConstraints(withFormat: "V:[v0(48)]-25-[v1]-25-|", views: loginButton, restorePasswordButton)
+//		addConstraints(withFormat: "V:|-30-[v0(34)]-25-[v1(34)]-25-[v2]", views: loginView, passwordView, loginButton)
+//		addConstraints(withFormat: "V:[v0(>=30,<=48)]-18-[v1]-18-|", views: loginButton, restorePasswordButton)
 		addConstraints(withFormat: "H:|-30-[v0]-30-|", views: loginView)
 		addConstraints(withFormat: "H:|-30-[v0]-30-|", views: passwordView)
 		addConstraints(withFormat: "H:|-30-[v0]-30-|", views: loginButton)
-		NSLayoutConstraint(item: restorePasswordButton,
-		                   attribute: .centerX,
-		                   relatedBy: .equal,
-		                   toItem: self,
-		                   attribute: .centerX,
-		                   multiplier: 1,
-		                   constant: 0).isActive = true
+		
+		addConstraints(withFormat: "V:[v0(34)]-25-[v1(34)]-25-[v2]", views: loginView, passwordView, loginButton)
+		addConstraints(withFormat: "V:[v0(>=30,<=48)]-18-[v1]-18-|", views: loginButton, restorePasswordButton)
+		passwordView.autoAlignAxis(.horizontal, toSameAxisOf: self, withOffset: -20.0)
+		restorePasswordButton.autoAlignAxis(toSuperviewAxis: .vertical)
 	}
 }
 
