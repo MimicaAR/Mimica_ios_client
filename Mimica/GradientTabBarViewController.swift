@@ -32,7 +32,8 @@ class GradientTabBarViewController: UITabBarController {
 	private func makeAllImagesGradient() {
 		for item in self.tabBar.items! {
 			item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
-			item.selectedImage = item.selectedImage?.tint(gradient: SharedStyleKit.mainGradient)
+			item.selectedImage = UIImage.tint(image: item.selectedImage!,
+			                                  gradient: SharedStyleKit.mainGradient)
 			item.selectedImage = item.selectedImage?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
 		}
 	}

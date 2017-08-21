@@ -10,6 +10,15 @@ import UIKit
 
 class DateCell: UICollectionViewCell {
 	
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		setupViews()
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
 	private let dateLabel: UILabel = UILabel()
 	
 	private let titleLabel: UILabel = UILabel()
@@ -34,15 +43,6 @@ class DateCell: UICollectionViewCell {
 				configureTitleText(withString: string)
 			}
 		}
-	}
-	
-	override init(frame: CGRect) {
-		super.init(frame: frame)
-		setupViews()
-	}
-	
-	required init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
 	}
 	
 	private func setupViews() {
@@ -91,25 +91,8 @@ class DateCell: UICollectionViewCell {
 	}
 	
 	private func layoutLabels() {
-		let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[dateLabel(60)]-10-[titleLabel]-20-|",
-		                                                           options: [],
-		                                                           metrics: nil,
-		                                                           views: ["titleLabel" : titleLabel,
-		                                                                   "dateLabel" : dateLabel])
-		
-		let verticalTitleConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-11-[titleLabel]-11-|",
-		                                                         options: [],
-		                                                         metrics: nil,
-		                                                         views: ["titleLabel" : titleLabel])
-		
-		let verticalDateConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|-11-[dateLabel]-11-|",
-		                                                             options: [],
-		                                                             metrics: nil,
-		                                                             views: ["dateLabel" : dateLabel])
-		self.addConstraints(horizontalConstraints)
-		self.addConstraints(verticalTitleConstraints)
-		self.addConstraints(verticalDateConstraints)
-		dateLabel.translatesAutoresizingMaskIntoConstraints = false
-		titleLabel.translatesAutoresizingMaskIntoConstraints = false
+		addConstraints(withFormat: "H:|-20-[v0(60)]-10-[v1]-20-|", views: dateLabel, titleLabel)
+		addConstraints(withFormat: "V:|-11-[v0]-11-|", views: titleLabel)
+		addConstraints(withFormat: "V:|-11-[v0]-11-|", views: dateLabel)
 	}
 }
