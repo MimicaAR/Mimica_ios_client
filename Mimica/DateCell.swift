@@ -19,6 +19,18 @@ class DateCell: UICollectionViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	override var isSelected: Bool {
+		didSet {
+			self.backgroundColor = isSelected ? SharedStyleKit.calendarCellSelectedColor : .white
+		}
+	}
+	
+	override var isHighlighted: Bool {
+		didSet {
+			self.backgroundColor = isHighlighted ? SharedStyleKit.calendarCellSelectedColor : .white
+		}
+	}
+	
 	private let dateLabel: UILabel = UILabel()
 	
 	private let titleLabel: UILabel = UILabel()
