@@ -166,7 +166,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		buttonsContainerView.addSubview(supportButton)
 		buttonsContainerView.addSubview(createAccountButton)
 		
-		buttonsContainerView.addConstraints(withFormat: "H:|[v0]-15-[v1]-15-[v2]|", views: leftSeparatorLine, alternativeLabel, rightSeparatorLine)
+		buttonsContainerView.addConstraints(withFormat: "H:|[v0]-15-[v1]-15-[v2]|",
+		                                    views: leftSeparatorLine, alternativeLabel, rightSeparatorLine)
 		buttonsContainerView.addConstraints(withFormat: "V:|[v0]", views: alternativeLabel)
 		buttonsContainerView.addConstraints(withFormat: "V:[v0(1)]", views: leftSeparatorLine)
 		buttonsContainerView.addConstraints(withFormat: "V:[v0(1)]", views: rightSeparatorLine)
@@ -214,7 +215,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	func presentTabBarController(){
 		let tabBarViewController = GradientTabBarViewController()
 		tabBarViewController.modalTransitionStyle = .flipHorizontal
-		present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
+		present(tabBarViewController, animated: true,
+		        completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
 	}
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
