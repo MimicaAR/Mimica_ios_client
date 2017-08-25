@@ -231,10 +231,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	}
 }
 
-
-
-
-
 class LoginView: UIView {
 	
 	override init(frame: CGRect) {
@@ -253,7 +249,7 @@ class LoginView: UIView {
 		                               gradient: SharedStyleKit.mainGradient)
 		return imageView
 	}()
-	
+	/////+++++++++++++++++++++++++++++++++++++++++++++
 	let loginTextField: UITextField = {
 		let field = UITextField()
 		field.font = UIFont(name: "Rubik-Regular", size: 17.0)
@@ -279,7 +275,7 @@ class LoginView: UIView {
 		                               gradient: SharedStyleKit.mainGradient)
 		return imageView
 	}()
-	
+	//++++++++++++++++++++++++++++++++++++++++++++++
 	let passwordTextField: UITextField = {
 		let field = UITextField()
 		field.font = UIFont(name: "Rubik-Regular", size: 17.0)
@@ -320,9 +316,7 @@ class LoginView: UIView {
 	
 	private func setupViews() {
 		setupViewBackground()
-		
 		layoutViews()
-		
 		configureLoginView()
 		configurePasswordView()
 	}

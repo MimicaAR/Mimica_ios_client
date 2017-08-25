@@ -24,7 +24,7 @@ class GradientTabBarViewController: UITabBarController {
 		view2.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "Play icon"), tag: 2)
 		
 		let view3 = UIViewController()
-		view3.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "Progress icon"), tag: 3)
+		view3.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "Chat icon"), tag: 3)
 		
 		self.viewControllers = [homeTab, view2, view3]
 	}

@@ -10,6 +10,9 @@ import Foundation
 import FirebaseDatabase
 import FirebaseStorage
 
+protocol FetchData: class {
+	func dataReceived(contacts: [Contact]);
+}
 class DBProvider {
 	private static let _instance = DBProvider()
 	
@@ -42,9 +45,9 @@ class DBProvider {
 	var imageStorageRef: StorageReference{
 		return storageRef.child(Constants.IMAGE_STORAGE)
 	}
-	/*func saveUser(withID: String, email: String, password: String) {
+	func saveUser(withID: String, email: String, password: String) {
 		let data: Dictionary<String, Any> = [Constants.EMAIL: email, Constants.PASSWORD: password]
-		contactsRef.child(withID).setValue(data)
-	
-	}*/
+		contactsRef.child(withID).setValue(data)   
+
+}
 }
