@@ -10,13 +10,13 @@ import UIKit
 import AVFoundation
 
 protocol VideoSessionManagerDelegate: class {
-	func captured(image: UIImage)
+	func foundBounds(bounds: CGRect)
 }
 
 class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureMetadataOutputObjectsDelegate {
 	private let captureSession = AVCaptureSession()
 	private let position = AVCaptureDevicePosition.front
-	private let quality = AVCaptureSessionPreset1280x720
+	private let quality = AVCaptureSessionPresetMedium
 	
 	private let context = CIContext()
 	
@@ -26,7 +26,7 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 	private var currentMetadata: [AnyObject] = []
 	
 	weak var delegate: VideoSessionManagerDelegate?
-	let layer = AVSampleBufferDisplayLayer()
+	let layer = AVCaptureVideoPreviewLayer()
 	
 	override init() {
 		super.init()
@@ -83,6 +83,8 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 		// TODO: Make for all configurations
 		connection.videoOrientation = .portrait
 		connection.isVideoMirrored = position == .front
+		layer.session = captureSession
+		layer.videoGravity = AVLayerVideoGravityResizeAspectFill
 	}
 	
 	private func selectCaptureDevice() -> AVCaptureDevice? {
@@ -97,10 +99,8 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 	func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
 		guard let uiImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
 		DispatchQueue.main.async { [unowned self] in
-			self.delegate?.captured(image: uiImage)
-			self.layer.enqueue(sampleBuffer)
+			
 		}
-		print(layer.bounds)
 	}
 	
 	// MARK: AVCaptureMetadataOutputObjectsDelegate
@@ -113,6 +113,14 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 				print("Bounds: \(faceMetaObject.bounds)")
 				print("Roll Angle: \(faceMetaObject.rollAngle)")
 				print("Yaw Angle: \(faceMetaObject.yawAngle)")
+				var convertedBound = self.layer.rectForMetadataOutputRect(ofInterest: faceMetaObject.bounds)
+				let height = (convertedBound.width * faceMetaObject.bounds.height) / faceMetaObject.bounds.width
+				let diff = height - convertedBound.height
+				convertedBound.size.height = height
+				convertedBound.origin.y -= diff
+				DispatchQueue.main.async { [unowned self] in
+					self.delegate?.foundBounds(bounds: convertedBound)
+				}
 			}
 		}
 	}

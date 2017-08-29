@@ -69,7 +69,7 @@
 		EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTabBarViewController.swift; sourceTree = "<group>"; };
 		EDFDD4031F558766006AB52A /* Mimica-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Mimica-Bridging-Header.h"; path = "Mimica/Mimica-Bridging-Header.h"; sourceTree = "<group>"; };
-		EDFDD4041F558767006AB52A /* DlibWrapperManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = DlibWrapperManager.mm; path = Mimica/DlibWrapperManager.mm; sourceTree = "<group>"; };
+		EDFDD4041F558767006AB52A /* DlibWrapperManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DlibWrapperManager.mm; sourceTree = "<group>"; };
 		F32CA15FA030EB6B4628E2C0 /* Pods_Mimica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mimica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,6 +135,7 @@
 			children = (
 				ED71D6D01F33930A0026D756 /* AppDelegate.swift */,
 				ED3509541F4F59E6000EF5F0 /* VideoSessionManager.swift */,
+				EDFDD4041F558767006AB52A /* DlibWrapperManager.mm */,
 				EDF7EFEA1F465DB700334DEE /* View Controllers */,
 				ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */,
 				ED71D6DE1F33930A0026D756 /* Info.plist */,
@@ -154,7 +155,6 @@
 				EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */,
 				EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */,
 				ED71D6F91F33A09E0026D756 /* Rubik font */,
-				EDFDD4041F558767006AB52A /* DlibWrapperManager.mm */,
 			);
 			name = Resources;
 			path = ..;
