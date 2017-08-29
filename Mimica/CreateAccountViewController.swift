@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import PureLayout
 import Firebase
 import FirebaseAuth
 
+
 @available(iOS 9.0, *)
 class CreateAccountViewController: UIViewController {
+	private let CONTACTS_SEGUE = "ContactsSegue";
+	
+	let logoImage = UIImageView(image: #imageLiteral(resourceName: "Launch logo"))
 	
 	let inputsContainerView: UIView = {
 		let view = UIView()
@@ -21,19 +26,23 @@ class CreateAccountViewController: UIViewController {
 		view.layer.masksToBounds = true
 		return view
 	}()
+	
 	lazy var registerButton : UIButton = {
 		let button = UIButton(type: .system)
-		button.backgroundColor = UIColor.black
-		button.setTitle("Register", for: .normal)
+		button.setTitle("SIGN UP", for: .normal)
+		button.setTitleColor(UIColor(white: 1.0, alpha: 0.9), for: .normal)
+		button.setTitleColor(UIColor(white: 1.0, alpha: 0.5), for: .highlighted)
+		button.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 17.0)
+		button.backgroundColor = SharedStyleKit.loginButtonColor
+		button.layer.cornerRadius = 24.0
 		button.translatesAutoresizingMaskIntoConstraints = false
-		button.layer.cornerRadius = 5
-		button.setTitleColor(UIColor.white, for: .normal)
 		button.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
 		return button
 		
 	}()
 		let nameTextField : UITextField = {
 		let text = UITextField()
+		text.font = UIFont(name: "Rubik-Regular", size: 17.0)
 		text.placeholder = "Full Name"
 		text.translatesAutoresizingMaskIntoConstraints = false
 		return text
@@ -47,6 +56,7 @@ class CreateAccountViewController: UIViewController {
 	}()
 	let emailTextField : UITextField = {
 		let text = UITextField()
+		text.font = UIFont(name: "Rubik-Regular", size: 17.0)
 		text.placeholder = "Email"
 		text.translatesAutoresizingMaskIntoConstraints = false
 		return text
@@ -60,50 +70,86 @@ class CreateAccountViewController: UIViewController {
 	}()
 	let passwordTextField : UITextField = {
 		let text = UITextField()
-		text.placeholder = "Password"
+		text.font = UIFont(name: "Rubik-Regular", size: 17.0)
+		text.placeholder = "Password (at least 6 charecters)"
 		text.translatesAutoresizingMaskIntoConstraints = false
 		text.isSecureTextEntry = true
 		return text
 	}()
 	func handleRegister() {
-		
-		Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (FIRUser, error) in
-			if error != nil {
-				print(error!)
-				return
-			}
-			guard let uid = FIRUser?.uid else {
-				return
-			}
-			//success
-			let ref = Database.database().reference(fromURL: "https://mimica-63bb5.firebaseio.com/")
-			let userReference = ref.child("clients").child(uid)
-			let values = ["Full name": self.nameTextField.text, "Email": self.emailTextField.text, "Password": self.passwordTextField.text]
-			userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-				
-				if err != nil {
-					print(err!)
-					return
+	
+		typeOfError(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!)
+		if  isValidEmail(enteredEmail: emailTextField.text!) == true {
+			AuthProvider.Instance.signUp(name: nameTextField.text!, withEmail: emailTextField.text!, password: passwordTextField.text!, loginHandler: { (message) in
+				if message != nil {
+					
+					self.alertTheUser(title: "Problem with creating new user", message: message!)
 				}
-				print("Saved user succesfully")
+				else {
+					self.emailTextField.text = ""
+					self.passwordTextField.text = ""
+					//self.performSegue(withIdentifier: self.CONTACTS_SEGUE, sender: nil)
+					
+					print("Saved user succesfully")
+				}
 			})
+//			let ref = Database.database().reference(fromURL: "https://mimica-63bb5.firebaseio.com/")
+//			let userReference = ref.child("clients").child(uid)
+//			let values = ["Full name": self.nameTextField.text, "Email": self.emailTextField.text, "Password": self.passwordTextField.text]
+//			userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+//			
+//				if err != nil {
+//					print(err!)
+//					return
+//				}
+//			
+//			})
+
+		}
+		else {
+			alertTheUser(title: "Error", message: "Incorrect e-mail adress, please repeat.")
+			}
+		
+	}
+	func typeOfError (name: String, email: String, password: String){
+		if name == ""  {
+			alertTheUser(title: "Error", message: "You should enter your full name.")
+			return
+		}
+		if email == "" {
+			alertTheUser(title: "Error", message: "You should enter your email adress.")
+			return
+		}
+		if password == "" {
+			alertTheUser(title: "Error", message: "You should enter your password.")
+			return
 		}
 	}
-	
+	func isValidEmail(enteredEmail: String) -> Bool {
+		let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+		let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+		return emailPredicate.evaluate(with: enteredEmail)
+	}
 
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
-		view.backgroundColor = UIColor.blue
-		
+		configureBGView()
 		view.addSubview(inputsContainerView)
 		view.addSubview(registerButton)
 		
 		setupInputsContainerView()
 		setupRegisterButton()
     }
-	
+	func configureBGView() {
+		view.backgroundColor = .white
+		let backgroundImageView = UIImageView(image: #imageLiteral(resourceName: "Loading screen"))
+		view.addSubview(backgroundImageView)
+		backgroundImageView.autoPinEdgesToSuperviewEdges()
+		//view.addSubview(logoImage)
+		
+		
+	}
 	func setupInputsContainerView(){
 		
 		inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -150,5 +196,18 @@ class CreateAccountViewController: UIViewController {
 		registerButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
 		registerButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
 		registerButton.heightAnchor.constraint(equalToConstant: 30)
+		registerButton.addTarget(self, action: #selector(presentTabBarController), for: .touchUpInside)
 	}
+	func presentTabBarController(){
+		let tabBarViewController = GradientTabBarViewController()
+		tabBarViewController.modalTransitionStyle = .flipHorizontal
+		present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
+	}
+	private func alertTheUser(title: String, message: String) {
+		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert);
+		let ok = UIAlertAction(title: "OK", style: .default, handler: nil);
+		alert.addAction(ok);
+		present(alert, animated: true, completion: nil);
+	}
+	
 }

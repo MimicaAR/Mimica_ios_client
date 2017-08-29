@@ -7,7 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
+@available(iOS 9.0, *)
 class HomeViewController: UIViewController,
 	UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
@@ -20,6 +23,7 @@ class HomeViewController: UIViewController,
 	override func viewDidLoad() {
         super.viewDidLoad()
 		self.setupViews()
+		setupButtonLogout()
     }
 	
 	private func setupViews() {
@@ -64,7 +68,19 @@ class HomeViewController: UIViewController,
 		                                                              target: self,
 		                                                              action: nil)
 	}
-	
+	private func setupButtonLogout() {
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+	}
+	func handleLogout() {
+		do {
+			try Auth.auth().signOut()
+		} catch let logoutError {
+			print(logoutError)
+		}
+		let loginController = LoginViewController()
+		present(loginController, animated: true, completion: nil)
+		
+	}
 	private func setupTrainNowView() {}
 	
 	override func viewWillLayoutSubviews() {

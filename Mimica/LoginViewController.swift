@@ -8,9 +8,12 @@
 
 import UIKit
 import PureLayout
+import Firebase
+import FirebaseAuth
 
+@available(iOS 9.0, *)
 class LoginViewController: UIViewController, UITextFieldDelegate {
-
+	
 	let loginView = LoginView()
 	let logoImage = UIImageView(image: #imageLiteral(resourceName: "Launch logo"))
 	let bottomView: UIView = {
@@ -208,15 +211,61 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		
 		loginView.loginButton.layer.cornerRadius = loginView.loginButton.bounds.height / 2
 		loginView.loginButton.layer.masksToBounds = true
-		loginView.loginButton.addTarget(self, action: #selector(presentTabBarController), for: .touchUpInside)
+		loginView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+		createAccountButton.addTarget(self, action: #selector(createAccount), for: .touchUpInside)
+	}
+	func createAccount() {
+		let ViewController = CreateAccountViewController()
+		ViewController.modalTransitionStyle = .flipHorizontal
+		present(ViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = ViewController})
+	}
+	func login(){
+		let object = LoginView()
+		var email = object.emailReturn()
+		var password = object.passwordReturn()
+		if   isValidEmail(enteredEmail: email) && password != "" {
+			
+			AuthProvider.Instance.login(withEmail: email, password: password, loginHandler: { (message) in
+				
+				if message != nil {
+					self.alertTheUser(title: "Problem With Authentication", message: message!);
+				} else {
+					
+					email = "";
+					password = "";
+					
+					//self.performSegue(withIdentifier: self.CONTACTS_SEGUE, sender: nil);
+					
+				}
+				
+			})
+			presentTabBarController()
+		}
+		else {
+			if isValidEmail(enteredEmail: email) == false && password == ""{
+			alertTheUser(title: "Error", message: "You should enter valid email and password")
+			}
+			if isValidEmail(enteredEmail: email) == false && password != ""{
+				alertTheUser(title: "Error", message: "You should enter email ")
+			}
+			if isValidEmail(enteredEmail: email) == true && password == ""{
+				alertTheUser(title: "Error", message: "You should enter password ")
+			}
+
+		}
 	}
 	
 	func presentTabBarController(){
-		let tabBarViewController = GradientTabBarViewController()
-		tabBarViewController.modalTransitionStyle = .flipHorizontal
-		present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
+		if Auth.auth().currentUser?.uid != nil{
+			let tabBarViewController = GradientTabBarViewController()
+			tabBarViewController.modalTransitionStyle = .flipHorizontal
+			present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
+		}
+		else {
+			
+			createAccount()
+		}
 	}
-	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		if let nextField = textField.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {
 			nextField.becomeFirstResponder()
@@ -229,10 +278,24 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	func hideKeyboard() {
 		self.view.endEditing(true)
 	}
+	func alertTheUser(title: String, message: String) {
+		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert);
+		let ok = UIAlertAction(title: "OK", style: .default, handler: nil);
+		alert.addAction(ok);
+		present(alert, animated: true, completion: nil);
+	}
+	func isValidEmail(enteredEmail: String) -> Bool {
+		let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+		let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+		return emailPredicate.evaluate(with: enteredEmail)
+	}
+	
+
 }
 
+@available(iOS 9.0, *)
 class LoginView: UIView {
-	
+	private let CONTACTS_SEGUE = "ContactsSegue";
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupViews()
@@ -249,13 +312,14 @@ class LoginView: UIView {
 		                               gradient: SharedStyleKit.mainGradient)
 		return imageView
 	}()
-	/////+++++++++++++++++++++++++++++++++++++++++++++
+	
 	let loginTextField: UITextField = {
 		let field = UITextField()
 		field.font = UIFont(name: "Rubik-Regular", size: 17.0)
 		field.placeholder = "E-mail or phone number"
 		field.keyboardType = .emailAddress
 		field.textColor = SharedStyleKit.calendarCellTitleColor
+		field.translatesAutoresizingMaskIntoConstraints = false
 		return field
 	}()
 	
@@ -275,13 +339,14 @@ class LoginView: UIView {
 		                               gradient: SharedStyleKit.mainGradient)
 		return imageView
 	}()
-	//++++++++++++++++++++++++++++++++++++++++++++++
+	
 	let passwordTextField: UITextField = {
 		let field = UITextField()
 		field.font = UIFont(name: "Rubik-Regular", size: 17.0)
 		field.textColor = SharedStyleKit.calendarCellTitleColor
 		field.placeholder = "Password"
 		field.isSecureTextEntry = true
+		field.translatesAutoresizingMaskIntoConstraints = false
 		return field
 	}()
 	
@@ -313,15 +378,28 @@ class LoginView: UIView {
 		button.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 14.0)
 		return button
 	}()
-	
-	private func setupViews() {
+	func emailReturn() -> String {
+		var text = ""
+		if (loginTextField.text != nil){
+			text = loginTextField.text!
+		}
+		return text
+	}
+	func passwordReturn() -> String {
+		var text = ""
+		if (passwordTextField.text != nil) {
+			text = passwordTextField.text!
+		}
+		return text
+	}
+		private func setupViews() {
 		setupViewBackground()
 		layoutViews()
 		configureLoginView()
 		configurePasswordView()
+		
 	}
-	
-	private func setupViewBackground() {
+		private func setupViewBackground() {
 		self.backgroundColor = .white
 		self.layer.cornerRadius = 20.0
 		//Shadow

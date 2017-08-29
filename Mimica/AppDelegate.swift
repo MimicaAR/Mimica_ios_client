@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 @available(iOS 9.0, *)
 @UIApplicationMain
@@ -20,11 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 		FirebaseApp.configure()
 		setupGlobalAppearance()
-		
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
-		window?.rootViewController = CreateAccountViewController()		//launch======
-		
+		if Auth.auth().currentUser?.uid != nil{
+			window?.rootViewController = GradientTabBarViewController()		//to rewrite!!!!
+		} else {
+			window?.rootViewController = LoginViewController()
+			}
         return true
     }
 	

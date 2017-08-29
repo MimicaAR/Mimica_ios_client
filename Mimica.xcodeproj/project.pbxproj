@@ -11,6 +11,9 @@
 		EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */; };
 		EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE71F41EFE4008EE326 /* Constants.swift */; };
 		EBB584AE1F50A4EF00DC432A /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB584AD1F50A4EF00DC432A /* CreateAccountViewController.swift */; };
+		EBB584B01F51B97300DC432A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB584AF1F51B97300DC432A /* ChatViewController.swift */; };
+		EBB584B41F52052100DC432A /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB584B31F52052100DC432A /* NewMessageViewController.swift */; };
+		EBE9F1961F54A866005F7C9D /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE9F1951F54A866005F7C9D /* MessageHandler.swift */; };
 		EBF994901F4F5D14003AD4D4 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9948F1F4F5D14003AD4D4 /* AuthProvider.swift */; };
 		EBF994921F4F61BA003AD4D4 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF994911F4F61BA003AD4D4 /* Contact.swift */; };
 		ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */; };
@@ -44,6 +47,9 @@
 		EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseProvider.swift; sourceTree = "<group>"; };
 		EB902BE71F41EFE4008EE326 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EBB584AD1F50A4EF00DC432A /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		EBB584AF1F51B97300DC432A /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		EBB584B31F52052100DC432A /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		EBE9F1951F54A866005F7C9D /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
 		EBF9948F1F4F5D14003AD4D4 /* AuthProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
 		EBF994911F4F61BA003AD4D4 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStyleKit.swift; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */,
+				EBE9F1951F54A866005F7C9D /* MessageHandler.swift */,
 				EBF9948F1F4F5D14003AD4D4 /* AuthProvider.swift */,
 			);
 			name = Plugins;
@@ -213,8 +220,10 @@
 			isa = PBXGroup;
 			children = (
 				ED96A7231F478C85008A32DC /* LoginViewController.swift */,
+				EBB584B31F52052100DC432A /* NewMessageViewController.swift */,
 				EBB584AD1F50A4EF00DC432A /* CreateAccountViewController.swift */,
 				EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */,
+				EBB584AF1F51B97300DC432A /* ChatViewController.swift */,
 				ED71D6D21F33930A0026D756 /* HomeViewController.swift */,
 			);
 			name = "View Controllers";
@@ -352,27 +361,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mimica/Pods-Mimica-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -393,12 +396,15 @@
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
 				EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */,
 				EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */,
+				EBB584B41F52052100DC432A /* NewMessageViewController.swift in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
+				EBE9F1961F54A866005F7C9D /* MessageHandler.swift in Sources */,
 				EBF994901F4F5D14003AD4D4 /* AuthProvider.swift in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
 				EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */,
 				ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */,
 				ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */,
+				EBB584B01F51B97300DC432A /* ChatViewController.swift in Sources */,
 				ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

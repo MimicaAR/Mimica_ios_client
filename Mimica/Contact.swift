@@ -12,9 +12,11 @@ class Contact {
 	private var _name = ""
 	private var _id = ""
 	
-	init(id: String, name: String) {
+	
+	init(id: String,name: String) {
 		_id = id
 		_name = name
+	
 	}
 	
 	var name: String {
@@ -25,5 +27,6 @@ class Contact {
 	var id: String {
 		return _id
 	}
+
 }
 

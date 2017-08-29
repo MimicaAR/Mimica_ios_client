@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 9.0, *)
 class GradientTabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
@@ -23,10 +24,10 @@ class GradientTabBarViewController: UITabBarController {
 		let view2 = UIViewController()
 		view2.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "Play icon"), tag: 2)
 		
-		let view3 = UIViewController()
-		view3.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "Chat icon"), tag: 3)
+		let  chat = UINavigationController(rootViewController: ChatViewController())
+		chat.tabBarItem = UITabBarItem(title: nil, image: #imageLiteral(resourceName: "Chat icon"), tag: 3)
 		
-		self.viewControllers = [homeTab, view2, view3]
+		self.viewControllers = [homeTab, view2, chat]
 	}
 	
 	private func makeAllImagesGradient() {

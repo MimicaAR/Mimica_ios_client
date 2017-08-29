@@ -9,40 +9,41 @@
 import Foundation
 import FirebaseAuth
 
-/*typealias LoginHandler = (_ msg: String?) -> Void
+typealias LoginHandler = (_ msg: String?) -> Void;
+
 struct LoginErrorCode {
-	static let INVALID_EMAIL = "Invalid Email adress, please provide a real Email adress"
-	static let WRONG_PASSWORD = "Wrong password, please repeat"
-	static let PROBLEM_CONNECTING = "Sorry, you have problems of connecting to our server, please try again"
-	static let USER_NOT_FOUND = "User not found, please, register"
-	static let EMAIL_ALREDY_IN_USE = "Email already in use, please use another Email adress"
-	static let WEAK_PASSWORD = "Password should be at least 6 characters long"
+	static let INVALID_EMAIL = "Invalid Email Address, Please Provide A Real Email Address";
+	static let WRONG_PASSWORD = "Wrong Password, Please Enter The Correct Password";
+	static let PROBLEM_CONNECTING = "Problem Connecting To Database, Please Try Later";
+	static let USER_NOT_FOUND = "User Not Found, Please Register";
+	static let EMAIL_ALREADY_IN_USE = "Email Already In Use, Please Use Another Email";
+	static let WEAK_PASSWORD = "Password Should Be At Least 6 Characters Long";
 }
 
 class AuthProvider {
-	private static let _instance = AuthProvider()
+	private static let _instance = AuthProvider();
 	
 	static var Instance: AuthProvider {
-		return _instance
+		return _instance;
 	}
+	
 	var userName = "";
 	
 	func login(withEmail: String, password: String, loginHandler: LoginHandler?) {
 		
 		Auth.auth().signIn(withEmail: withEmail, password: password, completion: { (user, error) in
 			
-			
 			if error != nil {
-				self.handleErrors(err: error! as NSError, loginHandler: loginHandler)
+				self.handleErrors(err: error as! NSError, loginHandler: loginHandler);
+			} else {
+				loginHandler?(nil);
 			}
-			else {
-				loginHandler?(nil)
-			}
-		})
-	}//login function-------------
+			
+		});
+		
+	} // login func
 	
-
-	func signUp(withEmail: String, password: String, loginHandler: LoginHandler?) {
+	func signUp(name: String, withEmail: String, password: String, loginHandler: LoginHandler?) {
 		
 		Auth.auth().createUser(withEmail: withEmail, password: password, completion: { (user, error) in
 			
@@ -53,7 +54,7 @@ class AuthProvider {
 				if user?.uid != nil {
 					
 					// store the user to database
-					DBProvider.Instance.saveUser(withID: user!.uid, email: withEmail, password: password);
+					DBProvider.Instance.saveUser(withID: user!.uid, name: name, email: withEmail, password: password);
 					
 					// login the user
 					self.login(withEmail: withEmail, password: password, loginHandler: loginHandler);
@@ -90,29 +91,29 @@ class AuthProvider {
 		return Auth.auth().currentUser!.uid;
 	}
 	
-	/*private func handleErrors(err: NSError, loginHandler: LoginHandler?) {
+	private func handleErrors(err: NSError, loginHandler: LoginHandler?) {
 		
 		if let errCode = AuthErrorCode(rawValue: err.code) {
 			
 			switch errCode {
 				
-			case .errorCodeWrongPassword:
+			case .wrongPassword:
 				loginHandler?(LoginErrorCode.WRONG_PASSWORD);
 				break;
 				
-			case .errorCodeInvalidEmail:
+			case .invalidEmail:
 				loginHandler?(LoginErrorCode.INVALID_EMAIL);
 				break;
 				
-			case .errorCodeUserNotFound:
+			case .userNotFound:
 				loginHandler?(LoginErrorCode.USER_NOT_FOUND);
 				break;
 				
-			case .errorCodeEmailAlreadyInUse:
+			case .emailAlreadyInUse:
 				loginHandler?(LoginErrorCode.EMAIL_ALREADY_IN_USE);
 				break;
 				
-			case .errorCodeWeakPassword:
+			case .weakPassword:
 				loginHandler?(LoginErrorCode.WEAK_PASSWORD);
 				break;
 				
@@ -124,8 +125,8 @@ class AuthProvider {
 			
 		}
 		
-	}*/
-
-}*/
+	}
+	
+}
 
 
