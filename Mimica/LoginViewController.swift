@@ -220,10 +220,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		present(ViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = ViewController})
 	}
 	func login(){
-		let object = LoginView()
-		var email = object.emailReturn()
-		var password = object.passwordReturn()
-		if   isValidEmail(enteredEmail: email) && password != "" {
+		guard let email = loginView.loginTextField.text, let password = loginView.loginTextField.text else { return }
+		if isValidEmail(enteredEmail: email) && password != "" {
 			
 			AuthProvider.Instance.login(withEmail: email, password: password, loginHandler: { (message) in
 				
@@ -231,8 +229,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 					self.alertTheUser(title: "Problem With Authentication", message: message!);
 				} else {
 					
-					email = "";
-					password = "";
 					
 					//self.performSegue(withIdentifier: self.CONTACTS_SEGUE, sender: nil);
 					
@@ -293,7 +289,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 }
 
-@available(iOS 9.0, *)
 class LoginView: UIView {
 	private let CONTACTS_SEGUE = "ContactsSegue";
 	override init(frame: CGRect) {
@@ -378,28 +373,15 @@ class LoginView: UIView {
 		button.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 14.0)
 		return button
 	}()
-	func emailReturn() -> String {
-		var text = ""
-		if (loginTextField.text != nil){
-			text = loginTextField.text!
-		}
-		return text
-	}
-	func passwordReturn() -> String {
-		var text = ""
-		if (passwordTextField.text != nil) {
-			text = passwordTextField.text!
-		}
-		return text
-	}
-		private func setupViews() {
+	
+	private func setupViews() {
 		setupViewBackground()
 		layoutViews()
 		configureLoginView()
 		configurePasswordView()
 		
 	}
-		private func setupViewBackground() {
+	private func setupViewBackground() {
 		self.backgroundColor = .white
 		self.layer.cornerRadius = 20.0
 		//Shadow
