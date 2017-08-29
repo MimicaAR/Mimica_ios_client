@@ -9,34 +9,28 @@
 import UIKit
 import AVFoundation
 
-class ExercisingViewController: UIViewController, VideoSessionManagerDelegate {
+class ExercisingViewController: UIViewController {
 
 	var videoManager: VideoSessionManager!
-	let imageView = UIImageView()
 	let boundView = UIView()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		view = UIView(frame: UIScreen.main.bounds)
-		view.addSubview(imageView)
 		view.addSubview(boundView)
 		boundView.layer.borderWidth = 2.0
 		boundView.layer.borderColor = UIColor.yellow.cgColor
 		
-		imageView.contentMode = .scaleAspectFill
-		imageView.autoPinEdgesToSuperviewEdges()
 		videoManager = VideoSessionManager()
-		videoManager.delegate = self
+		
+		view.layer.addSublayer(videoManager.layer)
+		videoManager.layer.frame = view.bounds
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	
-	func captured(image: UIImage) {
-		imageView.image = image
-	}
 	
 }
 

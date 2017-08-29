@@ -13,17 +13,20 @@ protocol VideoSessionManagerDelegate: class {
 	func captured(image: UIImage)
 }
 
-class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureMetadataOutputObjectsDelegate {
 	private let captureSession = AVCaptureSession()
 	private let position = AVCaptureDevicePosition.front
-	private let quality = AVCaptureSessionPresetMedium
+	private let quality = AVCaptureSessionPreset1280x720
 	
 	private let context = CIContext()
 	
-	private let sessionQueue = DispatchQueue(label: "io.mimica.mimica_ios.sessionQueue")
+	 let sessionQueue = DispatchQueue(label: "io.mimica.mimica_ios.sessionQueue")
 	private var permissionGranted = false
 	
+	private var currentMetadata: [AnyObject] = []
+	
 	weak var delegate: VideoSessionManagerDelegate?
+	let layer = AVSampleBufferDisplayLayer()
 	
 	override init() {
 		super.init()
@@ -68,9 +71,16 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 		guard captureSession.canAddOutput(videoOutput) else { return }
 		captureSession.addOutput(videoOutput)
 		
+		let metaOutput = AVCaptureMetadataOutput()
+		metaOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue(label: "io.mimica.mimica_ios.faceQueue"))
+		guard captureSession.canAddOutput(metaOutput) else { return }
+		captureSession.addOutput(metaOutput)
+		metaOutput.metadataObjectTypes = [AVMetadataObjectTypeFace]
+		
 		guard let connection = videoOutput.connection(withMediaType: AVFoundation.AVMediaTypeVideo) else { return }
 		guard connection.isVideoOrientationSupported else { return }
 		guard connection.isVideoMirroringSupported else { return }
+		// TODO: Make for all configurations
 		connection.videoOrientation = .portrait
 		connection.isVideoMirrored = position == .front
 	}
@@ -82,10 +92,28 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 			}.first as? AVCaptureDevice
 	}
 	
+	// MARK: AVCaptureVideoDataOutputSampleBufferDelegate
+	
 	func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
 		guard let uiImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
 		DispatchQueue.main.async { [unowned self] in
-			self.delegate?.captured(image: uiImage, frame: features?.first?.bounds)
+			self.delegate?.captured(image: uiImage)
+			self.layer.enqueue(sampleBuffer)
+		}
+		print(layer.bounds)
+	}
+	
+	// MARK: AVCaptureMetadataOutputObjectsDelegate
+	
+	func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+		for metadataObject in metadataObjects as! [AVMetadataObject] {
+			if metadataObject.type == AVMetadataObjectTypeFace {
+				let faceMetaObject = metadataObject as! AVMetadataFaceObject
+				print("ID: \(faceMetaObject.faceID)")
+				print("Bounds: \(faceMetaObject.bounds)")
+				print("Roll Angle: \(faceMetaObject.rollAngle)")
+				print("Yaw Angle: \(faceMetaObject.yawAngle)")
+			}
 		}
 	}
 	
