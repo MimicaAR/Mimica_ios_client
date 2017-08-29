@@ -13,6 +13,7 @@ target 'Mimica' do
 	pod 'Firebase/Core'
     
     pod 'PureLayout'
+    pod 'dlib', '~> 19.4'
 
   # Pods for Mimica
 
