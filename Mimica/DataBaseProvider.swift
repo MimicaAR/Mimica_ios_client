@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseStorage
 
 protocol FetchData: class {
-	func dataReceived(contacts: [Contact]);
+	func dataReceived(contacts: [User]);
 }
 class DBProvider {
 	private static let _instance = DBProvider()
@@ -45,34 +45,34 @@ class DBProvider {
 		return storageRef.child(Constants.IMAGE_STORAGE)
 	}
 	func saveUser(withID: String, name: String, email: String, password: String) {
-		let data: Dictionary<String, Any> = [Constants.NAME: name, Constants.EMAIL: email, Constants.PASSWORD: password]
+		let data: Dictionary<String, Any> = [Constants.NAME: name, Constants.EMAIL: email]
 		contactsRef.child(withID).setValue(data)   
 
 	}
-	func getContacts() {
-		
-		contactsRef.observeSingleEvent(of: DataEventType.value) {
-			(snapshot: DataSnapshot) in
-			var contacts = [Contact]();
-			
-			if let myContacts = snapshot.value as? NSDictionary {
-				
-				for (key, value) in myContacts {
-					
-					if let contactData = value as? NSDictionary {
-						
-						if let email = contactData[Constants.EMAIL] as? String {
-							
-							let id = key as! String;
-							let newContact = Contact(id: id, name: email);
-							contacts.append(newContact);
-						}
-					}
-				}
-			}
-			self.delegate?.dataReceived(contacts: contacts);
-		}
-		
-	}
+//	func getContacts() {
+//		
+//		contactsRef.observeSingleEvent(of: DataEventType.value) {
+//			(snapshot: DataSnapshot) in
+//			var contacts = [Contact]();
+//			
+//			if let myContacts = snapshot.value as? NSDictionary {
+//				
+//				for (key, value) in myContacts {
+//					
+//					if let contactData = value as? NSDictionary {
+//						
+//						if let email = contactData[Constants.EMAIL] as? String {
+//							
+//							let id = key as! String;
+//							let newContact = (id: id, name: email);
+//							contacts.append(newContact);
+//						}
+//					}
+//				}
+//			}
+//			self.delegate?.dataReceived(contacts: contacts);
+//		}
+//		
+//	}
 
 }

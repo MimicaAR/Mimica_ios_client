@@ -220,7 +220,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		present(ViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = ViewController})
 	}
 	func login(){
-		guard let email = loginView.loginTextField.text, let password = loginView.loginTextField.text else { return }
+		guard let email = loginView.loginTextField.text else { return }
+		guard let password = loginView.passwordTextField.text else { return }
 		if isValidEmail(enteredEmail: email) && password != "" {
 			
 			AuthProvider.Instance.login(withEmail: email, password: password, loginHandler: { (message) in
@@ -252,15 +253,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	}
 	
 	func presentTabBarController(){
-		if Auth.auth().currentUser?.uid != nil{
-			let tabBarViewController = GradientTabBarViewController()
-			tabBarViewController.modalTransitionStyle = .flipHorizontal
-			present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
-		}
-		else {
-			
-			createAccount()
-		}
+		
+		let tabBarViewController = GradientTabBarViewController()
+		tabBarViewController.modalTransitionStyle = .flipHorizontal
+		present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
 	}
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 		if let nextField = textField.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {

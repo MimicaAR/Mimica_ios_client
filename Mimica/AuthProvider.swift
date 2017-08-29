@@ -46,7 +46,7 @@ class AuthProvider {
 	func signUp(name: String, withEmail: String, password: String, loginHandler: LoginHandler?) {
 		
 		Auth.auth().createUser(withEmail: withEmail, password: password, completion: { (user, error) in
-			
+		
 			if error != nil {
 				self.handleErrors(err: error! as NSError, loginHandler: loginHandler);
 			} else {
@@ -55,6 +55,7 @@ class AuthProvider {
 					
 					// store the user to database
 					DBProvider.Instance.saveUser(withID: user!.uid, name: name, email: withEmail, password: password);
+				
 					
 					// login the user
 					self.login(withEmail: withEmail, password: password, loginHandler: loginHandler);

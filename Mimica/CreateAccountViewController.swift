@@ -27,6 +27,7 @@ class CreateAccountViewController: UIViewController {
 		return view
 	}()
 	
+
 	lazy var registerButton : UIButton = {
 		let button = UIButton(type: .system)
 		button.setTitle("SIGN UP", for: .normal)
@@ -88,29 +89,16 @@ class CreateAccountViewController: UIViewController {
 				else {
 					self.emailTextField.text = ""
 					self.passwordTextField.text = ""
-					//self.performSegue(withIdentifier: self.CONTACTS_SEGUE, sender: nil)
-					
 					print("Saved user succesfully")
 				}
 			})
-//			let ref = Database.database().reference(fromURL: "https://mimica-63bb5.firebaseio.com/")
-//			let userReference = ref.child("clients").child(uid)
-//			let values = ["Full name": self.nameTextField.text, "Email": self.emailTextField.text, "Password": self.passwordTextField.text]
-//			userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-//			
-//				if err != nil {
-//					print(err!)
-//					return
-//				}
-//			
-//			})
-
 		}
 		else {
 			alertTheUser(title: "Error", message: "Incorrect e-mail adress, please repeat.")
 			}
 		
 	}
+	
 	func typeOfError (name: String, email: String, password: String){
 		if name == ""  {
 			alertTheUser(title: "Error", message: "You should enter your full name.")
@@ -137,9 +125,9 @@ class CreateAccountViewController: UIViewController {
 		configureBGView()
 		view.addSubview(inputsContainerView)
 		view.addSubview(registerButton)
-		
 		setupInputsContainerView()
 		setupRegisterButton()
+		
     }
 	func configureBGView() {
 		view.backgroundColor = .white
@@ -147,9 +135,8 @@ class CreateAccountViewController: UIViewController {
 		view.addSubview(backgroundImageView)
 		backgroundImageView.autoPinEdgesToSuperviewEdges()
 		//view.addSubview(logoImage)
-		
-		
 	}
+	
 	func setupInputsContainerView(){
 		
 		inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
