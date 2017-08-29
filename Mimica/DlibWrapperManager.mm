@@ -10,7 +10,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 
-
 #include <dlib/image_processing/frontal_face_detector.h>
 #include <dlib/image_processing.h>
 #include <dlib/image_io.h>
@@ -25,7 +24,7 @@
 
 @implementation DlibWrapperManager
 
-+ (dlib::array2d<dlib::bgr_pixel>)convertSampleBuffer:(CMSampleBufferRef) sampleBuffer{
++ (dlib::array2d<dlib::bgr_pixel> *)convertSampleBuffer:(CMSampleBufferRef) sampleBuffer{
 	
 	dlib::array2d<dlib::bgr_pixel> img;
 	
@@ -58,7 +57,7 @@
 		}
 	}
 	CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
-	return img;
+	return &img;
 }
 
 + (void)copyDlibVector:(dlib::array2d<dlib::bgr_pixel>)image toSampleBuffer:(CMSampleBufferRef) sampleBuffer{

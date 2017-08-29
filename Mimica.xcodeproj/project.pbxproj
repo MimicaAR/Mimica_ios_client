@@ -14,6 +14,9 @@
 		ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */; };
 		ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */; };
 		ED3509551F4F59E6000EF5F0 /* VideoSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3509541F4F59E6000EF5F0 /* VideoSessionManager.swift */; };
+		ED3ED0C61F56164300355BDF /* libdlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3ED0C51F56164300355BDF /* libdlib.a */; };
+		ED3ED0C81F562C7700355BDF /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED3ED0C71F562C7700355BDF /* source.cpp */; };
+		ED3ED0CA1F56333B00355BDF /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3ED0C91F56333B00355BDF /* libjpeg.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D01F33930A0026D756 /* AppDelegate.swift */; };
 		ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D21F33930A0026D756 /* HomeViewController.swift */; };
 		ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */; };
@@ -47,6 +50,9 @@
 		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStyleKit.swift; sourceTree = "<group>"; };
 		ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gradient.swift"; sourceTree = "<group>"; };
 		ED3509541F4F59E6000EF5F0 /* VideoSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSessionManager.swift; sourceTree = "<group>"; };
+		ED3ED0C51F56164300355BDF /* libdlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdlib.a; path = Mimica/lib/libdlib.a; sourceTree = "<group>"; };
+		ED3ED0C71F562C7700355BDF /* source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = source.cpp; path = Mimica/lib/dlib/all/source.cpp; sourceTree = "<group>"; };
+		ED3ED0C91F56333B00355BDF /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = ../../../../usr/local/Cellar/jpeg/9b/lib/libjpeg.a; sourceTree = "<group>"; };
 		ED71D6CD1F33930A0026D756 /* Mimica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED71D6D01F33930A0026D756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED71D6D21F33930A0026D756 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED3ED0CA1F56333B00355BDF /* libjpeg.a in Frameworks */,
+				ED3ED0C61F56164300355BDF /* libdlib.a in Frameworks */,
 				F4BD2A1B29613764696B4A97 /* Pods_Mimica.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +105,7 @@
 		BDDCA01294882383E57AD416 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED3ED0C91F56333B00355BDF /* libjpeg.a */,
 				F32CA15FA030EB6B4628E2C0 /* Pods_Mimica.framework */,
 			);
 			name = Frameworks;
@@ -114,6 +123,8 @@
 		ED71D6C41F33930A0026D756 = {
 			isa = PBXGroup;
 			children = (
+				ED3ED0C51F56164300355BDF /* libdlib.a */,
+				ED3ED0C71F562C7700355BDF /* source.cpp */,
 				ED71D6CF1F33930A0026D756 /* Mimica */,
 				ED71D6CE1F33930A0026D756 /* Products */,
 				B90670EAB6A54C5B60B64A11 /* Pods */,
@@ -389,6 +400,7 @@
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				EDFDD4051F558767006AB52A /* DlibWrapperManager.mm in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
+				ED3ED0C81F562C7700355BDF /* source.cpp in Sources */,
 				EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */,
 				ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */,
 				ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */,
@@ -514,16 +526,99 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_CXX0X_EXTENSIONS = NO;
 				DEVELOPMENT_TEAM = S6T4VJ437P;
+				ENABLE_NS_ASSERTIONS = YES;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+					"$(inherited)",
+					"GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+					DLIB_NO_GUI_SUPPORT,
+					NDEBUG,
+					DLIB_USE_BLAS,
+					DLIB_USE_LAPACK,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseRemoteConfig\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseUI\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSignIn\"",
+					"\"${PODS_ROOT}/Headers/Public/TwitterCore\"",
+					"\"${PODS_ROOT}/Headers/Public/TwitterKit\"",
+					"$(PROJECT_DIR)/Mimica/lib",
+				);
 				INFOPLIST_FILE = Mimica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(OTHER_CFLAGS)",
-					"-std=c++11",
-					"-stdlib=libc++",
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mimica/lib",
+					/usr/local/Cellar/jpeg/9b/lib,
 				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts/Bolts.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKCoreKit/FBSDKCoreKit.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKLoginKit/FBSDKLoginKit.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMOAuth2/GTMOAuth2.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMSessionFetcher/GTMSessionFetcher.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf/Protobuf.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PureLayout/PureLayout.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage/SDWebImage.framework/Headers\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseRemoteConfig\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseUI\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSignIn\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/TwitterCore\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/TwitterKit\"",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -623,13 +718,13 @@
 					"\"TwitterKit\"",
 					"-framework",
 					"\"UIKit\"",
-					"-std=c++11",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = by.bsuir.linnik.Mimica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mimica/Mimica-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Debug;
 		};
@@ -646,14 +741,96 @@
 				DEVELOPMENT_TEAM = S6T4VJ437P;
 				GCC_INPUT_FILETYPE = automatic;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"$(inherited)",
+					"GTM_OAUTH2_USE_FRAMEWORK_IMPORTS=1",
+					"$(inherited)",
+					"GPB_USE_PROTOBUF_FRAMEWORK_IMPORTS=1",
+					DLIB_NO_GUI_SUPPORT,
+					NDEBUG,
+					DLIB_USE_BLAS,
+					DLIB_USE_LAPACK,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_ROOT}/Firebase/Core/Sources",
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseRemoteConfig\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseUI\"",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSignIn\"",
+					"\"${PODS_ROOT}/Headers/Public/TwitterCore\"",
+					"\"${PODS_ROOT}/Headers/Public/TwitterKit\"",
+					"$(PROJECT_DIR)/Mimica/lib",
+				);
 				INFOPLIST_FILE = Mimica/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_CPLUSPLUSFLAGS = (
-					"$(OTHER_CFLAGS)",
-					"-std=c++11",
-					"-stdlib=libc++",
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Mimica/lib",
+					/usr/local/Cellar/jpeg/9b/lib,
 				);
+				OTHER_CFLAGS = (
+					"$(inherited)",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Bolts/Bolts.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKCoreKit/FBSDKCoreKit.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/FBSDKLoginKit/FBSDKLoginKit.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMOAuth2/GTMOAuth2.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GTMSessionFetcher/GTMSessionFetcher.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Protobuf/Protobuf.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PureLayout/PureLayout.framework/Headers\"",
+					"-iquote",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/SDWebImage/SDWebImage.framework/Headers\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Fabric\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/Firebase\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAnalytics\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseAuth\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseCore\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseDatabase\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseInstanceID\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseRemoteConfig\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseStorage\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/FirebaseUI\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/GoogleSignIn\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/TwitterCore\"",
+					"-isystem",
+					"\"${PODS_ROOT}/Headers/Public/TwitterKit\"",
+				);
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -753,12 +930,12 @@
 					"\"TwitterKit\"",
 					"-framework",
 					"\"UIKit\"",
-					"-std=c++11",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = by.bsuir.linnik.Mimica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mimica/Mimica-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				SYSTEM_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Release;
 		};
