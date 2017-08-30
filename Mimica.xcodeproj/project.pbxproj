@@ -16,7 +16,8 @@
 		ED3509551F4F59E6000EF5F0 /* VideoSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3509541F4F59E6000EF5F0 /* VideoSessionManager.swift */; };
 		ED3ED0C61F56164300355BDF /* libdlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3ED0C51F56164300355BDF /* libdlib.a */; };
 		ED3ED0C81F562C7700355BDF /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED3ED0C71F562C7700355BDF /* source.cpp */; };
-		ED3ED0CA1F56333B00355BDF /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3ED0C91F56333B00355BDF /* libjpeg.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		ED70C5D91F57043E00BE9587 /* DlibWrapperManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70C5D71F57043E00BE9587 /* DlibWrapperManager.mm */; };
+		ED70C5DB1F5704EE00BE9587 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED70C5DA1F5704EE00BE9587 /* Accelerate.framework */; };
 		ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D01F33930A0026D756 /* AppDelegate.swift */; };
 		ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D21F33930A0026D756 /* HomeViewController.swift */; };
 		ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */; };
@@ -36,7 +37,6 @@
 		EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */; };
 		EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */; };
 		EDF7EFEC1F465DF100334DEE /* GradientTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */; };
-		EDFDD4051F558767006AB52A /* DlibWrapperManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4041F558767006AB52A /* DlibWrapperManager.mm */; };
 		F4BD2A1B29613764696B4A97 /* Pods_Mimica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F32CA15FA030EB6B4628E2C0 /* Pods_Mimica.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +53,9 @@
 		ED3ED0C51F56164300355BDF /* libdlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdlib.a; path = Mimica/lib/libdlib.a; sourceTree = "<group>"; };
 		ED3ED0C71F562C7700355BDF /* source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = source.cpp; path = Mimica/lib/dlib/all/source.cpp; sourceTree = "<group>"; };
 		ED3ED0C91F56333B00355BDF /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = ../../../../usr/local/Cellar/jpeg/9b/lib/libjpeg.a; sourceTree = "<group>"; };
+		ED70C5D71F57043E00BE9587 /* DlibWrapperManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = DlibWrapperManager.mm; path = Mimica/DlibWrapperManager.mm; sourceTree = "<group>"; };
+		ED70C5D81F57043E00BE9587 /* DlibWrapperManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlibWrapperManager.h; path = Mimica/DlibWrapperManager.h; sourceTree = "<group>"; };
+		ED70C5DA1F5704EE00BE9587 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		ED71D6CD1F33930A0026D756 /* Mimica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED71D6D01F33930A0026D756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED71D6D21F33930A0026D756 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +78,6 @@
 		EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTabBarViewController.swift; sourceTree = "<group>"; };
 		EDFDD4031F558766006AB52A /* Mimica-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Mimica-Bridging-Header.h"; path = "Mimica/Mimica-Bridging-Header.h"; sourceTree = "<group>"; };
-		EDFDD4041F558767006AB52A /* DlibWrapperManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DlibWrapperManager.mm; sourceTree = "<group>"; };
 		F32CA15FA030EB6B4628E2C0 /* Pods_Mimica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mimica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED3ED0CA1F56333B00355BDF /* libjpeg.a in Frameworks */,
+				ED70C5DB1F5704EE00BE9587 /* Accelerate.framework in Frameworks */,
 				ED3ED0C61F56164300355BDF /* libdlib.a in Frameworks */,
 				F4BD2A1B29613764696B4A97 /* Pods_Mimica.framework in Frameworks */,
 			);
@@ -105,6 +107,7 @@
 		BDDCA01294882383E57AD416 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED70C5DA1F5704EE00BE9587 /* Accelerate.framework */,
 				ED3ED0C91F56333B00355BDF /* libjpeg.a */,
 				F32CA15FA030EB6B4628E2C0 /* Pods_Mimica.framework */,
 			);
@@ -123,6 +126,8 @@
 		ED71D6C41F33930A0026D756 = {
 			isa = PBXGroup;
 			children = (
+				ED70C5D71F57043E00BE9587 /* DlibWrapperManager.mm */,
+				ED70C5D81F57043E00BE9587 /* DlibWrapperManager.h */,
 				ED3ED0C51F56164300355BDF /* libdlib.a */,
 				ED3ED0C71F562C7700355BDF /* source.cpp */,
 				ED71D6CF1F33930A0026D756 /* Mimica */,
@@ -146,7 +151,6 @@
 			children = (
 				ED71D6D01F33930A0026D756 /* AppDelegate.swift */,
 				ED3509541F4F59E6000EF5F0 /* VideoSessionManager.swift */,
-				EDFDD4041F558767006AB52A /* DlibWrapperManager.mm */,
 				EDF7EFEA1F465DB700334DEE /* View Controllers */,
 				ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */,
 				ED71D6DE1F33930A0026D756 /* Info.plist */,
@@ -397,8 +401,8 @@
 				EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */,
 				ED0127F11F4DD9910054B3D8 /* ExercisingViewController.swift in Sources */,
 				ED3509551F4F59E6000EF5F0 /* VideoSessionManager.swift in Sources */,
+				ED70C5D91F57043E00BE9587 /* DlibWrapperManager.mm in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
-				EDFDD4051F558767006AB52A /* DlibWrapperManager.mm in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
 				ED3ED0C81F562C7700355BDF /* source.cpp in Sources */,
 				EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */,

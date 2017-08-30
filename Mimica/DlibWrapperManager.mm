@@ -1,30 +1,52 @@
 //
 //  DlibWrapperManager.mm
-//  Mimica
+//  DisplayLiveSamples
 //
-//  Created by Gleb Linnik on 26.08.17.
-//  Copyright © 2017 Mimica. All rights reserved.
+//  Created by Luis Reisewitz on 16.05.16.
+//  Copyright © 2016 ZweiGraf. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <AVFoundation/AVFoundation.h>
+#import "DlibWrapperManager.h"
 #import <UIKit/UIKit.h>
 
-#include <dlib/image_processing/frontal_face_detector.h>
 #include <dlib/image_processing.h>
 #include <dlib/image_io.h>
 
-@interface DlibWrapperManager : NSObject
+@interface DlibWrapperManager ()
 
-+ (dlib::array2d<dlib::bgr_pixel>)convertSampleBuffer:(CMSampleBufferRef) sampleBuffer;
-+ (void)copyDlibVector:(dlib::array2d<dlib::bgr_pixel>)image toSampleBuffer:(CMSampleBufferRef) sampleBuffer;
+@property (assign) BOOL prepared;
+
 + (std::vector<dlib::rectangle>)convertCGRectValueArray:(NSArray<NSValue *> *)rects;
 
 @end
+@implementation DlibWrapperManager {
+	dlib::shape_predictor sp;
+}
 
-@implementation DlibWrapperManager
 
-+ (dlib::array2d<dlib::bgr_pixel> *)convertSampleBuffer:(CMSampleBufferRef) sampleBuffer{
+- (instancetype)init {
+	self = [super init];
+	if (self) {
+		_prepared = NO;
+	}
+	return self;
+}
+
+- (void)prepare {
+	NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"shape_predictor_68_face_landmarks" ofType:@"dat"];
+	std::string modelFileNameCString = [modelFileName UTF8String];
+	
+	dlib::deserialize(modelFileNameCString) >> sp;
+	
+	// FIXME: test this stuff for memory leaks (cpp object destruction)
+	self.prepared = YES;
+}
+
+- (void)doWorkOnSampleBuffer:(CMSampleBufferRef)sampleBuffer inRects:(NSArray<NSValue *> *)rects {
+	
+	if (!self.prepared) {
+		[self prepare];
+	}
 	
 	dlib::array2d<dlib::bgr_pixel> img;
 	
@@ -56,33 +78,38 @@
 			pixel = newpixel;
 		}
 	}
-	CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
-	return &img;
-}
-
-+ (void)copyDlibVector:(dlib::array2d<dlib::bgr_pixel>)image toSampleBuffer:(CMSampleBufferRef) sampleBuffer{
-	image.reset();
-	size_t width = image.nc();
-	size_t height = image.nr();
-	size_t rowBytes = image.width_step();
-
-	CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
-	CVPixelBufferLockBaseAddress(imageBuffer, 0);
 	
-	unsigned char *baseBuffer = (unsigned char *) CVPixelBufferGetBaseAddress(imageBuffer);
-
-
+	// convert the face bounds list to dlib format
+	std::vector<dlib::rectangle> convertedRectangles = [DlibWrapperManager convertCGRectValueArray:rects];
+	
+	// for every detected face
+	for (unsigned long j = 0; j < convertedRectangles.size(); ++j) {
+		dlib::rectangle oneFaceRect = convertedRectangles[j];
+		
+		// detect all landmarks
+		dlib::full_object_detection shape = sp(img, oneFaceRect);
+		
+		// and draw them into the image (samplebuffer)
+		for (unsigned long k = 0; k < shape.num_parts(); k++) {
+			dlib::point p = shape.part(k);
+			draw_solid_circle(img, p, 3, dlib::rgb_pixel(0, 255, 255));
+		}
+	}
+	
+	// copy dlib image data back into samplebuffer
+	img.reset();
 	for (size_t yy = 0; yy < height; ++yy) {
 		unsigned char *row = baseBuffer + (rowBytes * yy);
 		for (size_t xx = 0; xx < width; ++xx) {
-			image.move_next();
-			const dlib::bgr_pixel& pixel = image.element();
+			img.move_next();
+			const dlib::bgr_pixel& pixel = img.element();
 			
 			row[xx * 4] = pixel.blue;
 			row[(xx * 4) + 1] = pixel.green;
 			row[(xx * 4) + 2] = pixel.red;
 		}
 	}
+	
 	CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
 }
 
