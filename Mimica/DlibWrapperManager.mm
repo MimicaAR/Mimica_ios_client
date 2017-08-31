@@ -1,9 +1,9 @@
 //
 //  DlibWrapperManager.mm
-//  DisplayLiveSamples
+//  Mimica
 //
-//  Created by Luis Reisewitz on 16.05.16.
-//  Copyright © 2016 ZweiGraf. All rights reserved.
+//  Created by Gleb Linnik on 24.08.17.
+//  Copyright © 2017 Mimica. All rights reserved.
 //
 
 #import "DlibWrapperManager.h"
@@ -14,39 +14,42 @@
 
 @interface DlibWrapperManager ()
 
-@property (assign) BOOL prepared;
-
 + (std::vector<dlib::rectangle>)convertCGRectValueArray:(NSArray<NSValue *> *)rects;
 
 @end
+
 @implementation DlibWrapperManager {
 	dlib::shape_predictor sp;
 }
 
 
-- (instancetype)init {
+- (id)init {
 	self = [super init];
 	if (self) {
-		_prepared = NO;
+		[self prepare];
 	}
 	return self;
+}
+
++ (instancetype)sharedInstance {
+	static dispatch_once_t token = 0;
+	__strong static DlibWrapperManager *sharedObject = nil;
+	// executes a block object once and only once for the lifetime of an application
+	dispatch_once(&token, ^{
+		sharedObject = [[self alloc] init];
+	});
+	return sharedObject;
 }
 
 - (void)prepare {
 	NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"shape_predictor_68_face_landmarks" ofType:@"dat"];
 	std::string modelFileNameCString = [modelFileName UTF8String];
-	
+	// TODO: Implement this asyncronasly
 	dlib::deserialize(modelFileNameCString) >> sp;
-	
 	// FIXME: test this stuff for memory leaks (cpp object destruction)
-	self.prepared = YES;
 }
 
-- (void)doWorkOnSampleBuffer:(CMSampleBufferRef)sampleBuffer inRects:(NSArray<NSValue *> *)rects {
-	
-	if (!self.prepared) {
-		[self prepare];
-	}
+- (NSArray<NSValue *> *)findFaceLandmarksInSampleBuffer:(CMSampleBufferRef)sampleBuffer inRect:(NSValue *)rect {
 	
 	dlib::array2d<dlib::bgr_pixel> img;
 	
@@ -80,20 +83,16 @@
 	}
 	
 	// convert the face bounds list to dlib format
-	std::vector<dlib::rectangle> convertedRectangles = [DlibWrapperManager convertCGRectValueArray:rects];
+	dlib::rectangle convertedRectangle = [DlibWrapperManager convertCGRectValue:rect];
 	
-	// for every detected face
-	for (unsigned long j = 0; j < convertedRectangles.size(); ++j) {
-		dlib::rectangle oneFaceRect = convertedRectangles[j];
-		
-		// detect all landmarks
-		dlib::full_object_detection shape = sp(img, oneFaceRect);
-		
-		// and draw them into the image (samplebuffer)
-		for (unsigned long k = 0; k < shape.num_parts(); k++) {
-			dlib::point p = shape.part(k);
-			draw_solid_circle(img, p, 3, dlib::rgb_pixel(0, 255, 255));
-		}
+	dlib::full_object_detection shape = sp(img, convertedRectangle);
+	
+	NSMutableArray <NSValue *> *faceLandmarks = [[NSMutableArray alloc] init];
+	
+	for (unsigned long k = 0; k < shape.num_parts(); k++) {
+		dlib::point point = shape.part(k);
+		[faceLandmarks addObject:[DlibWrapperManager convertPoint:point]];
+//		draw_solid_circle(img, p, 3, dlib::rgb_pixel(0, 255, 255));
 	}
 	
 	// copy dlib image data back into samplebuffer
@@ -111,21 +110,37 @@
 	}
 	
 	CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
+	return faceLandmarks;
 }
 
 + (std::vector<dlib::rectangle>)convertCGRectValueArray:(NSArray<NSValue *> *)rects {
 	std::vector<dlib::rectangle> myConvertedRects;
 	for (NSValue *rectValue in rects) {
-		CGRect rect = [rectValue CGRectValue];
-		long left = rect.origin.x;
-		long top = rect.origin.y;
-		long right = left + rect.size.width;
-		long bottom = top + rect.size.height;
-		dlib::rectangle dlibRect(left, top, right, bottom);
-		
-		myConvertedRects.push_back(dlibRect);
+		myConvertedRects.push_back([self convertCGRectValue: rectValue]);
 	}
 	return myConvertedRects;
+}
++ (dlib::rectangle)convertCGRectValue:(NSValue *)rect {
+	CGRect _rect = [rect CGRectValue];
+	long left = _rect.origin.x;
+	long top = _rect.origin.y;
+	long right = left + _rect.size.width;
+	long bottom = top + _rect.size.height;
+	dlib::rectangle dlibRect(left, top, right, bottom);
+	return dlibRect;
+}
+
++ (NSArray<NSValue *> *)convertPointsVector:(std::vector<dlib::point>)points {
+	NSMutableArray<NSValue *> *convertedRects = [[NSMutableArray alloc] init];
+	for (size_t i = 0; i < points.size(); ++i) {
+		[convertedRects addObject:[self convertPoint:points[i]]];
+	}
+	return convertedRects;
+}
++ (NSValue *)convertPoint:(dlib::point)point {
+	CGFloat x = point.x();
+	CGFloat y = point.y();
+	return [NSValue valueWithCGPoint: CGPointMake(x, y)];
 }
 
 @end

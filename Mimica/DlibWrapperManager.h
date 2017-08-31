@@ -1,9 +1,9 @@
 //
 //  DlibWrapperManager.h
-//  DisplayLiveSamples
+//  Mimica
 //
-//  Created by Luis Reisewitz on 16.05.16.
-//  Copyright © 2016 ZweiGraf. All rights reserved.
+//  Created by Gleb Linnik on 24.08.17.
+//  Copyright © 2017 Mimica. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,8 +11,8 @@
 
 @interface DlibWrapperManager : NSObject
 
-- (instancetype)init;
-- (void)doWorkOnSampleBuffer:(CMSampleBufferRef)sampleBuffer inRects:(NSArray<NSValue *> *)rects;
-- (void)prepare;
++ (instancetype)sharedInstance;
+
+- (NSArray<NSValue *> *)findFaceLandmarksInSampleBuffer:(CMSampleBufferRef)sampleBuffer inRect:(NSValue *)rect;
 
 @end

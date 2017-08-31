@@ -20,7 +20,7 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 	
 	private let context = CIContext()
 	
-	 let sessionQueue = DispatchQueue(label: "io.mimica.mimica_ios.sessionQueue")
+	let sessionQueue = DispatchQueue(label: "io.mimica.mimica_ios.sessionQueue")
 	private var permissionGranted = false
 	
 	private var currentMetadata: [AnyObject] = []
@@ -34,6 +34,8 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 		sessionQueue.async { [unowned self] in
 			self.configureSession()
 			self.captureSession.startRunning()
+			// FIXME: HERE STARTS WRAPPER
+			DlibWrapperManager.sharedInstance()
 		}
 	}
 	
@@ -97,32 +99,42 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 	// MARK: AVCaptureVideoDataOutputSampleBufferDelegate
 	
 	func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
-		guard let uiImage = imageFromSampleBuffer(sampleBuffer: sampleBuffer) else { return }
-		DispatchQueue.main.async { [unowned self] in
-			
+		guard !currentMetadata.isEmpty else { return }
+		let biggestFaceMetadataObject = (currentMetadata as! [AVMetadataObject])
+			.flatMap { $0 as? AVMetadataFaceObject }
+			.max { (first: AVMetadataObject, second: AVMetadataObject) -> Bool in
+				return first.bounds.width > second.bounds.width
+		}
+		if let faceMetaObject = biggestFaceMetadataObject {
+			//Converting coordinated for capture connection
+			var connectionConvertedBounds = captureOutput.transformedMetadataObject(for: faceMetaObject, connection: connection).bounds
+			var height = (connectionConvertedBounds.width * faceMetaObject.bounds.height) / faceMetaObject.bounds.width
+			var diff = height - connectionConvertedBounds.height
+			connectionConvertedBounds.size.height = height
+			connectionConvertedBounds.origin.y -= diff
+			DlibWrapperManager.sharedInstance().findFaceLandmarks(in: sampleBuffer, inRect: NSValue(cgRect: connectionConvertedBounds))
+			print("connectionConvertedBounds: \(connectionConvertedBounds)")
+			//Converting coordinates for layer
+			var layerConvertedBounds = self.layer.rectForMetadataOutputRect(ofInterest: faceMetaObject.bounds)
+			height = (layerConvertedBounds.width * faceMetaObject.bounds.height) / faceMetaObject.bounds.width
+			diff = height - layerConvertedBounds.height
+			layerConvertedBounds.size.height = height
+			layerConvertedBounds.origin.y -= diff
+			print("layerConvertedBounds: \(layerConvertedBounds)")
+			DispatchQueue.main.async { [unowned self] in
+				self.delegate?.foundBounds(bounds: layerConvertedBounds)
+			}
 		}
 	}
+	
+//	func captureOutput(_ captureOutput: AVCaptureOutput!, didDrop sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+//		print("DidDropSampleBuffer")
+//	}
 	
 	// MARK: AVCaptureMetadataOutputObjectsDelegate
 	
 	func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-		for metadataObject in metadataObjects as! [AVMetadataObject] {
-			if metadataObject.type == AVMetadataObjectTypeFace {
-				let faceMetaObject = metadataObject as! AVMetadataFaceObject
-				print("ID: \(faceMetaObject.faceID)")
-				print("Bounds: \(faceMetaObject.bounds)")
-				print("Roll Angle: \(faceMetaObject.rollAngle)")
-				print("Yaw Angle: \(faceMetaObject.yawAngle)")
-				var convertedBound = self.layer.rectForMetadataOutputRect(ofInterest: faceMetaObject.bounds)
-				let height = (convertedBound.width * faceMetaObject.bounds.height) / faceMetaObject.bounds.width
-				let diff = height - convertedBound.height
-				convertedBound.size.height = height
-				convertedBound.origin.y -= diff
-				DispatchQueue.main.async { [unowned self] in
-					self.delegate?.foundBounds(bounds: convertedBound)
-				}
-			}
-		}
+		currentMetadata = metadataObjects! as [AnyObject]
 	}
 	
 	private func imageFromSampleBuffer(sampleBuffer: CMSampleBuffer) -> UIImage? {

@@ -11,13 +11,14 @@
 		EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */; };
 		EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE71F41EFE4008EE326 /* Constants.swift */; };
 		ED0127F11F4DD9910054B3D8 /* ExercisingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0127F01F4DD9910054B3D8 /* ExercisingViewController.swift */; };
+		ED01AE841F576F20009C7D98 /* shape_predictor_68_face_landmarks.dat in Resources */ = {isa = PBXBuildFile; fileRef = ED01AE831F576F20009C7D98 /* shape_predictor_68_face_landmarks.dat */; };
 		ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */; };
 		ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */; };
 		ED3509551F4F59E6000EF5F0 /* VideoSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3509541F4F59E6000EF5F0 /* VideoSessionManager.swift */; };
 		ED3ED0C61F56164300355BDF /* libdlib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED3ED0C51F56164300355BDF /* libdlib.a */; };
-		ED3ED0C81F562C7700355BDF /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED3ED0C71F562C7700355BDF /* source.cpp */; };
 		ED70C5D91F57043E00BE9587 /* DlibWrapperManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED70C5D71F57043E00BE9587 /* DlibWrapperManager.mm */; };
 		ED70C5DB1F5704EE00BE9587 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED70C5DA1F5704EE00BE9587 /* Accelerate.framework */; };
+		ED70C5DD1F5705A800BE9587 /* source.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED70C5DC1F5705A800BE9587 /* source.cpp */; };
 		ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D01F33930A0026D756 /* AppDelegate.swift */; };
 		ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D21F33930A0026D756 /* HomeViewController.swift */; };
 		ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */; };
@@ -33,7 +34,6 @@
 		ED71D6F81F339F7C0026D756 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */; };
 		ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A7231F478C85008A32DC /* LoginViewController.swift */; };
 		ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A7251F47A8C1008A32DC /* UIView+Constraints.swift */; };
-		EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EA31F37E90200E4A05E /* MimicaView.swift */; };
 		EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */; };
 		EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */; };
 		EDF7EFEC1F465DF100334DEE /* GradientTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */; };
@@ -47,15 +47,16 @@
 		EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseProvider.swift; sourceTree = "<group>"; };
 		EB902BE71F41EFE4008EE326 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED0127F01F4DD9910054B3D8 /* ExercisingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisingViewController.swift; sourceTree = "<group>"; };
+		ED01AE831F576F20009C7D98 /* shape_predictor_68_face_landmarks.dat */ = {isa = PBXFileReference; lastKnownFileType = file; path = shape_predictor_68_face_landmarks.dat; sourceTree = "<group>"; };
 		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStyleKit.swift; sourceTree = "<group>"; };
 		ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gradient.swift"; sourceTree = "<group>"; };
 		ED3509541F4F59E6000EF5F0 /* VideoSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSessionManager.swift; sourceTree = "<group>"; };
 		ED3ED0C51F56164300355BDF /* libdlib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdlib.a; path = Mimica/lib/libdlib.a; sourceTree = "<group>"; };
-		ED3ED0C71F562C7700355BDF /* source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = source.cpp; path = Mimica/lib/dlib/all/source.cpp; sourceTree = "<group>"; };
 		ED3ED0C91F56333B00355BDF /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeg.a; path = ../../../../usr/local/Cellar/jpeg/9b/lib/libjpeg.a; sourceTree = "<group>"; };
-		ED70C5D71F57043E00BE9587 /* DlibWrapperManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = DlibWrapperManager.mm; path = Mimica/DlibWrapperManager.mm; sourceTree = "<group>"; };
-		ED70C5D81F57043E00BE9587 /* DlibWrapperManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DlibWrapperManager.h; path = Mimica/DlibWrapperManager.h; sourceTree = "<group>"; };
+		ED70C5D71F57043E00BE9587 /* DlibWrapperManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DlibWrapperManager.mm; sourceTree = "<group>"; };
+		ED70C5D81F57043E00BE9587 /* DlibWrapperManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DlibWrapperManager.h; sourceTree = "<group>"; };
 		ED70C5DA1F5704EE00BE9587 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		ED70C5DC1F5705A800BE9587 /* source.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = source.cpp; path = Mimica/lib/dlib/all/source.cpp; sourceTree = "<group>"; };
 		ED71D6CD1F33930A0026D756 /* Mimica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED71D6D01F33930A0026D756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED71D6D21F33930A0026D756 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +74,6 @@
 		ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Regular.ttf"; path = "../../Downloads/Rubik/Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		ED96A7231F478C85008A32DC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ED96A7251F47A8C1008A32DC /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
-		EDAA8EA31F37E90200E4A05E /* MimicaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimicaView.swift; sourceTree = "<group>"; };
 		EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Mimica/Assets.xcassets; sourceTree = "<group>"; };
 		EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTabBarViewController.swift; sourceTree = "<group>"; };
@@ -123,16 +123,22 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		ED70C5DE1F5705B700BE9587 /* dlib */ = {
+			isa = PBXGroup;
+			children = (
+				ED70C5DC1F5705A800BE9587 /* source.cpp */,
+				ED3ED0C51F56164300355BDF /* libdlib.a */,
+			);
+			name = dlib;
+			sourceTree = "<group>";
+		};
 		ED71D6C41F33930A0026D756 = {
 			isa = PBXGroup;
 			children = (
-				ED70C5D71F57043E00BE9587 /* DlibWrapperManager.mm */,
-				ED70C5D81F57043E00BE9587 /* DlibWrapperManager.h */,
-				ED3ED0C51F56164300355BDF /* libdlib.a */,
-				ED3ED0C71F562C7700355BDF /* source.cpp */,
 				ED71D6CF1F33930A0026D756 /* Mimica */,
 				ED71D6CE1F33930A0026D756 /* Products */,
 				B90670EAB6A54C5B60B64A11 /* Pods */,
+				ED70C5DE1F5705B700BE9587 /* dlib */,
 				BDDCA01294882383E57AD416 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -151,6 +157,8 @@
 			children = (
 				ED71D6D01F33930A0026D756 /* AppDelegate.swift */,
 				ED3509541F4F59E6000EF5F0 /* VideoSessionManager.swift */,
+				ED70C5D81F57043E00BE9587 /* DlibWrapperManager.h */,
+				ED70C5D71F57043E00BE9587 /* DlibWrapperManager.mm */,
 				EDF7EFEA1F465DB700334DEE /* View Controllers */,
 				ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */,
 				ED71D6DE1F33930A0026D756 /* Info.plist */,
@@ -166,6 +174,7 @@
 		ED71D6E41F339F5C0026D756 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ED01AE831F576F20009C7D98 /* shape_predictor_68_face_landmarks.dat */,
 				EDFDD4031F558766006AB52A /* Mimica-Bridging-Header.h */,
 				EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */,
 				EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */,
@@ -195,7 +204,6 @@
 		ED71D6FC1F3401020026D756 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EDAA8EA31F37E90200E4A05E /* MimicaView.swift */,
 				EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */,
 			);
 			name = View;
@@ -301,6 +309,7 @@
 				ED71D6F41F339F7C0026D756 /* Rubik-Light.ttf in Resources */,
 				ED71D6F31F339F7C0026D756 /* Rubik-Italic.ttf in Resources */,
 				EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */,
+				ED01AE841F576F20009C7D98 /* shape_predictor_68_face_landmarks.dat in Resources */,
 				ED71D6F71F339F7C0026D756 /* Rubik-MediumItalic.ttf in Resources */,
 				ED71D6EF1F339F7C0026D756 /* Rubik-Black.ttf in Resources */,
 				ED71D6F21F339F7C0026D756 /* Rubik-BoldItalic.ttf in Resources */,
@@ -395,7 +404,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF7EFEC1F465DF100334DEE /* GradientTabBarViewController.swift in Sources */,
-				EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */,
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
 				EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */,
 				EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */,
@@ -404,7 +412,7 @@
 				ED70C5D91F57043E00BE9587 /* DlibWrapperManager.mm in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
-				ED3ED0C81F562C7700355BDF /* source.cpp in Sources */,
+				ED70C5DD1F5705A800BE9587 /* source.cpp in Sources */,
 				EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */,
 				ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */,
 				ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */,
