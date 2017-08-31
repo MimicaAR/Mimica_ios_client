@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 protocol VideoSessionManagerDelegate: class {
-	func foundBounds(bounds: CGRect)
+	func foundBounds(bounds: CGRect, landmarks: [CGPoint])
 }
 
 class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureMetadataOutputObjectsDelegate {
@@ -71,6 +71,8 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 		let videoOutput = AVCaptureVideoDataOutput()
 		videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "io.mimica.mimica_ios.sampleBuffer"))
 		guard captureSession.canAddOutput(videoOutput) else { return }
+		let settings: [AnyHashable: Any] = [kCVPixelBufferPixelFormatTypeKey as AnyHashable: Int(kCVPixelFormatType_32BGRA)]
+		videoOutput.videoSettings = settings
 		captureSession.addOutput(videoOutput)
 		
 		let metaOutput = AVCaptureMetadataOutput()
@@ -106,23 +108,24 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 				return first.bounds.width > second.bounds.width
 		}
 		if let faceMetaObject = biggestFaceMetadataObject {
-			//Converting coordinated for capture connection
-			var connectionConvertedBounds = captureOutput.transformedMetadataObject(for: faceMetaObject, connection: connection).bounds
-			var height = (connectionConvertedBounds.width * faceMetaObject.bounds.height) / faceMetaObject.bounds.width
-			var diff = height - connectionConvertedBounds.height
-			connectionConvertedBounds.size.height = height
-			connectionConvertedBounds.origin.y -= diff
-			DlibWrapperManager.sharedInstance().findFaceLandmarks(in: sampleBuffer, inRect: NSValue(cgRect: connectionConvertedBounds))
-			print("connectionConvertedBounds: \(connectionConvertedBounds)")
-			//Converting coordinates for layer
-			var layerConvertedBounds = self.layer.rectForMetadataOutputRect(ofInterest: faceMetaObject.bounds)
-			height = (layerConvertedBounds.width * faceMetaObject.bounds.height) / faceMetaObject.bounds.width
-			diff = height - layerConvertedBounds.height
-			layerConvertedBounds.size.height = height
-			layerConvertedBounds.origin.y -= diff
-			print("layerConvertedBounds: \(layerConvertedBounds)")
+			let connectionConvertedBounds = captureOutput.transformedMetadataObject(for: faceMetaObject, connection: connection).bounds
+			let layerConvertedBounds = self.layer.rectForMetadataOutputRect(ofInterest: faceMetaObject.bounds)
+			
+			let landmarkPointsValues = DlibWrapperManager.sharedInstance().findFaceLandmarks(in: sampleBuffer, inRect: NSValue(cgRect: connectionConvertedBounds))
+			//Convertign to layer coordinate system based on bounds coordiantes 
+			var landmarkPoints = [CGPoint]()
+			for point in landmarkPointsValues! {
+				var tempPoint = point.cgPointValue
+				let mult = layerConvertedBounds.width / connectionConvertedBounds.width
+				let xDiff = layerConvertedBounds.origin.x - mult * connectionConvertedBounds.origin.x
+				let yDiff = layerConvertedBounds.origin.y - mult * connectionConvertedBounds.origin.y
+				tempPoint.x = mult * tempPoint.x + xDiff
+				tempPoint.y = mult * tempPoint.y + yDiff
+				landmarkPoints.append(tempPoint)
+			}
+			
 			DispatchQueue.main.async { [unowned self] in
-				self.delegate?.foundBounds(bounds: layerConvertedBounds)
+				self.delegate?.foundBounds(bounds: layerConvertedBounds, landmarks: landmarkPoints)
 			}
 		}
 	}
