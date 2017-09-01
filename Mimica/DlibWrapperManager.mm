@@ -11,6 +11,7 @@
 
 #include <dlib/image_processing.h>
 #include <dlib/image_io.h>
+#include <dlib/image_processing/frontal_face_detector.h>
 
 @interface DlibWrapperManager ()
 
@@ -19,7 +20,7 @@
 @end
 
 @implementation DlibWrapperManager {
-	dlib::shape_predictor sp;
+	dlib::shape_predictor shapePredictor;
 }
 
 
@@ -45,7 +46,7 @@
 	NSString *modelFileName = [[NSBundle mainBundle] pathForResource:@"shape_predictor_68_face_landmarks" ofType:@"dat"];
 	std::string modelFileNameCString = [modelFileName UTF8String];
 	// TODO: Implement this asyncronasly
-	dlib::deserialize(modelFileNameCString) >> sp;
+	dlib::deserialize(modelFileNameCString) >> shapePredictor;
 	// FIXME: test this stuff for memory leaks (cpp object destruction)
 }
 
@@ -85,7 +86,7 @@
 	// convert the face bounds list to dlib format
 	dlib::rectangle convertedRectangle = [DlibWrapperManager convertCGRectValue:rect];
 	
-	dlib::full_object_detection shape = sp(img, convertedRectangle);
+	dlib::full_object_detection shape = shapePredictor(img, convertedRectangle);
 	
 	NSMutableArray <NSValue *> *faceLandmarks = [[NSMutableArray alloc] init];
 	

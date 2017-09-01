@@ -105,7 +105,7 @@ class VideoSessionManager: NSObject, AVCaptureVideoDataOutputSampleBufferDelegat
 		let biggestFaceMetadataObject = (currentMetadata as! [AVMetadataObject])
 			.flatMap { $0 as? AVMetadataFaceObject }
 			.max { (first: AVMetadataObject, second: AVMetadataObject) -> Bool in
-				return first.bounds.width > second.bounds.width
+				return first.bounds.width < second.bounds.width
 		}
 		if let faceMetaObject = biggestFaceMetadataObject {
 			let connectionConvertedBounds = captureOutput.transformedMetadataObject(for: faceMetaObject, connection: connection).bounds
