@@ -23,6 +23,16 @@
 	dlib::shape_predictor shapePredictor;
 }
 
++ (NSArray<NSIndexSet *> *)faceParts {
+	return @[[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(47, 20)],
+			 [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(16, 5)],
+			 [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(21, 5)],
+			 [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(35, 6)],
+			 [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(41, 6)],
+			 [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(26, 8)],
+			 [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 16)]
+			 ];
+}
 
 - (id)init {
 	self = [super init];

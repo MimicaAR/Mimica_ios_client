@@ -15,4 +15,16 @@
 
 - (NSArray<NSValue *> *)findFaceLandmarksInSampleBuffer:(CMSampleBufferRef)sampleBuffer inRect:(NSValue *)rect;
 
++ (NSArray<NSIndexSet *> *)faceParts;
+
 @end
+
+typedef enum FacePartsNames {
+	Mouth,
+	RightEyebrow,
+	LeftEyebrow,
+	RightEye,
+	LeftEye,
+	Node,
+	Jaw
+} FacePartsNames;
