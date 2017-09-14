@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3549BBC91F6AF9A90057D1F3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BBC81F6AF9A90057D1F3 /* SignUpViewController.swift */; };
+		3549BBCB1F6AFE020057D1F3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BBCA1F6AFE020057D1F3 /* LoginView.swift */; };
+		3549BBCD1F6AFE4A0057D1F3 /* SocialMediaLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BBCC1F6AFE4A0057D1F3 /* SocialMediaLoginView.swift */; };
 		EB5CB2201F560B8000084352 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CB21F1F560B8000084352 /* User.swift */; };
 		EB902BE41F40E580008EE326 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB902BE31F40E580008EE326 /* GoogleService-Info.plist */; };
 		EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */; };
@@ -42,6 +45,9 @@
 
 /* Begin PBXFileReference section */
 		2D942B300684E0544FA12D5A /* Pods-Mimica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mimica/Pods-Mimica.debug.xcconfig"; sourceTree = "<group>"; };
+		3549BBC81F6AF9A90057D1F3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		3549BBCA1F6AFE020057D1F3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3549BBCC1F6AFE4A0057D1F3 /* SocialMediaLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaLoginView.swift; sourceTree = "<group>"; };
 		DD54C40B8AA912F18615EC8B /* Pods-Mimica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimica/Pods-Mimica.release.xcconfig"; sourceTree = "<group>"; };
 		EB5CB21F1F560B8000084352 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EB902BE31F40E580008EE326 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Mimica/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -153,7 +159,7 @@
 				EDF7EFEA1F465DB700334DEE /* View Controllers */,
 				ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */,
 				ED71D6DE1F33930A0026D756 /* Info.plist */,
-				ED71D6FC1F3401020026D756 /* View */,
+				ED71D6FC1F3401020026D756 /* Views */,
 				ED9230361F4481E300E4D5B2 /* Model */,
 				EDAA8EA91F3D1CD900E4A05E /* Style */,
 				ED2D576C1F3519E200285F2A /* Extensions */,
@@ -190,13 +196,15 @@
 			name = "Rubik font";
 			sourceTree = "<group>";
 		};
-		ED71D6FC1F3401020026D756 /* View */ = {
+		ED71D6FC1F3401020026D756 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				EDAA8EA31F37E90200E4A05E /* MimicaView.swift */,
 				EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */,
+				3549BBCA1F6AFE020057D1F3 /* LoginView.swift */,
+				3549BBCC1F6AFE4A0057D1F3 /* SocialMediaLoginView.swift */,
 			);
-			name = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		ED9230361F4481E300E4D5B2 /* Model */ = {
@@ -220,8 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				ED96A7231F478C85008A32DC /* LoginViewController.swift */,
-				EBB584B31F52052100DC432A /* NewMessageViewController.swift */,
+				3549BBC81F6AF9A90057D1F3 /* SignUpViewController.swift */,
 				EBB584AD1F50A4EF00DC432A /* CreateAccountViewController.swift */,
+				EBB584B31F52052100DC432A /* NewMessageViewController.swift */,
 				EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */,
 				EBB584AF1F51B97300DC432A /* ChatViewController.swift */,
 				ED71D6D21F33930A0026D756 /* HomeViewController.swift */,
@@ -395,15 +404,18 @@
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
 				EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */,
 				EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */,
+				3549BBC91F6AF9A90057D1F3 /* SignUpViewController.swift in Sources */,
 				EBB584B41F52052100DC432A /* NewMessageViewController.swift in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				EBE9F1961F54A866005F7C9D /* MessageHandler.swift in Sources */,
 				EBF994901F4F5D14003AD4D4 /* AuthProvider.swift in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
+				3549BBCD1F6AFE4A0057D1F3 /* SocialMediaLoginView.swift in Sources */,
 				EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */,
 				ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */,
 				EB5CB2201F560B8000084352 /* User.swift in Sources */,
 				ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */,
+				3549BBCB1F6AFE020057D1F3 /* LoginView.swift in Sources */,
 				EBB584B01F51B97300DC432A /* ChatViewController.swift in Sources */,
 				ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */,
 			);

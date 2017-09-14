@@ -41,7 +41,7 @@ class CreateAccountViewController: UIViewController {
 		return button
 		
 	}()
-		let nameTextField : UITextField = {
+	let nameTextField : UITextField = {
 		let text = UITextField()
 		text.font = UIFont(name: "Rubik-Regular", size: 17.0)
 		text.placeholder = "Full Name"
@@ -80,7 +80,7 @@ class CreateAccountViewController: UIViewController {
 	func handleRegister() {
 	
 		typeOfError(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!)
-		if  isValidEmail(enteredEmail: emailTextField.text!) == true {
+		if isValidEmail(enteredEmail: emailTextField.text!) == true {
 			AuthProvider.Instance.signUp(name: nameTextField.text!, withEmail: emailTextField.text!, password: passwordTextField.text!, loginHandler: { (message) in
 				if message != nil {
 					
