@@ -36,7 +36,6 @@
 		ED7AFB5C1F6C54690099E43D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7AFB5B1F6C54690099E43D /* SignUpView.swift */; };
 		ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A7231F478C85008A32DC /* LoginViewController.swift */; };
 		ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A7251F47A8C1008A32DC /* UIView+Constraints.swift */; };
-		EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EA31F37E90200E4A05E /* MimicaView.swift */; };
 		EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */; };
 		EDAA8EAD1F3D26CD00E4A05E /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */; };
 		EDF7EFEC1F465DF100334DEE /* GradientTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */; };
@@ -77,7 +76,6 @@
 		ED7AFB5B1F6C54690099E43D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		ED96A7231F478C85008A32DC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ED96A7251F47A8C1008A32DC /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
-		EDAA8EA31F37E90200E4A05E /* MimicaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimicaView.swift; sourceTree = "<group>"; };
 		EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Mimica/Assets.xcassets; sourceTree = "<group>"; };
 		EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientTabBarViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		ED71D6FC1F3401020026D756 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EDAA8EA31F37E90200E4A05E /* MimicaView.swift */,
 				EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */,
 				3549BBCA1F6AFE020057D1F3 /* LoginView.swift */,
 				3549BBCC1F6AFE4A0057D1F3 /* SocialMediaLoginView.swift */,
@@ -230,10 +227,10 @@
 			isa = PBXGroup;
 			children = (
 				ED96A7231F478C85008A32DC /* LoginViewController.swift */,
+				ED71D6D21F33930A0026D756 /* HomeViewController.swift */,
 				EBB584B31F52052100DC432A /* NewMessageViewController.swift */,
 				EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */,
 				EBB584AF1F51B97300DC432A /* ChatViewController.swift */,
-				ED71D6D21F33930A0026D756 /* HomeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -400,7 +397,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDF7EFEC1F465DF100334DEE /* GradientTabBarViewController.swift in Sources */,
-				EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */,
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
 				EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */,
 				EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */,
