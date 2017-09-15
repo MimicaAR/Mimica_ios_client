@@ -21,6 +21,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		view.backgroundColor = .white
 		return view
 	}()
+	let bottomContainerView = UIView()
 	let socialMediaButtons = SocialMediaLoginView()
 
     override func viewDidLoad() {
@@ -43,20 +44,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 						               delay: 0.0,
 						               options: .curveEaseOut,
 						               animations: {
-										self.loginView.autoAlignAxis(.horizontal,
-										                             toSameAxisOf: self.view,
-										                             withOffset: self.view.bounds.height < 569 ? -25 : 0)
+										NSLayoutConstraint.autoSetPriority(UILayoutPriorityDefaultHigh, forConstraints: { self.loginView.autoAlignAxis(toSuperviewAxis: .horizontal) })
 										self.loginView.autoPinEdge(toSuperviewMargin: .left)
 										self.loginView.autoPinEdge(toSuperviewMargin: .right)
 										self.view.addConstraints(withFormat: "V:[v0(310)]",
-										                         views: self.loginView, self.bottomView)
+										                         views: self.loginView)
 										self.view.layoutIfNeeded()
 										self.loginView.loginButton.layer.cornerRadius = self.loginView.loginButton.frame.height / 2
 										UIView.animate(withDuration: 0.5,
 										               delay: 0.3,
 										               options: .curveEaseOut,
 										               animations: {
-														self.bottomView.frame.origin = CGPoint(x: 0, y: self.view.bounds.height / 2)
+														self.bottomView.autoPinEdge(toSuperviewEdge: .left)
+														self.bottomView.autoPinEdge(toSuperviewEdge: .right)
+														self.self.bottomView.autoPinEdge(toSuperviewEdge: .bottom)
+														self.bottomView.addConstraints(withFormat: "V:[v0(\(self.view.bounds.height / 2))]", views: self.bottomView)
+														// Social buttons
+														self.view.addConstraints(withFormat: "V:[v0][v1(>=138)]|", views: self.loginView, self.bottomContainerView)
+														self.bottomContainerView.autoPinEdge(toSuperviewMargin: .left)
+														self.bottomContainerView.autoPinEdge(toSuperviewMargin: .right)
+														self.view.layoutIfNeeded()
 										},
 										               completion: nil)
 						},
@@ -106,10 +113,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	private func configureBottomView() {
 		view.addSubview(bottomView)
-		bottomView.autoPinEdge(toSuperviewEdge: .left)
-		bottomView.autoPinEdge(toSuperviewEdge: .right)
-		bottomView.autoPinEdge(toSuperviewEdge: .bottom)
-		bottomView.addConstraints(withFormat: "V:[v0(\(view.bounds.height / 2))]", views: bottomView)
+		bottomView.frame = CGRect(x: 0, y: view.bounds.height, width: view.bounds.width, height: view.bounds.height / 2)
+		view.addSubview(bottomContainerView)
+		bottomContainerView.addSubview(socialMediaButtons)
+		socialMediaButtons.autoAlignAxis(toSuperviewAxis: .horizontal)
+		socialMediaButtons.autoPinEdge(toSuperviewEdge: .left)
+		socialMediaButtons.autoPinEdge(toSuperviewEdge: .right)
+		bottomContainerView.addConstraints(withFormat: "V:[v0(139)]", views: socialMediaButtons)
+		bottomContainerView.frame = CGRect(origin: CGPoint(x: 0, y: view.bounds.height), size: CGSize(width: view.bounds.width, height: 138))
 	}
 	
 	func createAccount() {
