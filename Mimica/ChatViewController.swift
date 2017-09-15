@@ -8,7 +8,6 @@
 
 import UIKit
 
-@available(iOS 9.0, *)
 class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -28,11 +27,7 @@ class ChatViewController: UIViewController {
 		containerView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(containerView)
 		
-		containerView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-		containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50).isActive = true
-		containerView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-		containerView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-		
+		containerView.autoPinEdgesToSuperviewEdges()
 	}
 }
 

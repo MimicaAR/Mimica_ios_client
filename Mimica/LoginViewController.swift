@@ -11,10 +11,10 @@ import PureLayout
 import Firebase
 import FirebaseAuth
 
-@available(iOS 9.0, *)
 class LoginViewController: UIViewController, UITextFieldDelegate {
 	
 	let loginView = LoginView()
+	let signUpView = Bundle.main.loadNibNamed("SignUpView", owner: self, options: nil)?.first as! SignUpView
 	let logoImage = UIImageView(image: #imageLiteral(resourceName: "Launch logo"))
 	let bottomView: UIView = {
 		let view = UIView()
@@ -23,6 +23,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	}()
 	let bottomContainerView = UIView()
 	let socialMediaButtons = SocialMediaLoginView()
+	
+	private var isOnLogin = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +78,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		configureLogo()
 		configureBottomView()
 		configureLoginView()
+		configureSignUpView()
 	}
 	
 	private func configureBGView() {
@@ -108,7 +111,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		loginView.loginButton.layer.cornerRadius = loginView.loginButton.bounds.height / 2
 		loginView.loginButton.layer.masksToBounds = true
 		loginView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
-		socialMediaButtons.createAccountButton.addTarget(self, action: #selector(createAccount), for: .touchUpInside)
+		socialMediaButtons.createAccountButton.addTarget(self, action: #selector(switchModes), for: .touchUpInside)
 	}
 	
 	private func configureBottomView() {
@@ -123,11 +126,56 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		bottomContainerView.frame = CGRect(origin: CGPoint(x: 0, y: view.bounds.height), size: CGSize(width: view.bounds.width, height: 138))
 	}
 	
-	func createAccount() {
-		let ViewController = CreateAccountViewController()
-		ViewController.modalTransitionStyle = .flipHorizontal
-		present(ViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = ViewController})
+	private func configureSignUpView() {
+		signUpView.textFieldsDelegate = self
+		
+		signUpView.loginTextField.tag = 3
+		signUpView.passwordTextField.tag = 4
+		signUpView.repeatPasswordTextField.tag = 5
+		
+		signUpView.signUpButton.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
+		
+		signUpView.alpha = 0.0
+		view.addSubview(signUpView)
 	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		if let nextField = textField.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+			nextField.becomeFirstResponder()
+		} else {
+			textField.resignFirstResponder()
+		}
+		return false
+	}
+	
+	@objc private func hideKeyboard() {
+		self.view.endEditing(true)
+	}
+	
+	@objc private func switchModes() {
+		let firstView = isOnLogin ? loginView : signUpView
+		let secondView = isOnLogin ? signUpView : loginView
+		socialMediaButtons.createAccountButton.setTitle(isOnLogin ? "Back to sign in" : "Create account", for: .normal)
+		
+		secondView.frame = firstView.frame
+		secondView.alpha = 0.0
+		UIView.animate(withDuration: 0.3, animations: {
+			firstView.alpha = 0.0
+		}) { (completed) in
+			UIView.animate(withDuration: 0.3, animations: {
+				secondView.alpha = 1.0
+			})
+		}
+		isOnLogin = !isOnLogin
+	}
+	
+	private func presentTabBarController(){
+		let tabBarViewController = GradientTabBarViewController()
+		tabBarViewController.modalTransitionStyle = .flipHorizontal
+		present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
+	}
+	
+	// FIXME: Refactor this
 	func login(){
 		guard let email = loginView.loginTextField.text else { return }
 		guard let password = loginView.passwordTextField.text else { return }
@@ -156,26 +204,37 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 		}
 	}
-	
-	private func presentTabBarController(){
-		let tabBarViewController = GradientTabBarViewController()
-		tabBarViewController.modalTransitionStyle = .flipHorizontal
-		present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
-	}
-	
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		if let nextField = textField.superview?.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-			nextField.becomeFirstResponder()
+	func handleRegister() {
+		
+		typeOfError(email: signUpView.loginTextField.text!, password: signUpView.passwordTextField.text!)
+		if isValidEmail(enteredEmail: signUpView.loginTextField.text!) == true {
+			AuthProvider.Instance.signUp(name: signUpView.loginTextField.text!, withEmail: signUpView.loginTextField.text!, password: signUpView.passwordTextField.text!, loginHandler: { (message) in
+				if message != nil {
+					
+					self.alertTheUser(title: "Problem with creating new user", message: message!)
+				} else {
+					self.signUpView.loginTextField.text = ""
+					self.signUpView.passwordTextField.text = ""
+					print("Saved user succesfully")
+					self.presentTabBarController()
+				}
+			})
 		} else {
-			textField.resignFirstResponder()
+			alertTheUser(title: "Error", message: "Incorrect e-mail adress, please repeat.")
 		}
-		return false
+		
 	}
 	
-	@objc private func hideKeyboard() {
-		self.view.endEditing(true)
+	func typeOfError (email: String, password: String){
+		if email == "" {
+			alertTheUser(title: "Error", message: "You should enter your email adress.")
+			return
+		}
+		if password == "" {
+			alertTheUser(title: "Error", message: "You should enter your password.")
+			return
+		}
 	}
-	
 	
 	func alertTheUser(title: String, message: String) {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert);

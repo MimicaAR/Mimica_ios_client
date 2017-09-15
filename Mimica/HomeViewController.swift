@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-@available(iOS 9.0, *)
 class HomeViewController: UIViewController,
 	UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	

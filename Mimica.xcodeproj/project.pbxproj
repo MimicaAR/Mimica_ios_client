@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3549BBC91F6AF9A90057D1F3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BBC81F6AF9A90057D1F3 /* SignUpViewController.swift */; };
 		3549BBCB1F6AFE020057D1F3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BBCA1F6AFE020057D1F3 /* LoginView.swift */; };
 		3549BBCD1F6AFE4A0057D1F3 /* SocialMediaLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BBCC1F6AFE4A0057D1F3 /* SocialMediaLoginView.swift */; };
 		EB5CB2201F560B8000084352 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CB21F1F560B8000084352 /* User.swift */; };
 		EB902BE41F40E580008EE326 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB902BE31F40E580008EE326 /* GoogleService-Info.plist */; };
 		EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */; };
 		EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE71F41EFE4008EE326 /* Constants.swift */; };
-		EBB584AE1F50A4EF00DC432A /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB584AD1F50A4EF00DC432A /* CreateAccountViewController.swift */; };
 		EBB584B01F51B97300DC432A /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB584AF1F51B97300DC432A /* ChatViewController.swift */; };
 		EBB584B41F52052100DC432A /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB584B31F52052100DC432A /* NewMessageViewController.swift */; };
 		EBE9F1961F54A866005F7C9D /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE9F1951F54A866005F7C9D /* MessageHandler.swift */; };
@@ -34,6 +32,8 @@
 		ED71D6F61F339F7C0026D756 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EC1F339F7C0026D756 /* Rubik-Medium.ttf */; };
 		ED71D6F71F339F7C0026D756 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */; };
 		ED71D6F81F339F7C0026D756 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */; };
+		ED7AFB5A1F6C54500099E43D /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED7AFB591F6C54500099E43D /* SignUpView.xib */; };
+		ED7AFB5C1F6C54690099E43D /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7AFB5B1F6C54690099E43D /* SignUpView.swift */; };
 		ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A7231F478C85008A32DC /* LoginViewController.swift */; };
 		ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96A7251F47A8C1008A32DC /* UIView+Constraints.swift */; };
 		EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDAA8EA31F37E90200E4A05E /* MimicaView.swift */; };
@@ -45,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		2D942B300684E0544FA12D5A /* Pods-Mimica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimica.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mimica/Pods-Mimica.debug.xcconfig"; sourceTree = "<group>"; };
-		3549BBC81F6AF9A90057D1F3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3549BBCA1F6AFE020057D1F3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3549BBCC1F6AFE4A0057D1F3 /* SocialMediaLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaLoginView.swift; sourceTree = "<group>"; };
 		DD54C40B8AA912F18615EC8B /* Pods-Mimica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mimica.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mimica/Pods-Mimica.release.xcconfig"; sourceTree = "<group>"; };
@@ -53,7 +52,6 @@
 		EB902BE31F40E580008EE326 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Mimica/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseProvider.swift; sourceTree = "<group>"; };
 		EB902BE71F41EFE4008EE326 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		EBB584AD1F50A4EF00DC432A /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		EBB584AF1F51B97300DC432A /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		EBB584B31F52052100DC432A /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		EBE9F1951F54A866005F7C9D /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
@@ -75,6 +73,8 @@
 		ED71D6EC1F339F7C0026D756 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Medium.ttf"; path = "../../Downloads/Rubik/Rubik-Medium.ttf"; sourceTree = "<group>"; };
 		ED71D6ED1F339F7C0026D756 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-MediumItalic.ttf"; path = "../../Downloads/Rubik/Rubik-MediumItalic.ttf"; sourceTree = "<group>"; };
 		ED71D6EE1F339F7C0026D756 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Rubik-Regular.ttf"; path = "../../Downloads/Rubik/Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		ED7AFB591F6C54500099E43D /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
+		ED7AFB5B1F6C54690099E43D /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		ED96A7231F478C85008A32DC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		ED96A7251F47A8C1008A32DC /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		EDAA8EA31F37E90200E4A05E /* MimicaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimicaView.swift; sourceTree = "<group>"; };
@@ -203,6 +203,8 @@
 				EDAA8EAC1F3D26CD00E4A05E /* DateCell.swift */,
 				3549BBCA1F6AFE020057D1F3 /* LoginView.swift */,
 				3549BBCC1F6AFE4A0057D1F3 /* SocialMediaLoginView.swift */,
+				ED7AFB591F6C54500099E43D /* SignUpView.xib */,
+				ED7AFB5B1F6C54690099E43D /* SignUpView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -228,8 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				ED96A7231F478C85008A32DC /* LoginViewController.swift */,
-				3549BBC81F6AF9A90057D1F3 /* SignUpViewController.swift */,
-				EBB584AD1F50A4EF00DC432A /* CreateAccountViewController.swift */,
 				EBB584B31F52052100DC432A /* NewMessageViewController.swift */,
 				EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */,
 				EBB584AF1F51B97300DC432A /* ChatViewController.swift */,
@@ -304,6 +304,7 @@
 			files = (
 				ED71D6F01F339F7C0026D756 /* Rubik-BlackItalic.ttf in Resources */,
 				ED71D6F51F339F7C0026D756 /* Rubik-LightItalic.ttf in Resources */,
+				ED7AFB5A1F6C54500099E43D /* SignUpView.xib in Resources */,
 				ED71D6F11F339F7C0026D756 /* Rubik-Bold.ttf in Resources */,
 				ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */,
 				ED71D6F41F339F7C0026D756 /* Rubik-Light.ttf in Resources */,
@@ -328,11 +329,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mimica/Pods-Mimica-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseFacebookAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseGoogleAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle,
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseTwitterAuthUI.bundle,
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle",
 			);
@@ -398,13 +399,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBB584AE1F50A4EF00DC432A /* CreateAccountViewController.swift in Sources */,
 				EDF7EFEC1F465DF100334DEE /* GradientTabBarViewController.swift in Sources */,
 				EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */,
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
 				EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */,
 				EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */,
-				3549BBC91F6AF9A90057D1F3 /* SignUpViewController.swift in Sources */,
 				EBB584B41F52052100DC432A /* NewMessageViewController.swift in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				EBE9F1961F54A866005F7C9D /* MessageHandler.swift in Sources */,
@@ -415,6 +414,7 @@
 				ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */,
 				EB5CB2201F560B8000084352 /* User.swift in Sources */,
 				ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */,
+				ED7AFB5C1F6C54690099E43D /* SignUpView.swift in Sources */,
 				3549BBCB1F6AFE020057D1F3 /* LoginView.swift in Sources */,
 				EBB584B01F51B97300DC432A /* ChatViewController.swift in Sources */,
 				ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */,

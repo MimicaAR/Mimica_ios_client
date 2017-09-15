@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			window?.rootViewController = GradientTabBarViewController()		//to rewrite!!!!
 		} else {
 			window?.rootViewController = LoginViewController()
-			}
+		}
         return true
     }
 	
