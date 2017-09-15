@@ -60,7 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 														self.self.bottomView.autoPinEdge(toSuperviewEdge: .bottom)
 														self.bottomView.addConstraints(withFormat: "V:[v0(\(self.view.bounds.height / 2))]", views: self.bottomView)
 														// Social buttons
-														self.view.addConstraints(withFormat: "V:[v0][v1(>=138)]|", views: self.loginView, self.bottomContainerView)
+														self.view.addConstraints(withFormat: "V:[v0]-[v1(>=138)]|", views: self.loginView, self.bottomContainerView)
 														self.bottomContainerView.autoPinEdge(toSuperviewMargin: .left)
 														self.bottomContainerView.autoPinEdge(toSuperviewMargin: .right)
 														self.view.layoutIfNeeded()
