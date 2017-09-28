@@ -212,7 +212,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 	}
 	
 	func presentTabBarController(){
-		let tabBarViewController = GradientTabBarViewController()
+		let tabBarViewController = GradientTabBarViewController(withGradint: SharedStyleKit.mainGradient)
 		tabBarViewController.modalTransitionStyle = .flipHorizontal
 		present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
 	}

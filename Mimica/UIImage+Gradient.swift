@@ -10,21 +10,6 @@ import Foundation
 import UIKit
 
 extension UIImage {
-	class func tint(image: UIImage, colors: [UIColor]) -> UIImage {
-		// Create gradient
-		
-		let colorOne = colors[0]
-		let colorTwo = colors[1]
-		
-		let colors = [colorOne.cgColor, colorTwo.cgColor]
-		
-		let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(),
-		                          colors: colors as CFArray,
-		                          locations: [1.0, 0.0]);
-		
-		return UIImage.tint(image: image, gradient: gradient!)
-	}
-	
 	class func tint(image: UIImage, gradient: CGGradient) -> UIImage {
 		// Load image
 		let scale = image.scale

@@ -10,6 +10,9 @@
 		EB902BE41F40E580008EE326 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */; };
 		EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */; };
 		EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB902BE71F41EFE4008EE326 /* Constants.swift */; };
+		ED04DBCF1F7821EE0006B854 /* CGGradient+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED04DBCE1F7821EE0006B854 /* CGGradient+Color.swift */; };
+		ED04DBD21F78255E0006B854 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED04DBD01F78255E0006B854 /* ProgressViewController.swift */; };
+		ED04DBD31F78255E0006B854 /* ProgressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED04DBD11F78255E0006B854 /* ProgressViewController.xib */; };
 		ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */; };
 		ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */; };
 		ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D01F33930A0026D756 /* AppDelegate.swift */; };
@@ -40,6 +43,9 @@
 		EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info-2.plist"; path = "Mimica/GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		EB902BE51F41EAF9008EE326 /* DataBaseProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataBaseProvider.swift; sourceTree = "<group>"; };
 		EB902BE71F41EFE4008EE326 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		ED04DBCE1F7821EE0006B854 /* CGGradient+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGGradient+Color.swift"; sourceTree = "<group>"; };
+		ED04DBD01F78255E0006B854 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		ED04DBD11F78255E0006B854 /* ProgressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressViewController.xib; sourceTree = "<group>"; };
 		ED2D576A1F3517AC00285F2A /* SharedStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedStyleKit.swift; sourceTree = "<group>"; };
 		ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gradient.swift"; sourceTree = "<group>"; };
 		ED71D6CD1F33930A0026D756 /* Mimica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimica.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +106,7 @@
 			children = (
 				ED2D576D1F351B0000285F2A /* UIImage+Gradient.swift */,
 				ED96A7251F47A8C1008A32DC /* UIView+Constraints.swift */,
+				ED04DBCE1F7821EE0006B854 /* CGGradient+Color.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -199,6 +206,8 @@
 				ED96A7231F478C85008A32DC /* LoginViewController.swift */,
 				EDF7EFEB1F465DF100334DEE /* GradientTabBarViewController.swift */,
 				ED71D6D21F33930A0026D756 /* HomeViewController.swift */,
+				ED04DBD01F78255E0006B854 /* ProgressViewController.swift */,
+				ED04DBD11F78255E0006B854 /* ProgressViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -274,6 +283,7 @@
 				ED71D6F41F339F7C0026D756 /* Rubik-Light.ttf in Resources */,
 				ED71D6F31F339F7C0026D756 /* Rubik-Italic.ttf in Resources */,
 				EDAA8EA81F37ECC500E4A05E /* Assets.xcassets in Resources */,
+				ED04DBD31F78255E0006B854 /* ProgressViewController.xib in Resources */,
 				ED71D6F71F339F7C0026D756 /* Rubik-MediumItalic.ttf in Resources */,
 				ED71D6EF1F339F7C0026D756 /* Rubik-Black.ttf in Resources */,
 				ED71D6F21F339F7C0026D756 /* Rubik-BoldItalic.ttf in Resources */,
@@ -371,6 +381,7 @@
 				EDAA8EA41F37E90200E4A05E /* MimicaView.swift in Sources */,
 				ED2D576E1F351B0000285F2A /* UIImage+Gradient.swift in Sources */,
 				EB902BE61F41EAF9008EE326 /* DataBaseProvider.swift in Sources */,
+				ED04DBD21F78255E0006B854 /* ProgressViewController.swift in Sources */,
 				EB902BE81F41EFE4008EE326 /* Constants.swift in Sources */,
 				ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */,
 				ED2D576B1F3517AC00285F2A /* SharedStyleKit.swift in Sources */,
@@ -378,6 +389,7 @@
 				ED96A7241F478C85008A32DC /* LoginViewController.swift in Sources */,
 				ED96A7261F47A8C1008A32DC /* UIView+Constraints.swift in Sources */,
 				ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */,
+				ED04DBCF1F7821EE0006B854 /* CGGradient+Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

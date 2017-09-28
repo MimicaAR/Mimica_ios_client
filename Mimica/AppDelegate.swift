@@ -23,17 +23,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
 		
-		window?.rootViewController = LoginViewController()
+		window?.rootViewController = GradientTabBarViewController(withGradint: SharedStyleKit.mainGradient)
 		
         return true
     }
 	
 	private func setupGlobalAppearance() {
-		let font: UIFont = UIFont(name: "Rubik-Medium", size: 11.0)!
-		UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+		window?.tintColor = SharedStyleKit.mainGradientColor1
+		
+		let font: UIFont = UIFont(name: "Rubik-Medium", size: 17.0) ?? .systemFont(ofSize: 17.0)
+		let titleDict = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: font]
 		
 		let navigationBar = UINavigationBar.appearance()
 		navigationBar.tintColor = .white
+		navigationBar.titleTextAttributes = titleDict
+		
 		let gradient = CAGradientLayer()
 		gradient.frame = CGRect(x: 0, y: 0, width: UIApplication.shared.statusBarFrame.width,
 		                        height: UIApplication.shared.statusBarFrame.height + navigationBarHeight)
