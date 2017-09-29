@@ -15,6 +15,7 @@
 		ED3C69931F7D921F00E70BFB /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C69921F7D921F00E70BFB /* TutorialPageViewController.swift */; };
 		ED3C69961F7D9E3200E70BFB /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3C69941F7D9E3200E70BFB /* TutorialViewController.swift */; };
 		ED3C69971F7D9E3200E70BFB /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3C69951F7D9E3200E70BFB /* TutorialViewController.xib */; };
+		ED3C69991F7E43A200E70BFB /* Tutorials.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED3C69981F7E43A200E70BFB /* Tutorials.plist */; };
 		ED71D6D11F33930A0026D756 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D01F33930A0026D756 /* AppDelegate.swift */; };
 		ED71D6D31F33930A0026D756 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED71D6D21F33930A0026D756 /* HomeViewController.swift */; };
 		ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED71D6DB1F33930A0026D756 /* LaunchScreen.storyboard */; };
@@ -48,6 +49,7 @@
 		ED3C69921F7D921F00E70BFB /* TutorialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		ED3C69941F7D9E3200E70BFB /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		ED3C69951F7D9E3200E70BFB /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
+		ED3C69981F7E43A200E70BFB /* Tutorials.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tutorials.plist; sourceTree = "<group>"; };
 		ED71D6CD1F33930A0026D756 /* Mimica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mimica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED71D6D01F33930A0026D756 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED71D6D21F33930A0026D756 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				EB902BE31F40E580008EE326 /* GoogleService-Info-2.plist */,
+				ED3C69981F7E43A200E70BFB /* Tutorials.plist */,
 				EDAA8EA71F37ECC500E4A05E /* Assets.xcassets */,
 				ED71D6F91F33A09E0026D756 /* Rubik font */,
 			);
@@ -279,6 +282,7 @@
 			files = (
 				ED71D6F01F339F7C0026D756 /* Rubik-BlackItalic.ttf in Resources */,
 				ED71D6F51F339F7C0026D756 /* Rubik-LightItalic.ttf in Resources */,
+				ED3C69991F7E43A200E70BFB /* Tutorials.plist in Resources */,
 				ED71D6F11F339F7C0026D756 /* Rubik-Bold.ttf in Resources */,
 				ED71D6DD1F33930A0026D756 /* LaunchScreen.storyboard in Resources */,
 				ED71D6F41F339F7C0026D756 /* Rubik-Light.ttf in Resources */,

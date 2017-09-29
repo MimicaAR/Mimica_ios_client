@@ -8,10 +8,10 @@
 
 import UIKit
 
-public let TutorialViewControllerImageKey = "TutorialViewControllerImage"
-public let TutorialViewControllerTitleKey = "TutorialViewControllerTitle"
-public let TutorialViewControllerDescriptionKey = "TutorialViewControllerDescription"
-public let TutorialViewControllerIsHasButtonKey = "TutorialViewControllerIsHasButton"
+public let TutorialViewControllerImageKey = "TutorialViewControllerImageKey"
+public let TutorialViewControllerTitleKey = "TutorialViewControllerTitleKey"
+public let TutorialViewControllerDescriptionKey = "TutorialViewControllerDescriptionKey"
+public let TutorialViewControllerIsHasButtonKey = "TutorialViewControllerIsHasButtonKey"
 
 public enum TutorialViewControllerIsHasButton: Int {
 	case shown
@@ -57,7 +57,7 @@ class TutorialViewController: UIViewController {
 		
 		if let newImage = initOptions[TutorialViewControllerImageKey] {
 			if newImage is UIImage {
-				image.image = newImage as! UIImage
+				image.image = (newImage as! UIImage)
 			} else if newImage is String {
 				image.image = UIImage(named: newImage as! String)
 			}
@@ -68,8 +68,10 @@ class TutorialViewController: UIViewController {
 		if let newDescription = initOptions[TutorialViewControllerDescriptionKey] as? String {
 			descriptionLabel.text = newDescription
 		}
-		if let showButton = initOptions[TutorialViewControllerIsHasButtonKey] as? TutorialViewControllerIsHasButton {
-			optionalButtom.isHidden = showButton.rawValue == 1 ? true : false
+		if let showButton = initOptions[TutorialViewControllerIsHasButtonKey]{
+			let interger = showButton is TutorialViewControllerIsHasButton ?
+				(showButton as! TutorialViewControllerIsHasButton).rawValue : showButton as! Int
+			optionalButtom.isHidden = interger == 1
 		}
 	}
 }

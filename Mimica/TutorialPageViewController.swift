@@ -12,43 +12,55 @@ class TutorialPageViewController: UIPageViewController, UIPageViewControllerDele
 	
 	var pages = [UIViewController]()
 	let pageControl = UIPageControl()
-	let tutorials: [[String : Any]] = [[TutorialViewControllerImageKey : "Home icon",
-	                  TutorialViewControllerTitleKey : "First",
-	                  TutorialViewControllerDescriptionKey : "Fisrt View Description",
-	                  TutorialViewControllerIsHasButtonKey : TutorialViewControllerIsHasButton.hidden],
-	                 [TutorialViewControllerImageKey : #imageLiteral(resourceName: "Password icon"),
-	                  TutorialViewControllerTitleKey : "Second",
-	                  TutorialViewControllerDescriptionKey : "Second View Description",
-	                  TutorialViewControllerIsHasButtonKey : TutorialViewControllerIsHasButton.hidden],
-	                 [TutorialViewControllerImageKey : #imageLiteral(resourceName: "MimicaFull"),
-	                  TutorialViewControllerTitleKey : "Last",
-	                  TutorialViewControllerDescriptionKey : "Fisrt View Description",
-	                  TutorialViewControllerIsHasButtonKey : TutorialViewControllerIsHasButton.shown]]
+	var tutorials: NSArray? = nil
+	
+	let nextButton: UIButton = {
+		let button = UIButton()
+		button.setTitleColor(SharedStyleKit.mainGradientColor1, for: .normal)
+		button.setTitle("Next➜", for: .normal)
+		button.titleLabel?.font = UIFont(name: "Rubik-Medium", size: 16.0)
+		return button
+	}()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		view.backgroundColor = .white
-		
 		dataSource = self
 		delegate = self
+		loadTutorials()
+		setViewControllers([pages.first!], direction: .forward, animated: true, completion: nil)
+		configureAutolayout()
 		
-		for tutorial in tutorials {
-			let viewController = TutorialViewController()
-			viewController.options = tutorial
-			pages.append(viewController)
+		view.addSubview(nextButton)
+		nextButton.autoPinEdge(toSuperviewMargin: .right)
+		nextButton.autoPinEdge(toSuperviewMargin: .bottom)
+    }
+	
+	fileprivate func loadTutorials() {
+		if let path = Bundle.main.path(forResource: "Tutorials", ofType: "plist") {
+			tutorials = NSArray(contentsOfFile: path)
 		}
 		
-		setViewControllers([pages.first!], direction: .forward, animated: true, completion: nil)
+		if let tutorials = tutorials {
+			for tutorial in tutorials {
+				let viewController = TutorialViewController()
+				viewController.options = tutorial as? [String : Any]
+				pages.append(viewController)
+			}
+		}
+	}
+	
+	fileprivate func configureAutolayout() {
+		view.backgroundColor = .white
 		
 		pageControl.numberOfPages = pages.count
 		pageControl.currentPageIndicatorTintColor = UIColor.black
 		pageControl.pageIndicatorTintColor = UIColor.lightGray
 		pageControl.currentPage = 0
 		view.addSubview(pageControl)
-		
+	
 		pageControl.autoPinEdges(toSuperviewMarginsExcludingEdge: .top)
-    }
+	}
 	
 	//MARK: UIPageViewControllerDelegate
 	
