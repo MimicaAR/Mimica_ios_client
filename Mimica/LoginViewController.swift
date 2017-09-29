@@ -211,7 +211,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		loginView.loginButton.addTarget(self, action: #selector(presentTabBarController), for: .touchUpInside)
 	}
 	
-	func presentTabBarController(){
+	@objc func presentTabBarController(){
 		let tabBarViewController = GradientTabBarViewController()
 		tabBarViewController.modalTransitionStyle = .flipHorizontal
 		present(tabBarViewController, animated: true, completion: {UIApplication.shared.keyWindow?.rootViewController = tabBarViewController})
@@ -226,7 +226,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		return false
 	}
 	
-	func hideKeyboard() {
+	@objc func hideKeyboard() {
 		self.view.endEditing(true)
 	}
 }

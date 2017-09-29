@@ -23,14 +23,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
 		
-		window?.rootViewController = LoginViewController()
+		window?.rootViewController = TutorialPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal,
+		                                                        options:
+			[UIPageViewControllerOptionSpineLocationKey : UIPageViewControllerSpineLocation.max,
+			 UIPageViewControllerOptionInterPageSpacingKey : 10])
 		
         return true
     }
 	
 	private func setupGlobalAppearance() {
 		let font: UIFont = UIFont(name: "Rubik-Medium", size: 11.0)!
-		UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName: font], for: .normal)
+		UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
+		
+		window?.tintColor = SharedStyleKit.mainGradientColor1
 		
 		let navigationBar = UINavigationBar.appearance()
 		navigationBar.tintColor = .white

@@ -71,9 +71,9 @@ class DateCell: UICollectionViewCell {
 		
 		dateLabel.attributedText =
 			NSMutableAttributedString(string: string,
-			                          attributes: [NSFontAttributeName : font!,
-			                                       NSForegroundColorAttributeName : SharedStyleKit.calendarCellDateColor,
-			                                       NSParagraphStyleAttributeName : paragraph])
+			                          attributes: [NSAttributedStringKey.font : font!,
+			                                       NSAttributedStringKey.foregroundColor : SharedStyleKit.calendarCellDateColor,
+			                                       NSAttributedStringKey.paragraphStyle : paragraph])
 	}
 	
 	private func configureTitleText(withString string: String) {
@@ -85,9 +85,9 @@ class DateCell: UICollectionViewCell {
 		
 		titleLabel.attributedText =
 			NSMutableAttributedString(string: string,
-			                          attributes: [NSFontAttributeName : font!,
-			                                       NSForegroundColorAttributeName : SharedStyleKit.calendarCellTitleColor,
-			                                       NSParagraphStyleAttributeName : paragraph])
+			                          attributes: [NSAttributedStringKey.font : font!,
+			                                       NSAttributedStringKey.foregroundColor : SharedStyleKit.calendarCellTitleColor,
+			                                       NSAttributedStringKey.paragraphStyle : paragraph])
 	}
 	
 	private func layoutLabels() {
