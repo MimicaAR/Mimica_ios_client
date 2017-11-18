@@ -89,6 +89,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 		return button
 	}()
 	
+	private var isTutorialPresented = false;
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.view = UIView(frame: UIScreen.main.bounds)
@@ -126,7 +128,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 										},
 										               completion: nil)
 						},
-						               completion: nil)
+						               completion: { (completed: Bool) in
+										
+										if (!self.isTutorialPresented) {
+										self.present(TutorialPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal,
+												                                                        options:
+													[UIPageViewControllerOptionSpineLocationKey : UIPageViewControllerSpineLocation.max,
+													 UIPageViewControllerOptionInterPageSpacingKey : 10]), animated: true, completion: nil)
+											self.isTutorialPresented = true;
+										}
+						})
 		})
 	}
 	

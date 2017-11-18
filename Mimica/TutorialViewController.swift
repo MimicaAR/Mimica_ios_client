@@ -12,10 +12,11 @@ public let TutorialViewControllerImageKey = "TutorialViewControllerImageKey"
 public let TutorialViewControllerTitleKey = "TutorialViewControllerTitleKey"
 public let TutorialViewControllerDescriptionKey = "TutorialViewControllerDescriptionKey"
 public let TutorialViewControllerIsHasButtonKey = "TutorialViewControllerIsHasButtonKey"
+public let TutorialViewControllerIsButtonTextKey = "TutorialViewControllerIsButtonTextKey"
 
 public enum TutorialViewControllerIsHasButton: Int {
-	case shown
 	case hidden
+	case shown
 }
 
 class TutorialViewController: UIViewController {
@@ -28,11 +29,21 @@ class TutorialViewController: UIViewController {
     @IBOutlet weak var optionalButtom: UIButton!
 	
 	private var _options: [String : Any]? = nil
+	@objc private var _buttonTarget: (()->())? = nil
+	
 	var options: [String : Any]? {
 		get { return _options }
 		set {
 			_options = newValue
 			if (isViewLoaded) { configureWithOptions() }
+		}
+	}
+	
+	@objc var buttonTarget: (()->())? {
+		get { return _buttonTarget }
+		set {
+			_buttonTarget = newValue
+			if (isViewLoaded) {  }
 		}
 	}
 	
@@ -71,7 +82,14 @@ class TutorialViewController: UIViewController {
 		if let showButton = initOptions[TutorialViewControllerIsHasButtonKey]{
 			let interger = showButton is TutorialViewControllerIsHasButton ?
 				(showButton as! TutorialViewControllerIsHasButton).rawValue : showButton as! Int
-			optionalButtom.isHidden = interger == 1
+			optionalButtom.isHidden = interger == 0
 		}
+		if let buttonText = initOptions[TutorialViewControllerIsButtonTextKey] as? String {
+			optionalButtom.setTitle(buttonText, for: .normal)
+		}
+	}
+	
+	@IBAction func dismiss(_ sender: Any) {
+		dismiss(animated: true, completion: nil)
 	}
 }

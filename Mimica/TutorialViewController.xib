@@ -19,7 +19,7 @@
                 <outlet property="bgView" destination="BmU-u8-cqE" id="ngD-tm-NE6"/>
                 <outlet property="descriptionLabel" destination="G1g-Yr-wPu" id="iEW-BK-p5C"/>
                 <outlet property="image" destination="qeD-yT-Tqf" id="nVx-dc-ijh"/>
-                <outlet property="optionalButtom" destination="YJu-op-NA8" id="fn5-tT-tGy"/>
+                <outlet property="optionalButtom" destination="YJu-op-NA8" id="nHM-Tv-aCa"/>
                 <outlet property="separatorView" destination="96F-tN-oIO" id="Wfb-Z9-IdQ"/>
                 <outlet property="titleLabel" destination="lk1-D5-nuh" id="qt8-wt-zDy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -76,6 +76,9 @@
                             <state key="normal" title="START">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
+                            <connections>
+                                <action selector="dismiss:" destination="-1" eventType="touchUpInside" id="JR5-eo-4dd"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

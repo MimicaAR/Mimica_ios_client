@@ -23,10 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
 		
-		window?.rootViewController = TutorialPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal,
-		                                                        options:
-			[UIPageViewControllerOptionSpineLocationKey : UIPageViewControllerSpineLocation.max,
-			 UIPageViewControllerOptionInterPageSpacingKey : 10])
+		window?.rootViewController = LoginViewController()
+		
+//		window?.rootViewController = TutorialPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal,
+//		                                                        options:
+//			[UIPageViewControllerOptionSpineLocationKey : UIPageViewControllerSpineLocation.max,
+//			 UIPageViewControllerOptionInterPageSpacingKey : 10])
 		
         return true
     }

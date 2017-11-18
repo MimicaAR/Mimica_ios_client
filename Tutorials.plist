@@ -10,17 +10,7 @@
 		<key>TutorialViewControllerDescriptionKey</key>
 		<string>First View description</string>
 		<key>TutorialViewControllerIsHasButtonKey</key>
-		<integer>1</integer>
-	</dict>
-	<dict>
-		<key>TutorialViewControllerImageKey</key>
-		<string>Home icon</string>
-		<key>TutorialViewControllerTitleKey</key>
-		<string>First title</string>
-		<key>TutorialViewControllerDescriptionKey</key>
-		<string>First View description</string>
-		<key>TutorialViewControllerIsHasButtonKey</key>
-		<integer>1</integer>
+		<integer>0</integer>
 	</dict>
 	<dict>
 		<key>TutorialViewControllerImageKey</key>
@@ -31,6 +21,18 @@
 		<string>First View description</string>
 		<key>TutorialViewControllerIsHasButtonKey</key>
 		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>TutorialViewControllerImageKey</key>
+		<string>Home icon</string>
+		<key>TutorialViewControllerTitleKey</key>
+		<string>First title</string>
+		<key>TutorialViewControllerDescriptionKey</key>
+		<string>First View description</string>
+		<key>TutorialViewControllerIsHasButtonKey</key>
+		<integer>1</integer>
+		<key>TutorialViewControllerIsButtonTextKey</key>
+		<string>BEGIN</string>
 	</dict>
 </array>
 </plist>
